@@ -1,0 +1,79 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<!--Ficheiro xeoModel v2 convertido em:Tue May 30 16:02:20 BST 2006-->
+<xeoModel>
+   <general name="Ebo_Folder" type="object" version="1.0" extends="" orphan="true" multiparent="false" extendsJavaClass="">
+      <locale language="pt" country="PT" variant=""/>
+      <implements/>
+      <database/>
+      <versioning active="false"/>
+      <textIndex active="true" appendChilds="false" deep="1">
+         <process/>
+      </textIndex>
+      <description>Ebo_Folder</description>
+      <cardID>[description]</cardID>
+      <label>Directório</label>
+   </general>
+   <opl active="false"/>
+   <states/>
+   <methods/>
+   <events>
+      <event name="onBeforeSave">
+         <body language="JAVA">
+            <![CDATA[this.getAttribute("contains").setValueLong(netgest.bo.impl.document.DocumentHelper.getNumberOfDocuments(this,"details"));
+this.getAttribute("size").setValueLong(netgest.bo.impl.document.DocumentHelper.getFolderSize(this,"details")); 
+return true;]]>
+         </body>
+      </event>
+   </events>
+   <fwdObjects/>
+   <attributes>
+      <attributeText name="description">
+         <len>200</len>
+         <label>Descrição</label>
+         <tooltip></tooltip>
+         <required language="BOL">true</required>
+      </attributeText>
+      <attributeNumber name="contains">
+         <len>0</len>
+         <grouping>false</grouping>
+         <decimals>0</decimals>
+         <minDecimals>0</minDecimals>
+         <label>Número de Documentos</label>
+         <tooltip></tooltip>
+         <disableWhen language="BOL"><depends/>true</disableWhen>
+      </attributeNumber>
+      <attributeNumber name="size">
+         <len>0</len>
+         <grouping>false</grouping>
+         <decimals>0</decimals>
+         <minDecimals>0</minDecimals>
+         <label>Tamanho</label>
+         <tooltip></tooltip>
+         <disableWhen language="BOL"><depends/>true</disableWhen>
+      </attributeNumber>
+      <attributeObjectCollection name="details">
+         <type>object.boObject</type>
+         <label>Documentos</label>
+         <renderAsLov>false</renderAsLov>
+         <tooltip></tooltip>
+         <maxOccurs>N</maxOccurs>
+         <minOccurs>0</minOccurs>
+         <setParent>true</setParent>
+         <objects>
+            <object>Ebo_Document</object>
+            <object>Ebo_Folder</object>
+         </objects>
+         <objectFilter/>
+         <bridge>
+            <attributes/>
+         </bridge>
+      </attributeObjectCollection>
+   </attributes>
+	<viewers>
+        <viewer name="general">
+            <forms>
+			</forms>
+            <categories/>
+        </viewer>
+    </viewers>
+</xeoModel>

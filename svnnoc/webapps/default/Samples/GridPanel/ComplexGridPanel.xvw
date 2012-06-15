@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xvw:root xmlns:xvw="http://www.netgest.net/xeo/xvw" xmlns:xeo="http://www.netgest.net/xeo/xeo">
+	<xvw:viewer beanClass="org.xeoframework.components.gridPanel.GridPanelBean"
+		beanId="viewBean">
+		<xvw:form>
+			<xvw:title valueExpression="Complex Grid Panel"></xvw:title>
+			<xvw:panel title="">
+				<xvw:tabs>
+					<xvw:tab label="Example">
+						<br></br>
+						<p>This page contains examples of several examples of usage of
+							GridPanel properties</p>
+						<br></br>
+						<xvw:tabs>
+							<xvw:tab label='Page Size Options'>
+								<xvw:tabs>
+									<xvw:tab label='Page Size'>
+
+										<xvw:gridPanel dataSource="#{viewBean.dataSource}"
+											pageSize="5" title="Page Size = 5 &amp; Height=200" height="200"
+											layout="fit-form">
+											<xvw:columns>
+												<xvw:columnAttribute dataField="SYS_CARDID"
+													width="100" />
+											</xvw:columns>
+										</xvw:gridPanel>
+										<xvw:gridPanel dataSource="#{viewBean.dataSource}"
+											pageSize="10" title="Page Size = 10 &amp; Height=400" height="400"
+											layout="fit-form">
+											<xvw:columns>
+												<xvw:columnAttribute dataField="SYS_CARDID"
+													width="100" />
+											</xvw:columns>
+
+										</xvw:gridPanel>
+									</xvw:tab>
+									
+								</xvw:tabs>
+							</xvw:tab>
+
+							<xvw:tab label='Row Selection Mode'>
+								<p>This example show the various (CELL; MULTIROW, ROW) types of
+									row selection modes available for the grid panel</p>
+								<xvw:section label='No Row Selection (CELL)'>
+									<xvw:gridPanel dataSource="#{viewBean.dataSource}"
+										layout="" rowSelectionMode="CELL" pageSize="5"
+										rowDblClickTarget="window" onRowDoubleClick="#{viewBean.rowDoubleClick}"
+										rowClickTarget="tab" title="No Row Selection" height="185">
+
+										<xvw:columns>
+											<xvw:columnAttribute dataField="name"
+												width="100" />
+										</xvw:columns>
+
+									</xvw:gridPanel>
+								</xvw:section>
+								<xvw:section label='Single Row Selection (ROW)'>
+									<xvw:gridPanel dataSource="#{viewBean.dataSource2}"
+										layout="" rowSelectionMode="ROW" pageSize="5"
+										rowDblClickTarget="window" onRowDoubleClick="#{viewBean.rowDoubleClick}"
+										rowClickTarget="tab" title="Single Row Selection" height="185">
+
+										<xvw:columns>
+											<xvw:columnAttribute dataField="name"
+												width="100" />
+										</xvw:columns>
+
+									</xvw:gridPanel>
+								</xvw:section>
+								<xvw:section label='Multiple Row Selection (ROW)'>
+									<xvw:gridPanel dataSource="#{viewBean.dataSource3}"
+										layout="" rowSelectionMode="MULTI_ROW" pageSize="5"
+										rowDblClickTarget="window" onRowDoubleClick="#{viewBean.rowDoubleClick}"
+										rowClickTarget="tab" title="Multiple Row Selection" height="185">
+
+										<xvw:columns>
+											<xvw:columnAttribute dataField="name"
+												width="100" />
+										</xvw:columns>
+
+									</xvw:gridPanel>
+								</xvw:section>
+
+							</xvw:tab>
+						</xvw:tabs>
+					</xvw:tab>
+					<xvw:tab label="Source Code">
+						<iframe
+							src='/xeo/PrintScr.jsp?comp=Samples/GridPanel/ComplexGridPanel.xvw'
+							frameborder='0' width='100%' height='98%'></iframe>
+					</xvw:tab>
+					<xvw:tab label="Bean Source Code">
+						<iframe src='/xeo/PrintScrBean.jsp?comp=/Extras/ComponentBeans/GridPanelBean.java'
+							frameborder='0' width='100%' height='98%'></iframe>
+					</xvw:tab>
+				</xvw:tabs>
+
+			</xvw:panel>
+		</xvw:form>
+	</xvw:viewer>
+
+</xvw:root>

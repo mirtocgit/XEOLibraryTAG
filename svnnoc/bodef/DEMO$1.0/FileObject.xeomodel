@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xeoModel xsi:noNamespaceSchemaLocation="../../xeoModel.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <general extendsJavaClass="" multiparent="false" orphan="true" extends="" version="1.0" type="object" name="FileObject">
+        <locale variant="" country="PT" language="pt"/>
+        <implements/>
+        <database/>
+        <versioning active="false"/>
+        <textIndex deep="1" appendChilds="false" active="true">
+            <process/>
+        </textIndex>
+        <description>Object with image</description>
+        <cardID>[BOUI]</cardID>
+        <label>Object with image</label>
+    </general>
+    <opl active="false"/>
+    <states/>
+    <methods/>
+    <events>
+        <event name="onAfterCreate">
+            <body language="JAVA">/*XEOJAVACLASS*/
+new xeo.code.java.demo1_0.FileObjectHandler().onAfterCreate(this,event);</body>
+        </event>
+    </events>
+    <fwdObjects/>
+    <attributes>
+        <attributeBinaryData name="image">
+            <label>Image</label>
+            <description></description>
+            <tooltip>Tooltip of attribute1</tooltip>
+            <database>
+                <unique>false</unique>
+                <indexfull>true</indexfull>
+                <indexed>false</indexed>
+                <tabled>false</tabled>
+                <constraint>false</constraint>
+                <binding>true</binding>
+            </database>
+            <events/>
+            <required></required>
+            <formula></formula>
+            <defaultValue></defaultValue>
+            <valid></valid>
+            <disableWhen></disableWhen>
+            <hiddenWhen></hiddenWhen>
+            <onChangeSubmit></onChangeSubmit>
+        </attributeBinaryData>
+        <attributeBinaryData name="word">
+            <label>word document</label>
+            <description>word</description>
+            <tooltip>Tooltip of attribute1</tooltip>
+            <database>
+                <unique>false</unique>
+                <indexfull>true</indexfull>
+                <indexed>false</indexed>
+                <tabled>false</tabled>
+                <constraint>false</constraint>
+                <binding>true</binding>
+            </database>
+            <events/>
+            <required/>
+            <formula/>
+            <defaultValue/>
+            <onChangeSubmit/>
+        </attributeBinaryData>
+    </attributes>
+    <viewers>
+        <viewer name="general">
+            <forms>
+			</forms>
+            <categories/>
+        </viewer>
+    </viewers>
+</xeoModel>

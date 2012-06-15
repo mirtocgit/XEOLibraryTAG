@@ -1,0 +1,335 @@
+table.relations {
+  margin: 1em 1em 1em 2em;
+  background-color: whitesmoke;
+  border-collapse: collapse;
+  width: 90%;
+}
+table.relations th, table.relations td {
+  border: 1px silver solid;
+  padding: 0.2em;
+}
+
+table.relations tr.small {
+  border: 1px silver solid;
+  padding: 0.2em;
+  font-size:75%;
+  width:90%;
+}
+
+table.relations th.icon,td.icon {
+  border: 1px silver solid;
+  padding: 0.2em;
+  width:20px;
+}
+
+table.relations tr.center 
+{
+  border: 1px silver solid;
+  padding: 0.2em;
+  font-size: 90%;
+  text-align:center;
+  font-weight:bold;
+}
+
+table.relations th {
+  background: #99B3FF;
+  text-align: left;
+}
+
+table.relations caption 
+{
+  margin-left: inherit;
+  margin-right: inherit;
+}
+
+/*  
+Template name: Colorvoid
+Template URI: http://templates.arcsin.se/colorvoid-website-template/
+Release date: 2008-04-25
+Description: Soft and natural, gray and blue two-column template.
+Author: Viktor Persson
+Author URI: http://arcsin.se/
+
+This template is licensed under a Creative Commons Attribution 2.5 License:
+http://templates.arcsin.se/license/
+*/
+
+/* ----------------------------------------
+   Standard Elements
+------------------------------------------- */
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+html {
+	height: 100%;
+	padding-bottom: 1px; /* force scrollbars */
+}
+
+body {
+	font: normal 13px Verdana,sans-serif;
+	color: #345;
+	padding-bottom: 1em;	
+}
+
+a {color: #06A;}
+a:hover {color: #036;}
+
+p {padding: 0.1em 0 0.8em;}
+
+h1 
+{
+	font: normal 1.8em Georgia,Tahoma,sans-serif;
+	text-align:center;
+	margin-bottom : 5px;
+	margin-left: 5px;
+}
+h2 {
+	font: normal 1.5em Georgia,sans-serif;
+	margin-left: 10px;
+	}
+h3 {
+	font: bold 1em Tahoma,sans-serif;
+	margin-left: 10px;
+	}
+
+blockquote {
+	background: #FFF url('img/quote.gif') no-repeat;
+	border: 1px solid #EAEAEA;
+	color: #555;
+	display: block;
+	font: normal 1em sans-serif;
+	margin-bottom: 1em;
+	padding: 10px 1em 0.2em 42px;
+}
+
+/*code {
+	display: block;
+	background: #FFFFFA;
+	color: #335;
+	border: 1px solid #E8E8D5;
+	padding: 5px 10px;
+	overflow: auto;
+	margin: 1em 0;
+	font-size: 0.9em;
+	line-height: 1.5em;
+}*/
+
+/*
+Se tiver isto então as tabs ficam fora de sítio
+ul,ol {margin: 0 0 1em 1.6em;}
+ul ul, ol ol {margin: 0.3em 0 0.3em 1em;}*/
+
+img {border: none;}
+img.bordered {background: #FFF; padding: 5px; border: 1px solid #DDD;}
+img.left {margin-right: 1em;}
+img.right {margin-left: 1em;}
+
+small,.small {font-size: 0.8em;}
+big,.big {font-size: 1.2em;}
+
+
+/* ----------------------------------------
+  Forms
+------------------------------------------- */
+
+/* Inputs */
+input#s, textarea, input.styled {
+	border: 1px solid #BBB;
+	padding: 3px;
+	width: 160px;
+	font: normal 1em Verdana,sans-serif;
+}
+textarea {width: 440px;}
+#searchsubmit {
+	border: 1px solid #BBB;
+	background: #EEE;
+	font: normal 0.9em Verdana,sans-serif;
+	padding: 2px 3px;
+}
+
+
+/* ----------------------------------------
+   Lists
+------------------------------------------- */
+
+.nicelist {
+	padding: 1px 0 0;
+}
+.nicelist ol {margin: 0;}
+.nicelist ol li {
+	list-style: none;
+	padding: 8px 10px 1px;
+	border-top: 1px solid #FFF;
+	border-bottom: 1px solid #CCC;
+}
+.nicelist li.alt {background: #EEE;}
+.nicelist .body {padding-top: 5px;}
+.nicelist .date {
+	color: #888;
+	padding-top: 4px;
+	font-size: 0.85em;
+}
+.nicelist .date a {
+	color: #567;
+	text-decoration: none;
+}
+.nicelist .date a:hover {
+	color: #002;
+	text-decoration: underline;
+}
+
+/* -----------------------
+	Style for paragraph
+------------------------- */
+p.description
+{
+	padding-left : 10px;
+	margin-left: 10px;
+}
+	
+p.viewer
+{
+	padding-left: 10px;
+	margin-left:10px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}	
+
+ul.concept
+{
+    padding-left: 10px;
+	margin-left:10px;
+}
+
+/* Personal Styles */
+h1.header
+{
+    font-size: 250%;
+    padding-bottom :10px;
+    padding-top : 10px;
+    margin-bottom : 10px;
+    margin-top:10px;
+    margin-left:20px;
+}
+
+h2.header
+{
+    font-size: 150%;
+    padding-bottom :10px;
+    padding-top : 10px;
+    margin-bottom : 10px;
+    margin-top:10px;
+    margin-left:20px;
+}
+
+li.far
+{
+    padding-bottom :2px;
+    padding-top : 2px;
+    margin-bottom : 2px;
+    margin-top:2px;
+    margin-left:20px;
+}
+
+.small
+{
+	font-size:90%;
+}
+
+/* ----------------------------------------
+   Width, height, margin, padding
+------------------------------------------- */
+
+.h5 {height: 5px;}
+.p5 {padding: 5px;}
+.p10 {padding: 10px;}
+
+/* ----------------------------------------
+   XML Highlight
+------------------------------------------- */
+
+.xml_plain { color: rgb(0,0,0); } 
+.xml_char_data{ color: rgb(0,0,0);}
+.xml_tag_symbols{ color: rgb(0,59,255);}
+.xml_comment{ color: rgb(147,147,147); background-color: rgb(247,247,247)}
+.xml_attribute_value{color: rgb(193,0,0);} 
+.xml_attribute_name{color: rgb(0,0,0); font-weight: bold;} 
+.xml_processing_instruction{color: rgb(0,0,0); font-weight: bold; font-style: italic;} 
+.xml_tag_name{color: rgb(0,55,255);} 
+.xml_rife_tag{color: rgb(0,0,0); background-color: rgb(228,230,160);} 
+.xml_rife_name{color: rgb(0,0,196); background-color: rgb(228,230,160);}
+
+/* ------------------------------
+		Icon Classes
+-------------------------------- */
+.events-icon
+{ background-image: url("../images/events.gif") !important }
+
+.methods-icon
+{ background-image: url("../images/methods.gif") !important }
+
+.attributes-icon
+{ background-image: url("../images/attributes.gif") !important }
+
+.lov-icon
+{ background-image: url("../images/xeolov_icon.gif") !important }
+
+/* ------------------------------
+	Source highlighting & Image Holding
+-------------------------------- */
+
+.javaContent
+{
+    width:85%;
+    padding-left: 10px;
+    padding-top: 10px;
+}
+
+p .imageHolder
+{
+    text-align:center;
+    margin-top:0px;
+    margin-bottom:0px;
+    padding:10px; 
+}
+
+div .contentHolder
+{
+    text-align:justify;
+    width:90%;
+    padding-left: 10px;
+    padding-top: 10px;
+}
+
+
+
+fieldset 
+{ 
+    border:1px solid #0066FF;
+    padding-left: 5px;
+    padding-top: 5px;
+}
+
+fieldset legend 
+{ 
+    padding-left: 5px;
+    padding-right: 5px;
+    font-size: 120%;
+    font-weight : bold;
+}
+
+div.javaContent
+{
+    width: inherit;    
+}
+
+div .lovHeader
+{
+   margin-bottom: 10px;
+   margin-top: 10px;
+   padding-top : 10px;
+   padding-bottom: 10px;
+}

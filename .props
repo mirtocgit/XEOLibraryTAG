@@ -1,0 +1,22 @@
+#Mon May 28 10:37:43 BST 2012
+xeo_rdbms_host=localhost
+xeo_core_repository_name=XEOMETA
+xeo_j2ee_server_homefolder=C\:\\xeo\\jBoss
+xeo_rdbms_user_password=xeo
+xeo_rdbms_userdba_password=
+xeo_core_repository_type=DEFAULT v1.1.0
+xeo_j2ee_server_xeowebcontext_root=xeo
+xeo_rdbms_create_schema=no
+xeo_core_version=1.1.0
+xeo_rdbms_user=xeo
+xeo_j2ee_server_type=JBOSS4.2.X+
+xeo_convert_java_to_new_structure=false
+xeo_core_repository_path=
+xeo_j2ee_server_port=8080
+xeo_rdbms_port=5433
+xeo_rdbms_sqlserver_database=xeo
+xeo_rdbms_userdba_name=post
+xeo_rdbms_tablespace=USERS
+xeo_rdbms_sid=
+xeo_rdbms_temptablespace=TEMP
+xeo_rdbms_server_type=PostGres8+

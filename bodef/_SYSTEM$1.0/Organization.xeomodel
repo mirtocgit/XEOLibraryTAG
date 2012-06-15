@@ -1,0 +1,84 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<!--Ficheiro xeoModel v2 convertido em:Tue May 30 16:02:19 BST 2006-->
+<xeoModel>
+   <general name="Organization" type="object" version="1.0" extends="" orphan="true" multiparent="false" extendsJavaClass="">
+      <locale language="pt" country="PT" variant=""/>
+      <implements/>
+      <database>
+         <object type="unique" id="UN_ORGNAME">
+            <label>Uniquekey for Orgname</label>
+            <expression>name</expression>
+         </object>
+      </database>
+      <versioning active="false"/>
+      <textIndex active="true" appendChilds="false" deep="1">
+         <process/>
+      </textIndex>
+      <description>Organization</description>
+      <cardID>[name]</cardID>
+      <label>Empresa</label>
+   </general>
+   <opl active="false"/>
+   <states/>
+   <methods/>
+   <events/>
+   <fwdObjects/>
+   <attributes>
+      <attributeText name="email">
+         <len>50</len>
+         <label>Email</label>
+         <tooltip></tooltip>
+      </attributeText>
+      <attributeText name="name">
+         <len>50</len>
+         <label>Nome</label>
+         <tooltip></tooltip>
+         <required language="BOL">true</required>
+      </attributeText>
+      <attributeText name="description">
+         <len>200</len>
+         <label>Tipo Serviço</label>
+         <tooltip></tooltip>
+      </attributeText>
+      <attributeObject name="office_address">
+         <type>object.address</type>
+         <label>Morada Escritório</label>
+         <renderAsLov>false</renderAsLov>
+         <tooltip></tooltip>
+         <objectFilter/>
+      </attributeObject>
+      <attributeObject name="correspondencia_address">
+         <type>object.address</type>
+         <label>Morada de Correspodência</label>
+         <renderAsLov>false</renderAsLov>
+         <tooltip></tooltip>
+         <objectFilter/>
+      </attributeObject>
+      <attributeObjectCollection name="addresses">
+         <type>object.address</type>
+         <label>Moradas</label>
+         <renderAsLov>false</renderAsLov>
+         <tooltip></tooltip>
+         <maxOccurs>N</maxOccurs>
+         <minOccurs>0</minOccurs>
+         <objectFilter/>
+         <bridge>
+            <attributes>
+               <attributeText name="tipo">
+                  <len>50</len>
+                  <label>Tipo</label>
+                  <tooltip></tooltip>
+                  <lov name="TIPO_MORADA" retainValues="false"/>
+               </attributeText>
+            </attributes>
+         </bridge>
+      </attributeObjectCollection>
+   </attributes>
+	<viewers>
+        <viewer name="general">
+            <forms>
+			</forms>
+            <categories/>
+        </viewer>
+    </viewers>
+</xeoModel>

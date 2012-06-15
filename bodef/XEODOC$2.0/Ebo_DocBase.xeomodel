@@ -1,0 +1,94 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<!--Ficheiro xeoModel v2 convertido em:Tue May 30 16:02:20 BST 2006-->
+<xeoModel>
+   <general name="Ebo_DocBase" type="object" version="1.0" extends="" mastertable="Ebo_Document" orphan="true" multiparent="true" extendsJavaClass="netgest.bo.impl.document.Ebo_DocumentImpl">
+      <locale language="pt" country="PT" variant=""/>
+      <implements/>
+      <database/>
+      <versioning active="false"/>
+      <textIndex active="true" appendChilds="false" deep="1">
+         <process/>
+      </textIndex>
+      <description>Ebo_DocBase</description>
+      <cardID>[description][fileName]</cardID>
+      <label>Documento Base</label>
+   </general>
+   <opl active="false"/>
+   <states/>
+   <methods/>
+   <events/>
+   <fwdObjects/>
+   <attributes>
+      <attributeObject name="srcObj">
+         <type>object.boObject</type>
+         <label>Objecto Referido</label>
+         <renderAsLov>false</renderAsLov>
+         <tooltip></tooltip>
+         <setParent>false</setParent>
+         <objectFilter/>
+			<disableWhen language="BOL">
+				<depends/>true</disableWhen>
+			<textIndex>
+				<active>true</active>
+				<onlyCardId>true</onlyCardId>
+			</textIndex>
+      </attributeObject>
+      <attributeText name="description">
+         <len>200</len>
+         <label>Descrição</label>
+         <tooltip></tooltip>
+      </attributeText>
+      <attributeObject name="owner">
+         <type>object.boObject</type>
+         <label>Proprietário</label>
+         <renderAsLov>false</renderAsLov>
+         <tooltip></tooltip>
+         <objects>
+            <object>iXEOUser</object>
+            <object>workQueue</object>
+            <object>Ebo_Role</object>
+            <object>Ebo_Group</object>
+            <object>ANC_entity</object>
+         </objects>
+         <objectFilter/>
+      </attributeObject>
+      <attributeBinaryData name="file">
+         <label>Link</label>
+         <tooltip></tooltip>
+      </attributeBinaryData>
+      <attributeNumber name="fileSize">
+         <len>0</len>
+         <grouping>false</grouping>
+         <decimals>0</decimals>
+         <minDecimals>0</minDecimals>
+         <label>Tamanho</label>
+			<tooltip/>
+			<disableWhen language="BOL">
+				<depends/>true</disableWhen>
+			<textIndex>
+				<active>false</active>
+			</textIndex>
+      </attributeNumber>
+      <attributeText name="fileName">
+         <len>200</len>
+         <label>Nome</label>
+         <tooltip></tooltip>
+      </attributeText>
+      <attributeDateTime name="lastModified">
+         <label>Ultima Modificação</label>
+			<tooltip/>
+			<disableWhen language="BOL">
+				<depends/>true</disableWhen>
+			<textIndex>
+				<active>false</active>
+			</textIndex>
+      </attributeDateTime>
+   </attributes>
+	<viewers>
+        <viewer name="general">
+            <forms>
+			</forms>
+            <categories/>
+        </viewer>
+    </viewers>
+ </xeoModel>

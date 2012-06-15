@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xeoModel xsi:noNamespaceSchemaLocation="../../xeoModel.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <general name="LIB_Librarian" type="object" version="1.0" extends="" mastertable="" orphan="true" multiparent="false" extendsJavaClass="">
+        <locale language="pt" country="PT" variant=""/>
+        <implements>
+            <interface>iXEOUser</interface>
+        </implements>
+        <database/>
+        <versioning active="false"/>
+        <textIndex active="true" appendChilds="false" deep="1">
+            <process/>
+        </textIndex>
+        <description>Librarian</description>
+        <cardID>[BOUI]</cardID>
+        <label>Librarian</label>
+    </general>
+    <opl active="false"/>
+    <states/>
+    <methods/>
+    <events/>
+    <fwdObjects/>
+    <attributes>
+        <attributeText name="employeeId">
+            <label>employeeId</label>
+            <description>employeeId</description>
+            <tooltip>Tooltip of attribute1</tooltip>
+            <len>50</len>
+            <database>
+                <unique>false</unique>
+                <indexfull>true</indexfull>
+                <indexed>false</indexed>
+                <tabled>false</tabled>
+                <constraint>false</constraint>
+                <binding>true</binding>
+            </database>
+            <events/>
+            <required language="BOL">true</required>
+        </attributeText>
+        <attributeText name="email">
+            <label>email</label>
+            <description>email</description>
+            <tooltip>Tooltip of attribute1</tooltip>
+            <len>50</len>
+            <database>
+                <unique>false</unique>
+                <indexfull>true</indexfull>
+                <indexed>false</indexed>
+                <tabled>false</tabled>
+                <constraint>false</constraint>
+                <binding>true</binding>
+            </database>
+            <events/>
+            <valid language="JAVA">/*XEOJAVACLASS*/
+return new 
+xeo.code.java.lib1_0.
+LIB_LibrarianHandler().
+email_Valid
+(this.getParent(),this);</valid>
+        </attributeText>
+        <attributeText name="username">
+            <label>name</label>
+            <description>name</description>
+            <tooltip>Tooltip of attribute1</tooltip>
+            <len>50</len>
+            <database>
+                <unique>false</unique>
+                <indexfull>true</indexfull>
+                <indexed>false</indexed>
+                <tabled>false</tabled>
+                <constraint>false</constraint>
+                <binding>true</binding>
+            </database>
+            <events/>
+            <required language="BOL">true</required>
+            <formula language="JAVA">/*XEOJAVACLASS*/
+return new 
+xeo.code.java.lib1_0.
+LIB_LibrarianHandler().
+name_Formula
+(this.getParent(),this);
+                <depends>
+                    <attribute>name</attribute>
+                    <attribute>lastname</attribute>
+                </depends>
+            </formula>
+        </attributeText>
+        <attributeObjectCollection name="messages">
+            <label>Messages</label>
+            <description>Messages sent by librarian</description>
+            <tooltip>Tooltip of attribute1</tooltip>
+            <type>object.LIB_Message</type>
+            <objects/>
+            <setParent>false</setParent>
+            <minOccurs>0</minOccurs>
+            <maxOccurs>N</maxOccurs>
+            <database>
+                <unique>false</unique>
+                <indexfull>true</indexfull>
+                <indexed>false</indexed>
+                <tabled>false</tabled>
+                <constraint>false</constraint>
+                <binding>true</binding>
+            </database>
+            <events/>
+            <required/>
+            <valid/>
+            <disableWhen/>
+            <hiddenWhen/>
+            <orphanRelation>true</orphanRelation>
+        </attributeObjectCollection>
+        <attributeText name="lastname">
+            <label>Last Name</label>
+            <description>lastename</description>
+            <tooltip>Tooltip of attribute1</tooltip>
+            <len>50</len>
+            <database>
+                <unique>false</unique>
+                <indexfull>true</indexfull>
+                <indexed>false</indexed>
+                <tabled>false</tabled>
+                <constraint>false</constraint>
+                <binding>true</binding>
+            </database>
+            <events/>
+        </attributeText>
+    </attributes>
+    <viewers>
+        <viewer name="general">
+            <forms>
+			</forms>
+            <categories/>
+        </viewer>
+    </viewers>
+</xeoModel>

@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<bo-config>
+    <definitiondir>.\bodef\</definitiondir>
+    <uidefinitiondir>.\uidef\default\</uidefinitiondir>
+    <webcontextroot>/xeo</webcontextroot>
+    <encoding>UTF-8</encoding>
+    <deployment>
+        <class_dir>.\.build\classes\</class_dir>
+        <src_dir>.\.build\src\</src_dir>
+        <obj_dir>.\.build\bodef-deployment</obj_dir>
+        <obj_compiler>C:/Program Files (x86)/Java/jdk1.6.0_30/bin/javac.exe</obj_compiler>
+        <obj_templates>.\.templates</obj_templates>
+        <obj_deployjspdir>.\.build\webresources\default\</obj_deployjspdir>
+        <obj_moduleswebdir>.\base_lib\modules_web\</obj_moduleswebdir>
+        <lib_dir>.\lib\</lib_dir>
+        <tablespace>xeo</tablespace>
+    </deployment>
+    <threads type="ejbTimers">
+        <thread name="boTextIndex Agent" class="netgest.bo.runtime.robots.boTextIndexAgent" ejb-name="ejb/boTextIndexAgent" interval="15000"/>
+        <thread name="boSchedule Agent" class="netgest.bo.runtime.robots.boScheduleAgent" ejb-name="ejb/boScheduleAgent" interval="10000"/>
+        <thread name="boTextIndex Agent" class="netgest.bo.runtime.robots.boTextIndexAgent" ejb-name="ejb/boTextIndexAgent" interval="15000"/>
+    </threads>
+    <DataSources>
+        <DataSource name="DATA" boql="true">
+            <Driver>netgest.bo.data.postgre.PostGreDriver</Driver>
+            <DML>jdbc/xeo</DML>
+            <DDL>jdbc/xeo_nojta</DDL>
+        </DataSource>
+        <DataSource name="SYS" boql="true">
+            <Driver>netgest.bo.data.postgre.PostGreDriver</Driver>
+            <DML>jdbc/xeo_nojta</DML>
+            <DDL>jdbc/xeo_nojta</DDL>
+        </DataSource>
+    </DataSources>
+    <logConfig>
+        <logger active="true" for="pt,netgest" level="CONFIG" pattern="%d %5p [%t] (%F:%L) - %m%n">
+            <console active="true"/>
+            <file active="true" logFile=".\log\fileName.log" maxSize="50MB" backupFiles="5"/>
+        </logger>
+    </logConfig>
+    <mail>
+        <smtphost>smtp.host.domain</smtphost>
+        <pophost></pophost>
+    </mail>
+    <Repositories>
+        <Repository>
+            <Name>default</Name>
+            <UserName></UserName>
+            <Password></Password>
+            <DataSource>DATA</DataSource>
+            <DataSourceDef>DATA</DataSourceDef>
+            <Schema>public</Schema>
+            <Parent></Parent>
+        </Repository>
+    </Repositories>
+    <browser>
+        <name>IE</name>
+        <dir_prefix>ie</dir_prefix>
+        <theme>0</theme>
+    </browser>
+    <languages>
+        <ApplicationLanguage>EN</ApplicationLanguage>
+        <availableLanguages>
+            <language>
+                <code>EN</code>
+                <description>English</description>
+            </language>
+            <language>
+                <code>PT</code>
+                <description>PortuguÃªs</description>
+            </language>
+        </availableLanguages>
+    </languages>
+    <themes>
+        <theme name="blue" description="Default Blue Theme" default="true"/>
+        <theme name="gray" description="Gray Theme">
+            <files>
+                <file id="css_gray" path="extjs/resources/css/xtheme-gray.css" description="Gray Theme"/>
+            </files>
+        </theme>
+        <theme name="slate" description="Slate Theme">
+            <files>
+                <file id="css_slate" path="extjs/resources/css/xtheme-slate.css" description="Slate Theme"/>
+            </files>
+        </theme>
+        <theme name="green" description="Green Theme">
+            <files>
+                <file id="css_green" path="themes/css/xtheme-green.css" description="Green Theme"/>
+            </files>
+        </theme>
+        <theme name="olive" description="Olive Theme">
+            <files>
+                <file id="css_olive" path="themes/css/xtheme-olive.css" description="Olive Theme"/>
+            </files>
+        </theme>
+        <theme name="pink" description="Pink Theme">
+            <files>
+                <file id="css_pink" path="themes/css/xtheme-pink.css" description="Pink Theme"/>
+            </files>
+        </theme>
+        <theme name="purple" description="Purple Theme">
+            <files>
+                <file id="css_purple" path="themes/css/xtheme-purple.css" description="Purple Theme"/>
+            </files>
+        </theme>
+    </themes>
+    <wordTemplate>
+        <path>.\wordTemplates\</path>
+    </wordTemplate>
+    <win32Client>
+        <version>0.9.1</version>
+        <name>xeoWin32Client.jar</name>
+        <path>.\XeoWin32Client\</path>
+    </win32Client>
+</bo-config>

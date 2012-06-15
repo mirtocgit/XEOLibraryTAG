@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2006 U (http://www.altova.com) by mfernandes (EMBRACE) -->
+<!--Ficheiro xeoModel v2 convertido em:Tue May 30 16:02:23 BST 2006-->
+<xeoModel>
+	<general name="Ebo_Attribute" type="object" version="1.0" extends="" orphan="true" multiparent="false" extendsJavaClass="">
+		<locale language="pt" country="PT" variant=""/>
+		<implements/>
+		<database/>
+		<versioning active="false"/>
+		<textIndex active="true" appendChilds="false" deep="1">
+			<process/>
+		</textIndex>
+		<description>Ebo_Attribute</description>
+		<cardID>[description],[name]</cardID>
+		<label>Atributos</label>
+	</general>
+	<opl active="false"/>
+	<states>
+		<state name="state">
+			<label>state</label>
+			<options>
+				<option name="Inactive" value="0" active="true">
+					<label>Inactiva</label>
+					<subStates/>
+				</option>
+				<option name="active" value="1" active="true">
+					<label>Activa</label>
+					<subStates/>
+				</option>
+			</options>
+		</state>
+	</states>
+	<methods/>
+	<events/>
+	<fwdObjects/>
+	<attributes>
+		<attributeObject name="clsReg">
+			<type>object.Ebo_ClsReg</type>
+			<label>Atributo do Objecto</label>
+			<renderAsLov>false</renderAsLov>
+			<setParent>false</setParent>
+			<tooltip/>
+			<objectFilter/>
+			<database>
+				<constraint>false</constraint>
+			</database>
+		</attributeObject>
+		<attributeText name="name">
+			<len>50</len>
+			<label>Nome</label>
+			<tooltip/>
+		</attributeText>
+		<attributeText name="description">
+			<len>4000</len>
+			<label>Descrição</label>
+			<editor>HTML</editor>
+			<tooltip/>
+		</attributeText>
+		<attributeText name="label">
+			<len>4000</len>
+			<label>Label</label>
+			<tooltip/>
+		</attributeText>
+		<attributeObjectCollection name="security">
+			<type>object.Ebo_Policy</type>
+			<label>Segurança</label>
+			<renderAsLov>false</renderAsLov>
+			<tooltip/>
+			<maxOccurs>N</maxOccurs>
+			<minOccurs>0</minOccurs>
+			<objectFilter/>
+			<bridge>
+				<attributes/>
+			</bridge>
+		</attributeObjectCollection>
+	</attributes>
+		<viewers>
+        <viewer name="general">
+            <forms>
+			</forms>
+            <categories/>
+        </viewer>
+    </viewers>
+</xeoModel>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xvw:root xmlns:xeo="http://www.netgest.net/xeo/xeo" xmlns:xvw="http://www.netgest.net/xeo/xvw">
+    <xvw:viewer beanClass="netgest.bo.xwc.xeo.beans.XEOBaseList" beanId="viewBean">
+        <xeo:formList>
+            <xvw:gridExplorer>
+                <xvw:columns>
+                    <xeo:columnAttribute dataField="employeeId" width="100"/>
+                    <xeo:columnAttribute dataField="email" width="100"/>
+                    <xeo:columnAttribute dataField="username" width="100"/>
+                    <xeo:columnAttribute dataField="lastname" width="100"/>
+                    <xeo:columnAttribute dataField="id" width="100"/>
+                    <xeo:columnAttribute dataField="name" width="100"/>
+                    <xeo:columnAttribute dataField="password" width="100"/>
+                    <xeo:columnAttribute dataField="MD5Code" width="100"/>
+                </xvw:columns>
+            </xvw:gridExplorer>
+        </xeo:formList>
+    </xvw:viewer>
+</xvw:root>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xvw:root 
+	xmlns:xvw="http://www.netgest.net/xeo/xvw"
+	xmlns:xeo="http://www.netgest.net/xeo/xeo"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+>
+	<xvw:viewer beanClass="netgest.bo.xwc.xeo.beans.XEOBaseBean" beanId="viewBean">
+		<xvw:form>
+			<xvw:section label='JSF Components'>
+				<h3>JSF - outputText</h3>
+				 <h:outputText value="Componente de texto de JSF"/>
+				<hr></hr>
+				<h3>JSF - selectOneRadio</h3> 
+				 <h:selectOneRadio id="sor" 
+					value="TableBean.perInfoAll" 
+						title="Select any one of the choice" 
+						layout="pageDirection" border="1">
+					<f:selectItem id="si1" itemLabel="Thums Up" itemValue="11" />
+					<f:selectItem id="si2" itemLabel="Limca" itemValue="22" />
+					<f:selectItem id="si3" itemLabel="Pepsi" itemValue="33" />
+					<f:selectItem id="si4" itemLabel="Sprite" itemValue="44" />
+					<f:selectItem id="si5" itemLabel="Frooti" itemValue="55" />
+					<f:selectItem id="si6" itemLabel="Coca-Cola" itemValue="66" />
+				</h:selectOneRadio>
+				 <hr></hr>
+				 <h3>JSF - graphicImage</h3>
+				 <h:graphicImage id="gi" 
+				 	alt="The image could not be found." 
+				 	value="ext-xeo/images/login_fundo.jpg" 
+				 	title="This is demo for 'graphicImage' tag" ></h:graphicImage>
+				 	
+				 <hr></hr>
+				 <h3>JSF - outputLink</h3>
+				 	 <h:outputLink value="index.jsf"><h:outputText value="Go for another page."/></h:outputLink>
+			</xvw:section>		
+		</xvw:form>
+	</xvw:viewer>
+</xvw:root>
+	

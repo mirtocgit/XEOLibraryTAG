@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xeoModel xsi:noNamespaceSchemaLocation="../../xeoModel.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <general extendsJavaClass="" multiparent="false" orphan="true" extends="" version="1.0" type="object" name="LIB_Librarian">
+        <locale variant="" country="PT" language="pt"/>
+        <implements>
+            <interface>iXEOUser</interface>
+        </implements>
+        <database/>
+        <versioning active="false"/>
+        <textIndex deep="1" appendChilds="false" active="true">
+            <process/>
+        </textIndex>
+        <description>A person working in the library</description>
+        <cardID>[username]</cardID>
+        <label>A person working in the library</label>
+    </general>
+    <opl active="true">
+        <attributeKeys>
+            <write>
+                <attribute active="true">CREATOR</attribute>
+                <attribute active="true">SYS_USER</attribute>
+            </write>
+            <delete>
+                <attribute active="true">SYS_USER</attribute>
+            </delete>
+        </attributeKeys>
+    </opl>
+    <states/>
+    <methods/>
+    <events/>
+    <fwdObjects/>
+    <attributes>
+        <attributeNumber name="employeeId">
+            <label>Employee Number</label>
+            <description>Library Identifier</description>
+            <tooltip></tooltip>
+            <len>10</len>
+            <grouping>false</grouping>
+            <decimals>0</decimals>
+            <minDecimals>0</minDecimals>
+            <database>
+                <unique>false</unique>
+                <indexfull>true</indexfull>
+                <indexed>false</indexed>
+                <tabled>false</tabled>
+                <constraint>false</constraint>
+                <binding>true</binding>
+            </database>
+            <events/>
+            <required language="BOOLEAN">true</required>
+            <formula language=""></formula>
+            <defaultValue language=""></defaultValue>
+            <valid language=""></valid>
+            <disableWhen language=""></disableWhen>
+            <hiddenWhen language=""></hiddenWhen>
+            <onChangeSubmit language=""></onChangeSubmit>
+        </attributeNumber>
+        <attributeText name="email">
+            <label>E-Mail</label>
+            <description>Librarian's E-mail</description>
+            <tooltip></tooltip>
+            <len>30</len>
+            <database>
+                <unique>false</unique>
+                <indexfull>true</indexfull>
+                <indexed>false</indexed>
+                <tabled>false</tabled>
+                <constraint>false</constraint>
+                <binding>true</binding>
+            </database>
+            <events/>
+            <required language="BOL">true</required>
+            <valid language="JAVA">/*XEOJAVACLASS*/
+return new 
+xeo.code.java.lib1_0.
+LIB_LibrarianHandler().
+email_Valid
+(this.getParent(),this);</valid>
+            <onChangeSubmit language=""></onChangeSubmit>
+        </attributeText>
+        <attributeText name="lastname">
+            <label>Last Name</label>
+            <description>Last Name</description>
+            <tooltip></tooltip>
+            <len>50</len>
+            <database>
+                <unique>false</unique>
+                <indexfull>true</indexfull>
+                <indexed>false</indexed>
+                <tabled>false</tabled>
+                <constraint>false</constraint>
+                <binding>true</binding>
+            </database>
+            <events/>
+            <required language=""></required>
+            <onChangeSubmit language=""></onChangeSubmit>
+        </attributeText>
+        <attributeText name="username">
+            <label>Username</label>
+            <description>Username</description>
+            <tooltip></tooltip>
+            <len>50</len>
+            <database>
+                <unique>false</unique>
+                <indexfull>true</indexfull>
+                <indexed>false</indexed>
+                <tabled>false</tabled>
+                <constraint>false</constraint>
+                <binding>true</binding>
+            </database>
+            <events/>
+            <required language="BOL">true</required>
+            <formula language="JAVA">/*XEOJAVACLASS*/
+return new 
+xeo.code.java.lib1_0.
+LIB_LibrarianHandler().
+username_Formula
+(this.getParent(),this);
+                
+            
+                <depends>
+                    <attribute>name</attribute>
+                    <attribute>lastname</attribute>
+                </depends>
+            </formula>
+            <onChangeSubmit language=""></onChangeSubmit>
+        </attributeText>
+    </attributes>
+    <viewers>
+        <viewer name="general">
+            <forms>
+			</forms>
+            <categories/>
+        </viewer>
+    </viewers>
+</xeoModel>

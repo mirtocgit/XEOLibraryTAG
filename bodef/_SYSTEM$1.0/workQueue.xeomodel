@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2006 U (http://www.altova.com) by fcamara (ITDS) -->
+<!--Ficheiro xeoModel v2 convertido em:Tue May 30 16:02:19 BST 2006-->
+<xeoModel>
+	<general name="workQueue" type="object" version="1.0" extends="" orphan="true" multiparent="false" extendsJavaClass="">
+		<locale language="pt" country="PT" variant=""/>
+		<implements/>
+		<database/>
+		<versioning active="false"/>
+		<textIndex active="true" appendChilds="false" deep="1">
+			<process/>
+		</textIndex>
+		<description>workQueue</description>
+		<cardID>[name] ,[id]</cardID>
+		<label>Pool de recursos</label>
+	</general>
+	<opl active="false"/>
+	<states>
+		<state name="state">
+			<label>state</label>
+			<options>
+				<option name="Inactive" value="0" active="true">
+					<label>Inactivo</label>
+					<subStates/>
+				</option>
+				<option name="active" value="1" active="true">
+					<label>Activo</label>
+					<subStates/>
+				</option>
+			</options>
+		</state>
+	</states>
+	<methods/>
+	<events>
+	</events>
+	<fwdObjects/>
+	<attributes>
+		<attributeText name="id">
+			<len>50</len>
+			<label>Código</label>
+			<tooltip/>
+		</attributeText>
+		<attributeObjectCollection name="administrator">
+			<type>object.iXEOUser</type>
+			<label>Administrador da Pool</label>
+			<renderAsLov>false</renderAsLov>
+			<tooltip/>
+			<maxOccurs>N</maxOccurs>
+			<minOccurs>0</minOccurs>
+			<objectFilter/>
+			<bridge>
+				<attributes/>
+			</bridge>
+		</attributeObjectCollection>
+		<attributeText name="email">
+			<len>50</len>
+			<label>Email</label>
+			<tooltip/>
+		</attributeText>
+		<attributeText name="name">
+			<len>50</len>
+			<label>Nome</label>
+			<tooltip/>
+		</attributeText>
+		<attributeObject name="templateEmail">
+			<type>object.Ebo_Template</type>
+			<label>Modelo de Email</label>
+			<renderAsLov>false</renderAsLov>
+			<tooltip/>
+			<objectFilter/>
+		</attributeObject>
+		<attributeText name="notifica">
+			<len>1</len>
+			<label>Notificar</label>
+			<tooltip/>
+			<lov name="NOTIFICATIONTYPE" retainValues="false"/>
+		</attributeText>
+	</attributes>
+	<viewers>
+        <viewer name="general">
+            <forms>
+			</forms>
+            <categories/>
+        </viewer>
+    </viewers>
+</xeoModel>

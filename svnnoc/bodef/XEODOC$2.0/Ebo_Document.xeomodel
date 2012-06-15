@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2006 U (http://www.altova.com) by mfernandes (EMBRACE) -->
+<!--Ficheiro xeoModel v2 convertido em:Tue May 30 16:02:20 BST 2006-->
+<xeoModel>
+	<general name="Ebo_Document" type="object" version="1.0" extends="Ebo_DocBase" orphan="true" multiparent="true" extendsJavaClass="">
+		<locale language="pt" country="PT" variant=""/>
+		<implements/>
+		<database/>
+		<versioning active="false"/>
+		<textIndex active="true" appendChilds="false" deep="1">
+			<process/>
+		</textIndex>
+		<description>Ebo_Document</description>
+		<cardID>[description] - [fileName]</cardID>
+		<label>Documento</label>
+	</general>
+	<opl active="false"/>
+	<states>
+	</states>
+	<methods/>
+	<events/>
+	<fwdObjects/>
+	<attributes>
+	</attributes>
+	<viewers>
+	</viewers>
+</xeoModel>

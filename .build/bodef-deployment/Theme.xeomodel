@@ -1,0 +1,208 @@
+<?xml version = '1.0' encoding = 'UTF-8' standalone = 'yes'?>
+<xeoModel xsi:noNamespaceSchemaLocation="../../xeoModel.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+   <general extendsJavaClass="" multiparent="false" orphan="true" mastertable="" extends="" version="1.0" type="object" name="Theme">
+      <locale variant="" country="PT" language="pt"/>
+      <implements/>
+      <database/>
+      <versioning active="false"/>
+      <textIndex deep="1" appendChilds="false" active="true">
+         <process/>
+      </textIndex>
+      <description>Represents a visual theme</description>
+      <cardID>[description]</cardID>
+      <label>Represents a visual theme</label>
+   </general>
+   <opl active="false"/>
+   <states/>
+   <methods/>
+   <events/>
+   <fwdObjects/>
+   <attributes>
+      <attributeText name="name">
+         <label>Theme name</label>
+         <description>Theme name</description>
+         <tooltip/>
+         <len>50</len>
+         <database>
+            <unique>false</unique>
+            <indexfull>true</indexfull>
+            <indexed>false</indexed>
+            <tabled>false</tabled>
+            <constraint>false</constraint>
+            <binding>true</binding>
+         </database>
+         <events/>
+         <required language="BOOLEAN">true</required>
+         <onChangeSubmit language=""/>
+      </attributeText>
+      <attributeText name="description">
+         <label>Description</label>
+         <description/>
+         <tooltip/>
+         <len>50</len>
+         <database>
+            <unique>false</unique>
+            <indexfull>true</indexfull>
+            <indexed>false</indexed>
+            <tabled>false</tabled>
+            <constraint>false</constraint>
+            <binding>true</binding>
+         </database>
+         <events/>
+         <required language=""/>
+         <formula language=""/>
+         <defaultValue language=""/>
+         <valid language=""/>
+         <disableWhen language=""/>
+         <hiddenWhen language=""/>
+         <onChangeSubmit language=""/>
+      </attributeText>
+      <attributeObjectCollection name="files">
+         <label>Files to include</label>
+         <description>Files to include</description>
+         <tooltip>Tooltip of attribute1</tooltip>
+         <type>object.ThemeIncludes</type>
+         <objects/>
+         <setParent>false</setParent>
+         <minOccurs>0</minOccurs>
+         <maxOccurs>N</maxOccurs>
+         <database>
+            <unique>false</unique>
+            <indexfull>true</indexfull>
+            <indexed>false</indexed>
+            <tabled>false</tabled>
+            <constraint>false</constraint>
+            <binding>true</binding>
+         </database>
+         <events/>
+         <required language=""/>
+         <valid language=""/>
+         <disableWhen language=""/>
+         <hiddenWhen language=""/>
+         <onChangeSubmit language=""/>
+         <orphanRelation>false</orphanRelation>
+         <bridge>
+            <attributes>
+               <attributeNumber name="LIN">
+                  <label>Line</label>
+                  <grouping>false</grouping>
+                  <decimals>0</decimals>
+               </attributeNumber>
+            </attributes>
+         </bridge>
+      </attributeObjectCollection>
+      <attributeBoolean name="defaultTheme">
+         <label>Default Theme</label>
+         <description/>
+         <tooltip/>
+         <renderAsCheck>false</renderAsCheck>
+         <database>
+            <unique>false</unique>
+            <indexfull>true</indexfull>
+            <indexed>false</indexed>
+            <tabled>false</tabled>
+            <constraint>false</constraint>
+            <binding>true</binding>
+         </database>
+         <events/>
+         <required language=""/>
+         <defaultValue language="BOL">false</defaultValue>
+         <onChangeSubmit language=""/>
+      </attributeBoolean>
+      <attributeObject name="PARENT">
+         <type>object.boObject</type>
+         <setParent>false</setParent>
+         <label>Father object</label>
+         <database>
+            <fieldname>PARENT$</fieldname>
+            <unique></unique>
+            <indexfull></indexfull>
+            <indexed></indexed>
+            <tabled>false</tabled>
+            <constraint></constraint>
+            <binding></binding>
+         </database>
+      </attributeObject>
+      <attributeObject name="PARENTCTX">
+         <type>object.boObject</type>
+         <setParent>false</setParent>
+         <label>Creation Context</label>
+         <database>
+            <fieldname>PARENTCTX$</fieldname>
+            <unique></unique>
+            <indexfull></indexfull>
+            <indexed></indexed>
+            <tabled>false</tabled>
+            <constraint></constraint>
+            <binding></binding>
+         </database>
+      </attributeObject>
+      <attributeObject name="TEMPLATE">
+         <type>object.Ebo_Template</type>
+         <setParent>false</setParent>
+         <label>Model</label>
+         <database>
+            <fieldname>TEMPLATE$</fieldname>
+            <unique></unique>
+            <indexfull></indexfull>
+            <indexed></indexed>
+            <tabled>false</tabled>
+            <constraint></constraint>
+            <binding></binding>
+         </database>
+      </attributeObject>
+      <attributeNumber name="BOUI">
+         <label>BOUI</label>
+         <grouping>false</grouping>
+         <decimals>0</decimals>
+      </attributeNumber>
+      <attributeText name="CLASSNAME">
+         <len>50</len>
+         <label>Object category</label>
+      </attributeText>
+      <attributeObject name="CREATOR">
+         <type>object.iXEOUser</type>
+         <setParent>false</setParent>
+         <label>Creator</label>
+         <database>
+            <fieldname>CREATOR$</fieldname>
+            <unique></unique>
+            <indexfull></indexfull>
+            <indexed></indexed>
+            <tabled>false</tabled>
+            <constraint></constraint>
+            <binding></binding>
+         </database>
+      </attributeObject>
+      <attributeDateTime name="SYS_DTCREATE">
+         <label>Creation date</label>
+      </attributeDateTime>
+      <attributeDateTime name="SYS_DTSAVE">
+         <label>Last Update Date</label>
+      </attributeDateTime>
+      <attributeText name="SYS_ORIGIN">
+         <len>30</len>
+         <label>Data origin</label>
+      </attributeText>
+      <attributeObject name="SYS_FROMOBJ">
+         <type>object.boObject</type>
+         <setParent>false</setParent>
+         <label>Origin Object</label>
+         <database>
+            <fieldname>SYS_FROMOBJ$</fieldname>
+            <unique></unique>
+            <indexfull></indexfull>
+            <indexed></indexed>
+            <tabled>false</tabled>
+            <constraint></constraint>
+            <binding></binding>
+         </database>
+      </attributeObject>
+   </attributes>
+   <viewers>
+      <viewer name="general">
+         <forms/>
+         <categories/>
+      </viewer>
+   </viewers>
+</xeoModel>

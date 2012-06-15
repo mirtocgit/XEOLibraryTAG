@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xeoLov name="LIB_Lov">
+	<General />
+	<Lov retainValues="No" name="book_state">
+		<description>State of a Book</description>
+		<details>
+			<item>
+				<value>0</value>
+				<label>Unavailable</label>
+			</item>
+			<item>
+				<value>1</value>
+				<label>Available</label>
+			</item>
+		</details>
+	</Lov>
+</xeoLov>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xeoLov name="State">
+	<General />
+	<Lov name="estado_lib" retainValues="No">
+		<description>estado_lib</description>
+		<details>
+			<item>
+				<value>1</value>
+				<label>Disponivel</label>
+			</item>
+			<item>
+				<value>0</value>
+				<label>indisponivel</label>
+			</item>
+		</details>
+	</Lov>
+</xeoLov>

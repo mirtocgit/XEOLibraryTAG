@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xeoModel xsi:noNamespaceSchemaLocation="../../xeoModel.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <general name="LIB_BookCategory" type="object" version="1.0" extends="" mastertable="" orphan="true" multiparent="false" extendsJavaClass="">
+        <locale language="pt" country="PT" variant=""/>
+        <implements/>
+        <database/>
+        <versioning active="false"/>
+        <textIndex active="true" appendChilds="false" deep="1">
+            <process/>
+        </textIndex>
+        <description>Book category</description>
+        <cardID>[nameB]</cardID>
+        <label>Book category</label>
+    </general>
+    <opl active="false"/>
+    <states/>
+    <methods/>
+    <events/>
+    <fwdObjects/>
+    <attributes>
+        <attributeText name="nameB">
+            <label>Name Book</label>
+            <description>name book</description>
+            <tooltip>Tooltip of attribute1</tooltip>
+            <len>50</len>
+            <database>
+                <unique>false</unique>
+                <indexfull>true</indexfull>
+                <indexed>false</indexed>
+                <tabled>false</tabled>
+                <constraint>false</constraint>
+                <binding>true</binding>
+            </database>
+            <events/>
+            <required language="BOL">true</required>
+        </attributeText>
+    </attributes>
+    <viewers>
+        <viewer name="general">
+            <forms>
+			</forms>
+            <categories/>
+        </viewer>
+    </viewers>
+</xeoModel>

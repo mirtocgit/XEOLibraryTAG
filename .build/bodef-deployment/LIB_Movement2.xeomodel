@@ -1,0 +1,262 @@
+<?xml version = '1.0' encoding = 'UTF-8' standalone = 'yes'?>
+<xeoModel xsi:noNamespaceSchemaLocation="../../xeoModel.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+   <general name="LIB_Movement2" type="object" version="1.0" extends="" mastertable="" orphan="true" multiparent="false" extendsJavaClass="">
+      <locale language="pt" country="PT" variant=""/>
+      <implements/>
+      <database/>
+      <versioning active="false"/>
+      <textIndex active="true" appendChilds="false" deep="1">
+         <process/>
+      </textIndex>
+      <description>Movement</description>
+      <cardID>[BOUI]</cardID>
+      <label>Movement</label>
+   </general>
+   <opl active="false"/>
+   <states/>
+   <methods/>
+   <events/>
+   <fwdObjects/>
+   <attributes>
+      <attributeSequence name="id">
+         <label>id</label>
+         <description>id</description>
+         <tooltip>Tooltip of attribute1</tooltip>
+         <type>sequence(1)</type>
+         <len>10</len>
+         <database>
+            <unique>false</unique>
+            <indexfull>true</indexfull>
+            <indexed>false</indexed>
+            <tabled>false</tabled>
+            <constraint>false</constraint>
+            <binding>true</binding>
+         </database>
+         <events/>
+         <required language="BOL">true</required>
+      </attributeSequence>
+      <attributeDate name="dueDate">
+         <label>date</label>
+         <description>date</description>
+         <tooltip>Tooltip of attribute1</tooltip>
+         <database>
+            <unique>false</unique>
+            <indexfull>true</indexfull>
+            <indexed>false</indexed>
+            <tabled>false</tabled>
+            <constraint>false</constraint>
+            <binding>true</binding>
+         </database>
+         <events/>
+         <required language="BOL">true</required>
+         <formula/>
+         <defaultValue/>
+         <valid/>
+         <disableWhen/>
+         <hiddenWhen/>
+      </attributeDate>
+      <attributeNumber name="fine">
+         <label>fine</label>
+         <description>fine</description>
+         <tooltip>Tooltip of attribute1</tooltip>
+         <len>8</len>
+         <grouping>false</grouping>
+         <decimals>0</decimals>
+         <minDecimals>0</minDecimals>
+         <database>
+            <unique>false</unique>
+            <indexfull>true</indexfull>
+            <indexed>false</indexed>
+            <tabled>false</tabled>
+            <constraint>false</constraint>
+            <binding>true</binding>
+         </database>
+         <events/>
+      </attributeNumber>
+      <attributeObject name="user">
+         <label>user</label>
+         <description>Description of attribute1</description>
+         <tooltip>Tooltip of attribute1</tooltip>
+         <type>object.LIB_User</type>
+         <objects/>
+         <setParent>false</setParent>
+         <renderAsLov>false</renderAsLov>
+         <database>
+            <unique>false</unique>
+            <indexfull>true</indexfull>
+            <indexed>false</indexed>
+            <tabled>false</tabled>
+            <constraint>false</constraint>
+            <binding>true</binding>
+         </database>
+         <events/>
+         <required language="BOL">true</required>
+         <orphanRelation>true</orphanRelation>
+      </attributeObject>
+      <attributeObject name="books">
+         <label>books</label>
+         <description>Description of attribute1</description>
+         <tooltip>Tooltip of attribute1</tooltip>
+         <type>object.LIB_Book</type>
+         <objects/>
+         <objectFilter>
+            <filter>
+               <xeoql>select LIB_Book where state = '0' </xeoql>
+            </filter>
+         </objectFilter>
+         <setParent>false</setParent>
+         <renderAsLov>false</renderAsLov>
+         <database>
+            <unique>false</unique>
+            <indexfull>true</indexfull>
+            <indexed>false</indexed>
+            <tabled>false</tabled>
+            <constraint>false</constraint>
+            <binding>true</binding>
+         </database>
+         <events/>
+         <defaultValue language=""/>
+         <orphanRelation>true</orphanRelation>
+      </attributeObject>
+      <attributeText name="state">
+         <label>state</label>
+         <description>Description of attribute1</description>
+         <tooltip>Tooltip of attribute1</tooltip>
+         <len>50</len>
+         <lov name="movement_state" retainValues="true"/>
+         <database>
+            <unique>false</unique>
+            <indexfull>true</indexfull>
+            <indexed>false</indexed>
+            <tabled>false</tabled>
+            <constraint>false</constraint>
+            <binding>true</binding>
+         </database>
+         <events/>
+      </attributeText>
+      <attributeObjectCollection name="returns">
+         <label>retuns</label>
+         <description>returns</description>
+         <tooltip>Tooltip of attribute1</tooltip>
+         <type>object.LIB_Return</type>
+         <objects/>
+         <setParent>false</setParent>
+         <minOccurs>0</minOccurs>
+         <maxOccurs>N</maxOccurs>
+         <database>
+            <unique>false</unique>
+            <indexfull>true</indexfull>
+            <indexed>false</indexed>
+            <tabled>false</tabled>
+            <constraint>false</constraint>
+            <binding>true</binding>
+         </database>
+         <events/>
+         <orphanRelation>true</orphanRelation>
+         <bridge>
+            <attributes>
+               <attributeNumber name="LIN">
+                  <label>Line</label>
+                  <grouping>false</grouping>
+                  <decimals>0</decimals>
+               </attributeNumber>
+            </attributes>
+         </bridge>
+      </attributeObjectCollection>
+      <attributeObject name="PARENT">
+         <type>object.boObject</type>
+         <setParent>false</setParent>
+         <label>Father object</label>
+         <database>
+            <fieldname>PARENT$</fieldname>
+            <unique></unique>
+            <indexfull></indexfull>
+            <indexed></indexed>
+            <tabled>false</tabled>
+            <constraint></constraint>
+            <binding></binding>
+         </database>
+      </attributeObject>
+      <attributeObject name="PARENTCTX">
+         <type>object.boObject</type>
+         <setParent>false</setParent>
+         <label>Creation Context</label>
+         <database>
+            <fieldname>PARENTCTX$</fieldname>
+            <unique></unique>
+            <indexfull></indexfull>
+            <indexed></indexed>
+            <tabled>false</tabled>
+            <constraint></constraint>
+            <binding></binding>
+         </database>
+      </attributeObject>
+      <attributeObject name="TEMPLATE">
+         <type>object.Ebo_Template</type>
+         <setParent>false</setParent>
+         <label>Model</label>
+         <database>
+            <fieldname>TEMPLATE$</fieldname>
+            <unique></unique>
+            <indexfull></indexfull>
+            <indexed></indexed>
+            <tabled>false</tabled>
+            <constraint></constraint>
+            <binding></binding>
+         </database>
+      </attributeObject>
+      <attributeNumber name="BOUI">
+         <label>BOUI</label>
+         <grouping>false</grouping>
+         <decimals>0</decimals>
+      </attributeNumber>
+      <attributeText name="CLASSNAME">
+         <len>50</len>
+         <label>Object category</label>
+      </attributeText>
+      <attributeObject name="CREATOR">
+         <type>object.iXEOUser</type>
+         <setParent>false</setParent>
+         <label>Creator</label>
+         <database>
+            <fieldname>CREATOR$</fieldname>
+            <unique></unique>
+            <indexfull></indexfull>
+            <indexed></indexed>
+            <tabled>false</tabled>
+            <constraint></constraint>
+            <binding></binding>
+         </database>
+      </attributeObject>
+      <attributeDateTime name="SYS_DTCREATE">
+         <label>Creation date</label>
+      </attributeDateTime>
+      <attributeDateTime name="SYS_DTSAVE">
+         <label>Last Update Date</label>
+      </attributeDateTime>
+      <attributeText name="SYS_ORIGIN">
+         <len>30</len>
+         <label>Data origin</label>
+      </attributeText>
+      <attributeObject name="SYS_FROMOBJ">
+         <type>object.boObject</type>
+         <setParent>false</setParent>
+         <label>Origin Object</label>
+         <database>
+            <fieldname>SYS_FROMOBJ$</fieldname>
+            <unique></unique>
+            <indexfull></indexfull>
+            <indexed></indexed>
+            <tabled>false</tabled>
+            <constraint></constraint>
+            <binding></binding>
+         </database>
+      </attributeObject>
+   </attributes>
+   <viewers>
+      <viewer name="general">
+         <forms/>
+         <categories/>
+      </viewer>
+   </viewers>
+</xeoModel>

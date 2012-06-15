@@ -1,0 +1,34 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<data-sources xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://xmlns.oracle.com/oracleas/schema/data-sources-10_1.xsd" xmlns="http://xmlns.oracle.com/oracleas/schema">
+
+<native-data-source
+ name="nativeDataSource"
+ jndi-name="jdbc/xeo_nojta"
+ description="Native DataSource"
+ data-source-class="com.mysql.jdbc.jdbc2.optional.MysqlDataSource"
+ user="xeo"
+ password="xeo"
+ url="jdbc:mysql://localhost:3306/xeo">
+</native-data-source>
+
+
+<managed-data-source
+ jndi-name="jdbc/xeo" description="Managed DataSource" connection-pool-name="XEOConnectionPool" 
+ name="ManagedDS"/>
+
+<connection-pool
+ name="XEOConnectionPool"
+ min-connections="2"
+ max-connections="30"
+ inactivity-timeout="30">
+  <connection-factory 
+   factory-class="com.mysql.jdbc.jdbc2.optional.MysqlDataSource"
+   user="xeo"
+   password="xeo"
+   url="jdbc:mysql://localhost:3306/xeo">
+  </connection-factory>
+</connection-pool>
+
+
+
+</data-sources>

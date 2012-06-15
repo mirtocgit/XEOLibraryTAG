@@ -1,0 +1,22 @@
+#Tue Aug 09 13:25:35 BST 2011
+xeo_rdbms_host=localhost
+xeo_core_repository_name=XEOMETA
+xeo_j2ee_server_homefolder=C\:\\xeostudio\\workspace_novo\\..\\oc4j1013\\j2ee\\home
+xeo_rdbms_user_password=xeo
+xeo_rdbms_userdba_password=lib
+xeo_core_repository_type=CHOOSE FILE...
+xeo_j2ee_server_xeowebcontext_root=xeo
+xeo_rdbms_create_schema=no
+xeo_core_version=3_1_011\n
+xeo_rdbms_user=xeo
+xeo_j2ee_server_type=OC4J10.1.3
+xeo_convert_java_to_new_structure=false
+xeo_core_repository_path=C\:\\xeo\\releases\\3.0\\build_012\\xeocore.xar
+xeo_j2ee_server_port=8888
+xeo_rdbms_port=3306
+xeo_rdbms_sqlserver_database=
+xeo_rdbms_userdba_name=xeolib
+xeo_rdbms_tablespace=USERS
+xeo_rdbms_sid=
+xeo_rdbms_temptablespace=TEMP
+xeo_rdbms_server_type=MySQL.5.1+

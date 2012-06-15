@@ -1,0 +1,228 @@
+<?xml version = '1.0' encoding = 'UTF-8' standalone = 'yes'?>
+<xeoModel xsi:noNamespaceSchemaLocation="../../xeoModel.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+   <general extendsJavaClass="" multiparent="false" orphan="true" extends="" version="1.0" type="object" name="Ebo_FilterQuery">
+      <locale variant="" country="PT" language="pt"/>
+      <implements/>
+      <database/>
+      <versioning active="false"/>
+      <textIndex deep="1" appendChilds="false" active="true">
+         <process/>
+      </textIndex>
+      <description>Ebo_FilterQuery</description>
+      <cardID>[attribute]</cardID>
+      <label>Condição</label>
+   </general>
+   <opl active="false"/>
+   <states>
+      <state name="state">
+         <label>state</label>
+         <options>
+            <option value="0" name="Inactive" active="true">
+               <label>Inactivo</label>
+               <subStates/>
+            </option>
+            <option value="1" name="active" active="true">
+               <label>Activo</label>
+               <subStates/>
+            </option>
+         </options>
+      </state>
+   </states>
+   <methods/>
+   <events/>
+   <fwdObjects/>
+   <attributes>
+      <attributeObject name="attribute">
+         <label>Atributo</label>
+         <description/>
+         <tooltip/>
+         <type>object.Ebo_Attribute</type>
+         <objects/>
+         <objectFilter/>
+         <setParent>false</setParent>
+         <renderAsLov>false</renderAsLov>
+         <database>
+            <unique>false</unique>
+            <indexfull>true</indexfull>
+            <indexed>false</indexed>
+            <tabled>false</tabled>
+            <constraint>false</constraint>
+            <binding>true</binding>
+         </database>
+         <events/>
+         <required/>
+         <onChangeSubmit/>
+         <orphanRelation>true</orphanRelation>
+      </attributeObject>
+      <attributeText name="joinQuery">
+         <label>Ligação</label>
+         <tooltip/>
+         <len>50</len>
+         <events/>
+         <required/>
+         <formula/>
+         <defaultValue/>
+         <valid/>
+         <disableWhen/>
+         <hiddenWhen/>
+         <onChangeSubmit/>
+      </attributeText>
+      <attributeText name="attributeName">
+         <label>Nome do Atributo</label>
+         <description/>
+         <tooltip/>
+         <len>150</len>
+         <database>
+            <unique>false</unique>
+            <indexfull>true</indexfull>
+            <indexed>false</indexed>
+            <tabled>false</tabled>
+            <constraint>false</constraint>
+            <binding>true</binding>
+         </database>
+         <events/>
+         <required/>
+         <onChangeSubmit/>
+      </attributeText>
+      <attributeText name="operator">
+         <label>Operador</label>
+         <tooltip/>
+         <len>50</len>
+      </attributeText>
+      <attributeText name="value">
+         <label>Valor</label>
+         <tooltip/>
+         <len>4000</len>
+         <editor>HTML</editor>
+      </attributeText>
+      <attributeBoolean name="active">
+         <label>Activo</label>
+         <tooltip/>
+         <renderAsCheck>false</renderAsCheck>
+      </attributeBoolean>
+      <attributeObjectCollection name="subFilter">
+         <label>Sub Filtro</label>
+         <tooltip/>
+         <type>object.Ebo_Filter</type>
+         <objectFilter/>
+         <bridge>
+            <attributes>
+               <attributeNumber name="LIN">
+                  <label>Line</label>
+                  <grouping>false</grouping>
+                  <decimals>0</decimals>
+               </attributeNumber>
+            </attributes>
+         </bridge>
+         <renderAsLov>false</renderAsLov>
+         <minOccurs>0</minOccurs>
+         <maxOccurs>N</maxOccurs>
+      </attributeObjectCollection>
+      <attributeText name="question">
+         <label>Etiqueta/Pergunta a efectuar</label>
+         <tooltip/>
+         <len>4000</len>
+         <editor>HTML</editor>
+      </attributeText>
+      <attributeBoolean name="nullIgnore">
+         <label>Se Null ignora</label>
+         <tooltip/>
+         <renderAsCheck>false</renderAsCheck>
+      </attributeBoolean>
+      <attributeObject name="PARENT">
+         <type>object.boObject</type>
+         <setParent>false</setParent>
+         <label>Father object</label>
+         <database>
+            <fieldname>PARENT$</fieldname>
+            <unique></unique>
+            <indexfull></indexfull>
+            <indexed></indexed>
+            <tabled>false</tabled>
+            <constraint></constraint>
+            <binding></binding>
+         </database>
+      </attributeObject>
+      <attributeObject name="PARENTCTX">
+         <type>object.boObject</type>
+         <setParent>false</setParent>
+         <label>Creation Context</label>
+         <database>
+            <fieldname>PARENTCTX$</fieldname>
+            <unique></unique>
+            <indexfull></indexfull>
+            <indexed></indexed>
+            <tabled>false</tabled>
+            <constraint></constraint>
+            <binding></binding>
+         </database>
+      </attributeObject>
+      <attributeObject name="TEMPLATE">
+         <type>object.Ebo_Template</type>
+         <setParent>false</setParent>
+         <label>Model</label>
+         <database>
+            <fieldname>TEMPLATE$</fieldname>
+            <unique></unique>
+            <indexfull></indexfull>
+            <indexed></indexed>
+            <tabled>false</tabled>
+            <constraint></constraint>
+            <binding></binding>
+         </database>
+      </attributeObject>
+      <attributeNumber name="BOUI">
+         <label>BOUI</label>
+         <grouping>false</grouping>
+         <decimals>0</decimals>
+      </attributeNumber>
+      <attributeText name="CLASSNAME">
+         <len>50</len>
+         <label>Object category</label>
+      </attributeText>
+      <attributeObject name="CREATOR">
+         <type>object.iXEOUser</type>
+         <setParent>false</setParent>
+         <label>Creator</label>
+         <database>
+            <fieldname>CREATOR$</fieldname>
+            <unique></unique>
+            <indexfull></indexfull>
+            <indexed></indexed>
+            <tabled>false</tabled>
+            <constraint></constraint>
+            <binding></binding>
+         </database>
+      </attributeObject>
+      <attributeDateTime name="SYS_DTCREATE">
+         <label>Creation date</label>
+      </attributeDateTime>
+      <attributeDateTime name="SYS_DTSAVE">
+         <label>Last Update Date</label>
+      </attributeDateTime>
+      <attributeText name="SYS_ORIGIN">
+         <len>30</len>
+         <label>Data origin</label>
+      </attributeText>
+      <attributeObject name="SYS_FROMOBJ">
+         <type>object.boObject</type>
+         <setParent>false</setParent>
+         <label>Origin Object</label>
+         <database>
+            <fieldname>SYS_FROMOBJ$</fieldname>
+            <unique></unique>
+            <indexfull></indexfull>
+            <indexed></indexed>
+            <tabled>false</tabled>
+            <constraint></constraint>
+            <binding></binding>
+         </database>
+      </attributeObject>
+   </attributes>
+   <viewers>
+      <viewer name="general">
+         <forms/>
+         <categories/>
+      </viewer>
+   </viewers>
+</xeoModel>

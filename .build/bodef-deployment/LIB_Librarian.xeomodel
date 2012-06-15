@@ -1,0 +1,440 @@
+<?xml version = '1.0' encoding = 'UTF-8' standalone = 'yes'?>
+<xeoModel xsi:noNamespaceSchemaLocation="../../xeoModel.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+   <general name="LIB_Librarian" type="object" version="1.0" extends="" mastertable="" orphan="true" multiparent="false" extendsJavaClass="">
+      <locale language="pt" country="PT" variant=""/>
+      <implements>
+         <interface>iXEOUser</interface>
+      </implements>
+      <database/>
+      <versioning active="false"/>
+      <textIndex active="true" appendChilds="false" deep="1">
+         <process/>
+      </textIndex>
+      <description>Librarian</description>
+      <cardID>[BOUI]</cardID>
+      <label>Librarian</label>
+   </general>
+   <opl active="false"/>
+   <states/>
+   <methods>
+      <method toObject="" modeTemplate="true" openDoc="false" serverOnly="false" requiredTransaction="NotSuported" toolbar="false" menu="false" public="false" name="update" fromInterface="iXEOUser">
+         <label/>
+         <icon/>
+         <javascriptToRun>
+            <viewer name="edit">
+               <before/>
+               <after/>
+            </viewer>
+         </javascriptToRun>
+         <assinature return="void"/>
+         <body language="JAVA">
+				if(this.password.getValue()!=null &amp;&amp; this.password.getValue().length() &lt; 20) {
+					if(!"".equals(this.password.getValue()))
+                    {
+                        this.password.setValue(netgest.utils.MD5Utils.toHexMD5(this.password.getValue()));
+                    }
+                    else
+                    {
+                        this.password.setValue(null);
+                    }
+				}
+				super.update();
+				</body>
+      </method>
+   </methods>
+   <events/>
+   <fwdObjects/>
+   <attributes>
+      <attributeText name="employeeId">
+         <label>employeeId</label>
+         <description>employeeId</description>
+         <tooltip>Tooltip of attribute1</tooltip>
+         <len>50</len>
+         <database>
+            <unique>false</unique>
+            <indexfull>true</indexfull>
+            <indexed>false</indexed>
+            <tabled>false</tabled>
+            <constraint>false</constraint>
+            <binding>true</binding>
+         </database>
+         <events/>
+         <required language="BOL">true</required>
+      </attributeText>
+      <attributeText name="email">
+         <label>email</label>
+         <description>email</description>
+         <tooltip>Tooltip of attribute1</tooltip>
+         <len>50</len>
+         <database>
+            <unique>false</unique>
+            <indexfull>true</indexfull>
+            <indexed>false</indexed>
+            <tabled>false</tabled>
+            <constraint>false</constraint>
+            <binding>true</binding>
+         </database>
+         <events/>
+         <valid language="JAVA">/*XEOJAVACLASS*/
+return new 
+xeo.code.java.lib1_0.
+LIB_LibrarianHandler().
+email_Valid
+(this.getParent(),this);</valid>
+      </attributeText>
+      <attributeText name="username">
+         <label>name</label>
+         <description>name</description>
+         <tooltip>Tooltip of attribute1</tooltip>
+         <len>50</len>
+         <database>
+            <unique>false</unique>
+            <indexfull>true</indexfull>
+            <indexed>false</indexed>
+            <tabled>false</tabled>
+            <constraint>false</constraint>
+            <binding>true</binding>
+         </database>
+         <events/>
+         <required language="BOL">true</required>
+         <formula language="JAVA">/*XEOJAVACLASS*/
+return new 
+xeo.code.java.lib1_0.
+LIB_LibrarianHandler().
+name_Formula
+(this.getParent(),this);
+                <depends><attribute>name</attribute><attribute>lastname</attribute></depends></formula>
+      </attributeText>
+      <attributeObjectCollection name="messages">
+         <label>Messages</label>
+         <description>Messages sent by librarian</description>
+         <tooltip>Tooltip of attribute1</tooltip>
+         <type>object.LIB_Message</type>
+         <objects/>
+         <setParent>false</setParent>
+         <minOccurs>0</minOccurs>
+         <maxOccurs>N</maxOccurs>
+         <database>
+            <unique>false</unique>
+            <indexfull>true</indexfull>
+            <indexed>false</indexed>
+            <tabled>false</tabled>
+            <constraint>false</constraint>
+            <binding>true</binding>
+         </database>
+         <events/>
+         <required/>
+         <valid/>
+         <disableWhen/>
+         <hiddenWhen/>
+         <orphanRelation>true</orphanRelation>
+         <bridge>
+            <attributes>
+               <attributeNumber name="LIN">
+                  <label>Line</label>
+                  <grouping>false</grouping>
+                  <decimals>0</decimals>
+               </attributeNumber>
+            </attributes>
+         </bridge>
+      </attributeObjectCollection>
+      <attributeText name="lastname">
+         <label>Last Name</label>
+         <description>lastename</description>
+         <tooltip>Tooltip of attribute1</tooltip>
+         <len>50</len>
+         <database>
+            <unique>false</unique>
+            <indexfull>true</indexfull>
+            <indexed>false</indexed>
+            <tabled>false</tabled>
+            <constraint>false</constraint>
+            <binding>true</binding>
+         </database>
+         <events/>
+      </attributeText>
+      <attributeObject name="PARENT">
+         <type>object.boObject</type>
+         <setParent>false</setParent>
+         <label>Father object</label>
+         <database>
+            <fieldname>PARENT$</fieldname>
+            <unique></unique>
+            <indexfull></indexfull>
+            <indexed></indexed>
+            <tabled>false</tabled>
+            <constraint></constraint>
+            <binding></binding>
+         </database>
+      </attributeObject>
+      <attributeObject name="PARENTCTX">
+         <type>object.boObject</type>
+         <setParent>false</setParent>
+         <label>Creation Context</label>
+         <database>
+            <fieldname>PARENTCTX$</fieldname>
+            <unique></unique>
+            <indexfull></indexfull>
+            <indexed></indexed>
+            <tabled>false</tabled>
+            <constraint></constraint>
+            <binding></binding>
+         </database>
+      </attributeObject>
+      <attributeObject name="TEMPLATE">
+         <type>object.Ebo_Template</type>
+         <setParent>false</setParent>
+         <label>Model</label>
+         <database>
+            <fieldname>TEMPLATE$</fieldname>
+            <unique></unique>
+            <indexfull></indexfull>
+            <indexed></indexed>
+            <tabled>false</tabled>
+            <constraint></constraint>
+            <binding></binding>
+         </database>
+      </attributeObject>
+      <attributeNumber name="BOUI">
+         <label>BOUI</label>
+         <grouping>false</grouping>
+         <decimals>0</decimals>
+      </attributeNumber>
+      <attributeText name="CLASSNAME">
+         <len>50</len>
+         <label>Object category</label>
+      </attributeText>
+      <attributeObject name="CREATOR">
+         <type>object.iXEOUser</type>
+         <setParent>false</setParent>
+         <label>Creator</label>
+         <database>
+            <fieldname>CREATOR$</fieldname>
+            <unique></unique>
+            <indexfull></indexfull>
+            <indexed></indexed>
+            <tabled>false</tabled>
+            <constraint></constraint>
+            <binding></binding>
+         </database>
+      </attributeObject>
+      <attributeDateTime name="SYS_DTCREATE">
+         <label>Creation date</label>
+      </attributeDateTime>
+      <attributeDateTime name="SYS_DTSAVE">
+         <label>Last Update Date</label>
+      </attributeDateTime>
+      <attributeText name="SYS_ORIGIN">
+         <len>30</len>
+         <label>Data origin</label>
+      </attributeText>
+      <attributeObject name="SYS_FROMOBJ">
+         <type>object.boObject</type>
+         <setParent>false</setParent>
+         <label>Origin Object</label>
+         <database>
+            <fieldname>SYS_FROMOBJ$</fieldname>
+            <unique></unique>
+            <indexfull></indexfull>
+            <indexed></indexed>
+            <tabled>false</tabled>
+            <constraint></constraint>
+            <binding></binding>
+         </database>
+      </attributeObject>
+      <attributeText name="id" fromInterface="iXEOUser">
+         <label>Código</label>
+         <tooltip/>
+         <len>50</len>
+      </attributeText>
+      <attributeText name="name" fromInterface="iXEOUser">
+         <label>Nome</label>
+         <tooltip/>
+         <len>200</len>
+      </attributeText>
+      <attributeText name="password" fromInterface="iXEOUser">
+         <label>Password</label>
+         <tooltip/>
+         <len>50</len>
+      </attributeText>
+      <attributeText name="MD5Code" fromInterface="iXEOUser">
+         <label>MD5</label>
+         <tooltip/>
+         <len>500</len>
+      </attributeText>
+      <attributeObjectCollection name="queues" fromInterface="iXEOUser">
+         <label>Pool de Recursos</label>
+         <tooltip/>
+         <type>object.workQueue</type>
+         <objectFilter/>
+         <bridge>
+            <attributes>
+               <attributeNumber name="LIN">
+                  <label>Line</label>
+                  <grouping>false</grouping>
+                  <decimals>0</decimals>
+               </attributeNumber>
+            </attributes>
+         </bridge>
+         <renderAsLov>false</renderAsLov>
+         <minOccurs>0</minOccurs>
+         <maxOccurs>N</maxOccurs>
+      </attributeObjectCollection>
+      <attributeObjectCollection name="groups" fromInterface="iXEOUser">
+         <label>Membro de</label>
+         <tooltip/>
+         <type>object.Ebo_Group</type>
+         <objectFilter/>
+         <bridge>
+            <attributes>
+               <attributeNumber name="LIN">
+                  <label>Line</label>
+                  <grouping>false</grouping>
+                  <decimals>0</decimals>
+               </attributeNumber>
+            </attributes>
+         </bridge>
+         <renderAsLov>false</renderAsLov>
+         <minOccurs>0</minOccurs>
+         <maxOccurs>N</maxOccurs>
+      </attributeObjectCollection>
+      <attributeObjectCollection name="compartments" fromInterface="iXEOUser">
+         <label>Compartimentos</label>
+         <tooltip/>
+         <type>object.Ebo_Role</type>
+         <objectFilter/>
+         <bridge>
+            <attributes>
+               <attributeNumber name="LIN">
+                  <label>Line</label>
+                  <grouping>false</grouping>
+                  <decimals>0</decimals>
+               </attributeNumber>
+            </attributes>
+         </bridge>
+         <renderAsLov>false</renderAsLov>
+         <minOccurs>0</minOccurs>
+         <maxOccurs>N</maxOccurs>
+      </attributeObjectCollection>
+      <attributeNumber name="securityLevel" fromInterface="iXEOUser">
+         <label>Nível Segurança</label>
+         <tooltip/>
+         <len>0</len>
+         <grouping>false</grouping>
+         <decimals>0</decimals>
+         <minDecimals>0</minDecimals>
+      </attributeNumber>
+      <attributeObjectCollection name="roles" fromInterface="iXEOUser">
+         <label>Função</label>
+         <tooltip/>
+         <type>object.Ebo_Role</type>
+         <objectFilter/>
+         <bridge>
+            <attributes>
+               <attributeNumber name="LIN">
+                  <label>Line</label>
+                  <grouping>false</grouping>
+                  <decimals>0</decimals>
+               </attributeNumber>
+            </attributes>
+         </bridge>
+         <renderAsLov>false</renderAsLov>
+         <minOccurs>0</minOccurs>
+         <maxOccurs>N</maxOccurs>
+      </attributeObjectCollection>
+      <attributeText name="notifica" fromInterface="iXEOUser">
+         <label>Notificar</label>
+         <tooltip/>
+         <len>1</len>
+         <lov retainValues="false" name="NOTIFICATIONTYPE"/>
+      </attributeText>
+      <attributeObjectCollection name="iProfile" fromInterface="iXEOUser">
+         <label>Perfil</label>
+         <tooltip/>
+         <type>object.uiProfile</type>
+         <objectFilter/>
+         <bridge>
+            <attributes>
+               <attributeNumber name="LIN">
+                  <label>Line</label>
+                  <grouping>false</grouping>
+                  <decimals>0</decimals>
+               </attributeNumber>
+            </attributes>
+         </bridge>
+         <renderAsLov>false</renderAsLov>
+         <minOccurs>0</minOccurs>
+         <maxOccurs>N</maxOccurs>
+      </attributeObjectCollection>
+      <attributeObjectCollection name="packages" fromInterface="iXEOUser">
+         <label>Aplicação</label>
+         <tooltip/>
+         <type>object.boObject</type>
+         <objects>
+            <object>Ebo_Package</object>
+            <object>Ebo_Application</object>
+         </objects>
+         <objectFilter/>
+         <bridge>
+            <attributes>
+               <attributeNumber name="LIN">
+                  <label>Line</label>
+                  <grouping>false</grouping>
+                  <decimals>0</decimals>
+               </attributeNumber>
+            </attributes>
+         </bridge>
+         <renderAsLov>false</renderAsLov>
+         <minOccurs>0</minOccurs>
+         <maxOccurs>N</maxOccurs>
+      </attributeObjectCollection>
+      <attributeObject name="user_language" fromInterface="iXEOUser">
+         <label>Língua</label>
+         <description>Língua</description>
+         <tooltip>Língua</tooltip>
+         <type>object.XeoApplicationLanguage</type>
+         <objects/>
+         <setParent>false</setParent>
+         <renderAsLov>false</renderAsLov>
+         <database>
+            <unique>false</unique>
+            <indexfull>true</indexfull>
+            <indexed>false</indexed>
+            <tabled>false</tabled>
+            <constraint>false</constraint>
+            <binding>true</binding>
+         </database>
+         <events/>
+         <required/>
+         <onChangeSubmit/>
+         <orphanRelation>true</orphanRelation>
+      </attributeObject>
+      <attributeObject name="theme" fromInterface="iXEOUser">
+         <label>Tema</label>
+         <description>Tema</description>
+         <tooltip>Tema</tooltip>
+         <type>object.Theme</type>
+         <objects/>
+         <setParent>false</setParent>
+         <renderAsLov>false</renderAsLov>
+         <database>
+            <unique>false</unique>
+            <indexfull>true</indexfull>
+            <indexed>false</indexed>
+            <tabled>false</tabled>
+            <constraint>false</constraint>
+            <binding>true</binding>
+         </database>
+         <events/>
+         <required/>
+         <onChangeSubmit/>
+         <orphanRelation/>
+      </attributeObject>
+   </attributes>
+   <viewers>
+      <viewer name="general">
+         <forms/>
+         <categories/>
+      </viewer>
+   </viewers>
+</xeoModel>

@@ -1,0 +1,221 @@
+<?xml version = '1.0' encoding = 'UTF-8' standalone = 'yes'?>
+<xeoModel xsi:noNamespaceSchemaLocation="../../xeoModel.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+   <general name="LIB_Message" type="object" version="1.0" extends="" mastertable="" orphan="true" multiparent="false" extendsJavaClass="">
+      <locale language="pt" country="PT" variant=""/>
+      <implements/>
+      <database/>
+      <versioning active="false"/>
+      <textIndex active="true" appendChilds="false" deep="1">
+         <process/>
+      </textIndex>
+      <description>Message</description>
+      <cardID>[BOUI]</cardID>
+      <label>Message</label>
+   </general>
+   <opl active="false"/>
+   <states/>
+   <methods/>
+   <events/>
+   <fwdObjects/>
+   <attributes>
+      <attributeText name="subject">
+         <label>Subject</label>
+         <description>subject of message</description>
+         <tooltip>Tooltip of attribute1</tooltip>
+         <len>50</len>
+         <database>
+            <unique>false</unique>
+            <indexfull>true</indexfull>
+            <indexed>false</indexed>
+            <tabled>false</tabled>
+            <constraint>false</constraint>
+            <binding>true</binding>
+         </database>
+         <events/>
+         <required language="BOL">true</required>
+      </attributeText>
+      <attributeLongText name="bodyMessage">
+         <label>Body</label>
+         <description>body of message</description>
+         <tooltip>Tooltip of attribute1</tooltip>
+         <editor>HTML</editor>
+         <database>
+            <unique>false</unique>
+            <indexfull>true</indexfull>
+            <indexed>false</indexed>
+            <tabled>false</tabled>
+            <constraint>false</constraint>
+            <binding>true</binding>
+         </database>
+         <events/>
+         <required language="BOL">true</required>
+      </attributeLongText>
+      <attributeBoolean name="urgent">
+         <label>Urgent</label>
+         <description>Description of attribute1</description>
+         <tooltip>Tooltip of attribute1</tooltip>
+         <renderAsCheck>false</renderAsCheck>
+         <database>
+            <unique>false</unique>
+            <indexfull>true</indexfull>
+            <indexed>false</indexed>
+            <tabled>false</tabled>
+            <constraint>false</constraint>
+            <binding>true</binding>
+         </database>
+         <events/>
+         <required/>
+         <formula/>
+         <defaultValue/>
+         <valid/>
+         <disableWhen/>
+         <hiddenWhen/>
+      </attributeBoolean>
+      <attributeObjectCollection name="recipients">
+         <label>Recipients</label>
+         <description>Recipients of message</description>
+         <tooltip>Tooltip of attribute1</tooltip>
+         <type>object.LIB_Librarian</type>
+         <objects/>
+         <setParent>false</setParent>
+         <minOccurs>0</minOccurs>
+         <maxOccurs>N</maxOccurs>
+         <database>
+            <unique>false</unique>
+            <indexfull>true</indexfull>
+            <indexed>false</indexed>
+            <tabled>false</tabled>
+            <constraint>false</constraint>
+            <binding>true</binding>
+         </database>
+         <events/>
+         <orphanRelation>true</orphanRelation>
+         <bridge>
+            <attributes>
+               <attributeNumber name="LIN">
+                  <label>Line</label>
+                  <grouping>false</grouping>
+                  <decimals>0</decimals>
+               </attributeNumber>
+            </attributes>
+         </bridge>
+      </attributeObjectCollection>
+      <attributeDate name="date">
+         <label>date</label>
+         <description>date of message</description>
+         <tooltip>Tooltip of attribute1</tooltip>
+         <database>
+            <unique>false</unique>
+            <indexfull>true</indexfull>
+            <indexed>false</indexed>
+            <tabled>false</tabled>
+            <constraint>false</constraint>
+            <binding>true</binding>
+         </database>
+         <events/>
+         <required language="JAVA">/*XEOJAVACLASS*/
+return new 
+xeo.code.java.lib1_0.
+LIB_MessageHandler().
+date_Required
+(this.getParent(),this);</required>
+         <formula/>
+         <defaultValue/>
+      </attributeDate>
+      <attributeObject name="PARENT">
+         <type>object.boObject</type>
+         <setParent>false</setParent>
+         <label>Father object</label>
+         <database>
+            <fieldname>PARENT$</fieldname>
+            <unique></unique>
+            <indexfull></indexfull>
+            <indexed></indexed>
+            <tabled>false</tabled>
+            <constraint></constraint>
+            <binding></binding>
+         </database>
+      </attributeObject>
+      <attributeObject name="PARENTCTX">
+         <type>object.boObject</type>
+         <setParent>false</setParent>
+         <label>Creation Context</label>
+         <database>
+            <fieldname>PARENTCTX$</fieldname>
+            <unique></unique>
+            <indexfull></indexfull>
+            <indexed></indexed>
+            <tabled>false</tabled>
+            <constraint></constraint>
+            <binding></binding>
+         </database>
+      </attributeObject>
+      <attributeObject name="TEMPLATE">
+         <type>object.Ebo_Template</type>
+         <setParent>false</setParent>
+         <label>Model</label>
+         <database>
+            <fieldname>TEMPLATE$</fieldname>
+            <unique></unique>
+            <indexfull></indexfull>
+            <indexed></indexed>
+            <tabled>false</tabled>
+            <constraint></constraint>
+            <binding></binding>
+         </database>
+      </attributeObject>
+      <attributeNumber name="BOUI">
+         <label>BOUI</label>
+         <grouping>false</grouping>
+         <decimals>0</decimals>
+      </attributeNumber>
+      <attributeText name="CLASSNAME">
+         <len>50</len>
+         <label>Object category</label>
+      </attributeText>
+      <attributeObject name="CREATOR">
+         <type>object.iXEOUser</type>
+         <setParent>false</setParent>
+         <label>Creator</label>
+         <database>
+            <fieldname>CREATOR$</fieldname>
+            <unique></unique>
+            <indexfull></indexfull>
+            <indexed></indexed>
+            <tabled>false</tabled>
+            <constraint></constraint>
+            <binding></binding>
+         </database>
+      </attributeObject>
+      <attributeDateTime name="SYS_DTCREATE">
+         <label>Creation date</label>
+      </attributeDateTime>
+      <attributeDateTime name="SYS_DTSAVE">
+         <label>Last Update Date</label>
+      </attributeDateTime>
+      <attributeText name="SYS_ORIGIN">
+         <len>30</len>
+         <label>Data origin</label>
+      </attributeText>
+      <attributeObject name="SYS_FROMOBJ">
+         <type>object.boObject</type>
+         <setParent>false</setParent>
+         <label>Origin Object</label>
+         <database>
+            <fieldname>SYS_FROMOBJ$</fieldname>
+            <unique></unique>
+            <indexfull></indexfull>
+            <indexed></indexed>
+            <tabled>false</tabled>
+            <constraint></constraint>
+            <binding></binding>
+         </database>
+      </attributeObject>
+   </attributes>
+   <viewers>
+      <viewer name="general">
+         <forms/>
+         <categories/>
+      </viewer>
+   </viewers>
+</xeoModel>

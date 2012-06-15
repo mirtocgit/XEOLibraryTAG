@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xeoModel xsi:noNamespaceSchemaLocation="../../xeoModel.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <general extendsJavaClass="" multiparent="false" orphan="true" mastertable="" extends="" version="1.0" type="object" name="LIB_Book">
+        <locale variant="" country="PT" language="pt"/>
+        <implements/>
+        <database/>
+        <versioning active="false"/>
+        <textIndex deep="1" appendChilds="false" active="true">
+            <process/>
+        </textIndex>
+        <description>A Book</description>
+        <cardID>[BOUI]</cardID>
+        <label>Book</label>
+    </general>
+    <opl active="false"/>
+    <states/>
+    <methods/>
+    <events/>
+    <fwdObjects/>
+    <attributes>
+        <attributeText name="title">
+            <label>Title</label>
+            <description>Book Title</description>
+            <tooltip></tooltip>
+            <len>100</len>
+            <database>
+                <unique>false</unique>
+                <indexfull>true</indexfull>
+                <indexed>false</indexed>
+                <tabled>false</tabled>
+                <constraint>false</constraint>
+                <binding>true</binding>
+            </database>
+            <events/>
+            <required language="BOL">true</required>
+            <onChangeSubmit language=""></onChangeSubmit>
+        </attributeText>
+        <attributeText name="isbn">
+            <label>ISBN</label>
+            <description>ISBN of the Book</description>
+            <tooltip></tooltip>
+            <len>13</len>
+            <database>
+                <unique>false</unique>
+                <indexfull>true</indexfull>
+                <indexed>false</indexed>
+                <tabled>false</tabled>
+                <constraint>false</constraint>
+                <binding>true</binding>
+            </database>
+            <events/>
+            <required language="BOL">true</required>
+            <onChangeSubmit language=""></onChangeSubmit>
+        </attributeText>
+        <attributeText name="edition">
+            <label>Edition</label>
+            <description>Book Edition</description>
+            <tooltip></tooltip>
+            <len>50</len>
+            <database>
+                <unique>false</unique>
+                <indexfull>true</indexfull>
+                <indexed>false</indexed>
+                <tabled>false</tabled>
+                <constraint>false</constraint>
+                <binding>true</binding>
+            </database>
+            <events/>
+            <required language="BOL">true</required>
+            <onChangeSubmit language=""></onChangeSubmit>
+        </attributeText>
+        <attributeLongText name="summary">
+            <label>Summary</label>
+            <description>Summary</description>
+            <tooltip></tooltip>
+            <editor>HTML</editor>
+            <database>
+                <unique>false</unique>
+                <indexfull>true</indexfull>
+                <indexed>false</indexed>
+                <tabled>false</tabled>
+                <constraint>false</constraint>
+                <binding>true</binding>
+            </database>
+            <events/>
+            <required language=""></required>
+            <onChangeSubmit language=""></onChangeSubmit>
+        </attributeLongText>
+        <attributeBinaryData name="frontCover">
+            <label>Front Cover</label>
+            <description>Front Cover of the book</description>
+            <tooltip></tooltip>
+            <database>
+                <unique>false</unique>
+                <indexfull>true</indexfull>
+                <indexed>false</indexed>
+                <tabled>false</tabled>
+                <constraint>false</constraint>
+                <binding>true</binding>
+            </database>
+            <events/>
+            <required language=""></required>
+            <formula language=""></formula>
+            <defaultValue language=""></defaultValue>
+            <onChangeSubmit language=""></onChangeSubmit>
+        </attributeBinaryData>
+        <attributeBinaryData name="backCover">
+            <label>Back Cover</label>
+            <description>Back Cover of the Book</description>
+            <tooltip></tooltip>
+            <database>
+                <unique>false</unique>
+                <indexfull>true</indexfull>
+                <indexed>false</indexed>
+                <tabled>false</tabled>
+                <constraint>false</constraint>
+                <binding>true</binding>
+            </database>
+            <events/>
+            <required language=""></required>
+            <formula language=""></formula>
+            <defaultValue language=""></defaultValue>
+            <onChangeSubmit language=""></onChangeSubmit>
+        </attributeBinaryData>
+        <attributeObject name="publisher">
+            <label>Publisher</label>
+            <description>Book Publisher</description>
+            <tooltip></tooltip>
+            <type>object.LIB_Publisher</type>
+            <objects/>
+            <setParent>false</setParent>
+            <renderAsLov>false</renderAsLov>
+            <database>
+                <unique>false</unique>
+                <indexfull>true</indexfull>
+                <indexed>false</indexed>
+                <tabled>false</tabled>
+                <constraint>false</constraint>
+                <binding>true</binding>
+            </database>
+            <events/>
+            <required language=""></required>
+            <formula language=""/>
+            <defaultValue language=""/>
+            <valid language=""/>
+            <disableWhen language=""/>
+            <hiddenWhen language=""/>
+            <onChangeSubmit language=""></onChangeSubmit>
+            <orphanRelation>true</orphanRelation>
+        </attributeObject>
+        <attributeObjectCollection name="categories">
+            <label>Categories</label>
+            <description>Book Categories</description>
+            <tooltip></tooltip>
+            <type>object.LIB_BookCategory</type>
+            <objects/>
+            <setParent>false</setParent>
+            <minOccurs>0</minOccurs>
+            <maxOccurs>N</maxOccurs>
+            <database>
+                <unique>false</unique>
+                <indexfull>true</indexfull>
+                <indexed>false</indexed>
+                <tabled>false</tabled>
+                <constraint>false</constraint>
+                <binding>true</binding>
+            </database>
+            <events/>
+            <required language=""/>
+            <onChangeSubmit language=""/>
+            <orphanRelation>true</orphanRelation>
+        </attributeObjectCollection>
+        <attributeText name="state">
+            <label>State</label>
+            <description>The Book State</description>
+            <tooltip></tooltip>
+            <len>1</len>
+            <lov retainValues="true" name="book_state"/>
+            <database>
+                <unique>false</unique>
+                <indexfull>true</indexfull>
+                <indexed>false</indexed>
+                <tabled>false</tabled>
+                <constraint>false</constraint>
+                <binding>true</binding>
+            </database>
+            <events/>
+            <required language="BOL">true</required>
+            <onChangeSubmit language=""/>
+        </attributeText>
+    </attributes>
+    <viewers>
+        <viewer name="general">
+            <forms>
+			</forms>
+            <categories/>
+        </viewer>
+    </viewers>
+</xeoModel>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="XEOLibrary_Development" default="all" basedir="./">
+	<property name="destination" value="C:/xeostudio/generated-ears/XEOLIbrary" />
+	<property name="bin" value="${basedir}/bin" />
+
+	<property name="war.name" value="XEOLibrary_Development.war" />
+	<property name="ear.name" value="XEOLibrary.ear" />
+	<property name="ejbjar.name" value="XEOLibrary.jar" />
+	
+	<mkdir dir="${basedir}/.deploytmp"/>
+	<mkdir dir="${basedir}/.deploytmp/ear"/>
+	<target name='all' depends='ear'>
+	</target>
+
+	<path id='libs'>
+		<pathelement location="${basedir}/bin/" />
+		<fileset dir="${basedir}/project_lib/" includes="*.jar" />
+		<fileset dir="${basedir}/base_lib/j2ee/" includes="*.jar" />
+		<fileset dir="${basedir}/base_lib/modules/" includes="*.jar" />
+		<fileset dir="${basedir}/base_lib/modules_lib/" includes="*.jar" />
+	</path>
+	<target name='ejb'>
+		<jar jarfile="${basedir}/.deploytmp/ear/${ejbjar.name}" basedir="${bin}" />
+	</target>
+	<target name='war'>
+		<war destfile='${basedir}/.deploytmp/ear/${war.name}' webxml='${basedir}/webapps/default/WEB-INF/web.xml'>
+			<fileset dir="${basedir}/webapps/default/">
+				<exclude name="**/.xeodeploy/**" />
+			</fileset>
+			<classes dir="${basedir}/.xeometasettings/.eardefs/XEOLibrary/" includes='xeo.home' />
+		</war>
+		 
+	</target>
+
+
+	<target name='ear' depends='ejb,war'>
+		<copy todir='${basedir}/.deploytmp/ear/lib'>
+			<fileset dir="${basedir}/project_lib/" includes='*.*' />
+			<fileset dir="${basedir}/base_lib/modules_lib/" includes='*.*' />
+			<fileset dir="${basedir}/base_lib/modules/" includes='*.*' />
+		</copy>
+
+		<copy todir='${basedir}/.deploytmp/ear/'>
+			<fileset dir="${basedir}" includes='**/base_lib/modules_web/**' />
+			<fileset dir="${basedir}" includes='**/bodef/**' />
+			<fileset dir="${basedir}" includes='**/.build/**' />
+			<fileset dir="${basedir}" includes='**/wordtemplates/**' />
+			<fileset dir="${basedir}" includes='**/uidef/**' />
+			<fileset dir="${basedir}" includes='*.ver' />
+			<fileset dir="${basedir}" includes='*.xsd' />
+			<fileset dir="${basedir}/.xeometasettings/.eardefs/XEOLibrary/" includes='boconfig.xml' />
+			<fileset dir="${basedir}/.xeometasettings/.eardefs/XEOLibrary/" includes='ifileservices.xml' />
+		</copy>
+		<copy todir='${basedir}/.deploytmp/ear/META-INF'>
+			<fileset dir="${basedir}/.xeometasettings/.eardefs/XEOLibrary/" includes='application.xml' />
+			<fileset dir="${basedir}/.xeometasettings/.eardefs/XEOLibrary/" includes='jboss-app.xml' />
+		</copy>
+		<jar jarfile="${destination}/${ear.name}" basedir="${basedir}/.deploytmp/ear/" />
+		<delete dir='${basedir}/.deploytmp/ear/' />
+	</target>
+</project>

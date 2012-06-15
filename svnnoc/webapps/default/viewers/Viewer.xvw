@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xvw:root xmlns:xeo="http://www.netgest.net/xeo/xeo" xmlns:xvw="http://www.netgest.net/xeo/xvw">
+    <xvw:viewer beanClass="org.xeoframework.demo.DemoBean" beanId="viewBean">
+        <xeo:formEdit renderToolBar="false" showDifferences="true">
+            <xeo:editToolBar renderExportMenu="true"
+                renderInformationMenu="true" renderListVersionBtn="true"/>
+            <xvw:panel>
+                <xvw:section label="Viewer Demo">
+                    <xvw:tabs>
+                    	<xvw:tab>
+                    	
+                    		<xvw:gridPanel>
+                    			<xvw:columns>
+                    				<xvw:columnAttribute label="column1" dataField="result1" />
+                    			</xvw:columns>
+                    		</xvw:gridPanel>
+                    		
+                    		
+                    		<xvw:gridPanel autoHeight="true" enableGroupBy="true" 
+                    			height="400" layout=""  >
+                    		       <xvw:columns>
+                    				<xvw:columnAttribute label="column1" dataField="result1" />
+                    			</xvw:columns>        
+                    		</xvw:gridPanel>
+                    		
+                    		
+                    		<xvw:gridPanel autoHeight="true" enableGroupBy="true" 
+                    			height="400" layout="" dataSource="#{viewBean.datasource}" 
+                    			onRowDoubleClick="#{viewBean.openViewer}">
+                    		       <xvw:columns>
+                    				<xvw:columnAttribute label="column1" dataField="result1" />
+                    			</xvw:columns>        
+                    		</xvw:gridPanel>
+                    		
+                    		
+                    		
+                    		
+                    		
+                    		
+                    		
+                    		
+                    	</xvw:tab>
+                    </xvw:tabs>
+                </xvw:section>
+                <xvw:tabs/>
+            </xvw:panel>
+        </xeo:formEdit>
+    </xvw:viewer>
+</xvw:root>

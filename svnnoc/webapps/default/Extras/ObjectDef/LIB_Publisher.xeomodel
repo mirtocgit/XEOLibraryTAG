@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xeoModel xsi:noNamespaceSchemaLocation="../../xeoModel.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <general extendsJavaClass="" multiparent="false" orphan="true" mastertable="" extends="" version="1.0" type="object" name="LIB_Publisher">
+        <locale variant="" country="PT" language="pt"/>
+        <implements/>
+        <database/>
+        <versioning active="false"/>
+        <textIndex deep="1" appendChilds="false" active="true">
+            <process/>
+        </textIndex>
+        <description>A Book Publisher</description>
+        <cardID>[name]</cardID>
+        <label>Publisher</label>
+    </general>
+    <opl active="false"/>
+    <states/>
+    <methods/>
+    <events/>
+    <fwdObjects/>
+    <attributes>
+        <attributeText name="name">
+            <label>Name</label>
+            <description>Name of Publisher</description>
+            <tooltip></tooltip>
+            <len>40</len>
+            <database>
+                <unique>false</unique>
+                <indexfull>true</indexfull>
+                <indexed>false</indexed>
+                <tabled>false</tabled>
+                <constraint>false</constraint>
+                <binding>true</binding>
+            </database>
+            <events/>
+            <required language="BOL">true</required>
+            <onChangeSubmit language=""></onChangeSubmit>
+        </attributeText>
+        <attributeText name="address">
+            <label>Address</label>
+            <description>Publiser's Address</description>
+            <tooltip></tooltip>
+            <len>50</len>
+            <database>
+                <unique>false</unique>
+                <indexfull>true</indexfull>
+                <indexed>false</indexed>
+                <tabled>false</tabled>
+                <constraint>false</constraint>
+                <binding>true</binding>
+            </database>
+            <events/>
+            <required language="BOL">true</required>
+            <onChangeSubmit language=""></onChangeSubmit>
+        </attributeText>
+        <attributeText name="website">
+            <label>Web Site</label>
+            <description>Publisher's Web Site</description>
+            <tooltip></tooltip>
+            <len>40</len>
+            <database>
+                <unique>false</unique>
+                <indexfull>true</indexfull>
+                <indexed>false</indexed>
+                <tabled>false</tabled>
+                <constraint>false</constraint>
+                <binding>true</binding>
+            </database>
+            <events/>
+            <required language=""></required>
+            <onChangeSubmit language=""></onChangeSubmit>
+        </attributeText>
+        <attributeObjectCollection name="nucleus">
+            <label>Nucleus</label>
+            <description>Various Nucleus of the Publisher</description>
+            <tooltip></tooltip>
+            <type>object.LIB_PublisherNucleus</type>
+            <objects/>
+            <setParent>false</setParent>
+            <minOccurs>0</minOccurs>
+            <maxOccurs>N</maxOccurs>
+            <database>
+                <unique>false</unique>
+                <indexfull>true</indexfull>
+                <indexed>false</indexed>
+                <tabled>false</tabled>
+                <constraint>false</constraint>
+                <binding>true</binding>
+            </database>
+            <events/>
+            <required language=""/>
+            <onChangeSubmit language=""/>
+            <orphanRelation>false</orphanRelation>
+        </attributeObjectCollection>
+    </attributes>
+    <viewers>
+        <viewer name="general">
+            <forms>
+			</forms>
+            <categories/>
+        </viewer>
+    </viewers>
+</xeoModel>

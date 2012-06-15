@@ -1,0 +1,225 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<!-- edited with XMLSpy v2006 U (http://www.altova.com) by mfernandes (EMBRACE) -->
+<!--Ficheiro xeoModel v2 convertido em:Tue May 30 16:02:23 BST 2006-->
+<xeoModel xmlns:xm="xeoModel" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="C:\projects\lusitania\xeov2\xeoHome\xeoModel.xsd">
+   <general name="Ebo_LOV" type="object" version="1.0" extends="" orphan="true" multiparent="false" extendsJavaClass="">
+      <locale language="pt" country="PT" variant=""/>
+      <implements/>
+      <database/>
+      <versioning active="false"/>
+      <textIndex active="true" appendChilds="false" deep="1">
+         <process/>
+      </textIndex>
+      <description>Ebo_LOV</description>
+      <cardID>[name]</cardID>
+      <label>Lista de Valores</label>
+   </general>
+   <opl active="false"/>
+   <states>
+      <state name="state">
+         <label>state</label>
+         <options>
+            <option name="Inactive" value="0" active="true">
+               <label>Inactivo</label>
+               <subStates/>
+            </option>
+            <option name="active" value="1" active="true">
+               <label>Activo</label>
+               <subStates/>
+            </option>
+         </options>
+      </state>
+   </states>
+   <methods>
+      <method name="orderByValue" menu="true" toolbar="true">
+         <label>Ordenar p/ Valor</label>
+         <icon/>
+         <javascriptToRun>
+            <viewer name="edit">
+               <before/>
+               <after/>
+            </viewer>
+         </javascriptToRun>
+         <hiddenWhen language="JAVA">return false;</hiddenWhen>
+         <assinature return=""/>
+         <body language="JAVA">netgest.bo.lovmanager.LovManager.orderByValue(this);</body>
+      </method>
+      <method name="orderByDesc" menu="true" toolbar="true">
+         <label>Ordenar p/ Descrição</label>
+         <icon/>
+         <javascriptToRun>
+            <viewer name="edit">
+               <before/>
+               <after/>
+            </viewer>
+         </javascriptToRun>
+         <hiddenWhen language="JAVA">return false;</hiddenWhen>
+         <assinature return=""/>
+         <body language="JAVA">netgest.bo.lovmanager.LovManager.orderByDescription(this);</body>
+      </method>
+   </methods>
+   <events>
+      <event name="onBeforeSave">
+         <body language="JAVA"/>
+      </event>
+      <event name="onAfterSave">
+         <body language="JAVA">netgest.bo.lovmanager.LovManager.removeLovObject( this.getAttribute("name").getValueString() );</body>
+      </event>
+   </events>
+   <fwdObjects/>
+   <attributes>
+      <attributeText name="name">
+         <len>50</len>
+         <label>Nome</label>
+         <tooltip/>
+      </attributeText>
+      <attributeText name="xeolovfile">
+         <len>50</len>
+         <label>Ficheiro da Lov</label>
+         <tooltip/>
+      </attributeText>
+      <attributeText name="fromTable">
+         <len>100</len>
+         <label>Valores da Tabela</label>
+         <tooltip/>
+      </attributeText>
+      <attributeText name="fieldForCode">
+         <len>100</len>
+         <label>Campo do Código</label>
+         <tooltip/>
+      </attributeText>
+      <attributeText name="whereClause">
+         <len>500</len>
+         <label>Clausula Where</label>
+         <tooltip/>
+      </attributeText>
+      <attributeText name="fieldForLabel">
+         <len>100</len>
+         <label>Campo da Descrição</label>
+         <tooltip/>
+      </attributeText>
+      <attributeText name="lang">
+         <len>10</len>
+         <label>Idioma</label>
+         <tooltip/>
+         <lov name="LANGUAGES" retainValues="false"/>
+      </attributeText>
+      <attributeObjectCollection name="details">
+         <type>object.Ebo_LOVDetails</type>
+         <label>Lista de Valores</label>
+         <renderAsLov>false</renderAsLov>
+         <tooltip/>
+         <maxOccurs>N</maxOccurs>
+         <minOccurs>0</minOccurs>
+         <objectFilter/>
+         <bridge>
+            <attributes>
+               <attributeNumber name="LIN">
+                  <label>Line</label>
+                  <grouping>false</grouping>
+                  <decimals>0</decimals>
+               </attributeNumber>
+            </attributes>
+         </bridge>
+      </attributeObjectCollection>
+      <attributeLongText name="sqlQuery">
+         <label>Query</label>
+         <editor>TEXT</editor>
+      </attributeLongText>
+      <attributeObject name="PARENT">
+         <type>object.boObject</type>
+         <setParent>false</setParent>
+         <label>Father object</label>
+         <database>
+            <fieldname>PARENT$</fieldname>
+            <unique></unique>
+            <indexfull></indexfull>
+            <indexed></indexed>
+            <tabled>false</tabled>
+            <constraint></constraint>
+            <binding></binding>
+         </database>
+      </attributeObject>
+      <attributeObject name="PARENTCTX">
+         <type>object.boObject</type>
+         <setParent>false</setParent>
+         <label>Creation Context</label>
+         <database>
+            <fieldname>PARENTCTX$</fieldname>
+            <unique></unique>
+            <indexfull></indexfull>
+            <indexed></indexed>
+            <tabled>false</tabled>
+            <constraint></constraint>
+            <binding></binding>
+         </database>
+      </attributeObject>
+      <attributeObject name="TEMPLATE">
+         <type>object.Ebo_Template</type>
+         <setParent>false</setParent>
+         <label>Model</label>
+         <database>
+            <fieldname>TEMPLATE$</fieldname>
+            <unique></unique>
+            <indexfull></indexfull>
+            <indexed></indexed>
+            <tabled>false</tabled>
+            <constraint></constraint>
+            <binding></binding>
+         </database>
+      </attributeObject>
+      <attributeNumber name="BOUI">
+         <label>BOUI</label>
+         <grouping>false</grouping>
+         <decimals>0</decimals>
+      </attributeNumber>
+      <attributeText name="CLASSNAME">
+         <len>50</len>
+         <label>Object category</label>
+      </attributeText>
+      <attributeObject name="CREATOR">
+         <type>object.iXEOUser</type>
+         <setParent>false</setParent>
+         <label>Creator</label>
+         <database>
+            <fieldname>CREATOR$</fieldname>
+            <unique></unique>
+            <indexfull></indexfull>
+            <indexed></indexed>
+            <tabled>false</tabled>
+            <constraint></constraint>
+            <binding></binding>
+         </database>
+      </attributeObject>
+      <attributeDateTime name="SYS_DTCREATE">
+         <label>Creation date</label>
+      </attributeDateTime>
+      <attributeDateTime name="SYS_DTSAVE">
+         <label>Last Update Date</label>
+      </attributeDateTime>
+      <attributeText name="SYS_ORIGIN">
+         <len>30</len>
+         <label>Data origin</label>
+      </attributeText>
+      <attributeObject name="SYS_FROMOBJ">
+         <type>object.boObject</type>
+         <setParent>false</setParent>
+         <label>Origin Object</label>
+         <database>
+            <fieldname>SYS_FROMOBJ$</fieldname>
+            <unique></unique>
+            <indexfull></indexfull>
+            <indexed></indexed>
+            <tabled>false</tabled>
+            <constraint></constraint>
+            <binding></binding>
+         </database>
+      </attributeObject>
+   </attributes>
+   <viewers>
+      <viewer name="general">
+         <forms/>
+         <categories/>
+      </viewer>
+   </viewers>
+</xeoModel>

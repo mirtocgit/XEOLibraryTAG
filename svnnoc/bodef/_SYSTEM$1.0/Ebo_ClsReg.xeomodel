@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xeoModel xsi:noNamespaceSchemaLocation="../../xeoModel.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <general extendsJavaClass="" multiparent="false" orphan="true" extends="" version="1.0" type="object" name="Ebo_ClsReg">
+        <locale variant="" country="PT" language="pt"/>
+        <implements/>
+        <database>
+            <object id="UN_CLASSNAME" type="unique">
+                <label>Uniquekey for Classname</label>
+                <expression>name</expression>
+            </object>
+        </database>
+        <versioning active="false"/>
+        <textIndex deep="1" appendChilds="false" active="true">
+            <process/>
+        </textIndex>
+        <description>Ebo_ClsReg</description>
+        <cardID>[description]</cardID>
+        <label>Objectos no Sistema</label>
+    </general>
+    <opl active="false"/>
+    <states>
+        <state name="state">
+            <label>state</label>
+            <options>
+                <option value="0" name="Inactive" active="true">
+                    <label>Inactiva</label>
+                    <subStates/>
+                </option>
+                <option value="1" name="active" active="true">
+                    <label>Activa</label>
+                    <subStates/>
+                </option>
+            </options>
+        </state>
+    </states>
+    <methods/>
+    <events>
+        <event name="onAfterSave">
+            <body language="JAVA">netgest.bo.security.securityRights.cleanObjectPolicies();</body>
+        </event>
+    </events>
+    <fwdObjects/>
+    <attributes>
+        <attributeObject name="xeopackage">
+            <label>Package</label>
+            <tooltip></tooltip>
+            <type>object.Ebo_Package</type>
+            <objectFilter/>
+            <renderAsLov>false</renderAsLov>
+        </attributeObject>
+        <attributeText name="name">
+            <label>Nome</label>
+            <tooltip></tooltip>
+            <len>50</len>
+        </attributeText>
+        <attributeText name="phisicaltable">
+            <label>Nome</label>
+            <tooltip></tooltip>
+            <len>50</len>
+        </attributeText>
+        <attributeText name="description">
+            <label>Descrição</label>
+            <tooltip></tooltip>
+            <len>4000</len>
+            <editor>HTML</editor>
+        </attributeText>
+        <attributeText name="label">
+            <label>Label</label>
+            <tooltip></tooltip>
+            <len>4000</len>
+        </attributeText>
+        <attributeText name="ClsChild">
+            <label>Nome</label>
+            <tooltip></tooltip>
+            <len>20</len>
+        </attributeText>
+        <attributeBoolean name="deployed">
+            <label>Deployed</label>
+            <tooltip></tooltip>
+            <renderAsCheck>false</renderAsCheck>
+        </attributeBoolean>
+        <attributeObjectCollection name="security">
+            <label>Segurança</label>
+            <tooltip></tooltip>
+            <type>object.Ebo_Policy</type>
+            <objectFilter/>
+            <bridge>
+                <attributes/>
+            </bridge>
+            <renderAsLov>false</renderAsLov>
+            <minOccurs>0</minOccurs>
+            <maxOccurs>N</maxOccurs>
+        </attributeObjectCollection>
+        <attributeObject name="defaulttemplate">
+            <label>Template por Defeito</label>
+            <tooltip></tooltip>
+            <type>object.Ebo_Template</type>
+            <objectFilter/>
+            <renderAsLov>false</renderAsLov>
+        </attributeObject>
+        <attributeObjectCollection name="attributes">
+            <label>Atributos</label>
+            <description></description>
+            <tooltip></tooltip>
+            <type>object.Ebo_Attribute</type>
+            <objects/>
+            <objectFilter/>
+            <bridge>
+                <attributes/>
+            </bridge>
+            <setParent>false</setParent>
+            <renderAsLov>false</renderAsLov>
+            <minOccurs>0</minOccurs>
+            <maxOccurs>N</maxOccurs>
+            <database>
+                <unique>false</unique>
+                <indexfull>true</indexfull>
+                <indexed>false</indexed>
+                <tabled>false</tabled>
+                <constraint>false</constraint>
+                <binding>true</binding>
+            </database>
+            <events/>
+            <required/>
+            <onChangeSubmit/>
+            <orphanRelation>true</orphanRelation>
+        </attributeObjectCollection>
+        <attributeObjectCollection name="methods">
+            <label>Metodos</label>
+            <tooltip></tooltip>
+            <type>object.Ebo_Method</type>
+            <objectFilter/>
+            <bridge>
+                <attributes/>
+            </bridge>
+            <renderAsLov>false</renderAsLov>
+            <minOccurs>0</minOccurs>
+            <maxOccurs>N</maxOccurs>
+        </attributeObjectCollection>
+        <attributeLongText name="xmlsource">
+            <label>XML da Classe do Objecto</label>
+            <tooltip></tooltip>
+            <textIndex active="false"/>
+            <editor>HTML</editor>
+        </attributeLongText>
+    </attributes>
+    <viewers>
+        <viewer name="general">
+            <forms>
+                <form name="edit" template="std">
+                    <areas>
+                        <area bo_node="identification" label="Identificação">
+                            <panel voui="panel">
+                                <tab bo_node="identification" voui="tab1">
+                                    <section height="100%" label="node.label" showlabel="no">
+                                        <rows>
+                                            <row>
+                                                <cell>
+                                                    <attribute showlabel="yes">name</attribute>
+												</cell>
+                                                <cell/>
+											</row>
+                                            <row>
+                                                <cell>
+                                                    <attribute height="100%" showlabel="no">description</attribute>
+												</cell>
+											</row>
+                                            <row>
+                                                <cell>
+                                                    <attribute height="100%" showlabel="no">xeopackage</attribute>
+												</cell>
+											</row>
+                                            <row>
+                                                <cell>
+                                                    <attribute height="100%" showlabel="yes">defaulttemplate</attribute>
+												</cell>
+											</row>
+										</rows>
+									</section>
+								</tab>
+							</panel>
+						</area>
+                        <area bo_node="attributes" label="node.label" name="attributes" order="10">
+                            <panel>
+                                <tab bo_node="attributes" name="attributes" order="70">
+                                    <div height="100%" width="100%">attributes.list</div>
+								</tab>
+							</panel>
+						</area>
+                        <area bo_node="methods" label="node.label" name="methods" order="10">
+                            <panel>
+                                <tab bo_node="methods" name="methods" order="70">
+                                    <div height="100%" width="100%">methods.list</div>
+								</tab>
+							</panel>
+						</area>
+                        <area bo_node="security" label="node.label" name="security" order="20">
+                            <panel>
+                                <tab bo_node="security" name="security" order="70">
+                                    <div height="100%" width="100%">security.list</div>
+								</tab>
+							</panel>
+						</area>
+					</areas>
+				</form>
+                <form formtype="List" name="list">
+                    <grid bo_node="identification" name="listrs" template="std">
+                        <cols>
+                            <col width="100">
+                                <attribute>description</attribute>
+							</col>
+                            <col width="200">
+                                <attribute>name</attribute>
+							</col>
+						</cols>
+					</grid>
+				</form>
+			</forms>
+            <categories>
+                <category description="" label="Identificação" name="identification">
+                    <attributes/>
+				</category>
+			</categories>
+        </viewer>
+    </viewers>
+</xeoModel>

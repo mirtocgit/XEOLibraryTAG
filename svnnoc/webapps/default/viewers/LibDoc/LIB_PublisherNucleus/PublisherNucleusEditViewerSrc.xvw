@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xvw:root xmlns:xvw="http://www.netgest.net/xeo/xvw" xmlns:xeo="http://www.netgest.net/xeo/xeo">
+	<xvw:viewer beanClass="netgest.bo.xwc.xeo.beans.XEOBaseBean"
+		beanId="viewBean">
+		<xvw:form>
+			<xvw:title valueExpression="LIB_PublisherNucleus Edit Viewer"></xvw:title>
+			<xvw:panel title="">
+				<xvw:section label="Viewer XVW">
+					<iframe src='/xeo/PrintScr.jsp?comp=/viewers/LIB_PublisherNucleus/edit.xvw' 
+						frameborder='0' width='100%' height='98%'></iframe>
+				</xvw:section>			
+			</xvw:panel>
+		</xvw:form>
+	</xvw:viewer>
+
+</xvw:root>

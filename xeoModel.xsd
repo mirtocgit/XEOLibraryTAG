@@ -1,0 +1,1697 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!-- edited with XMLSpy v2009 (http://www.altova.com) by acruz (EMBRACE) -->
+<!-- Editado por Pedro Rio (prio@itds.pt) in 26 Maio de 2009 -->
+<xs:schema xmlns:xm="xeoModel" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:jaxb="http://java.sun.com/xml/ns/jaxb" elementFormDefault="unqualified" attributeFormDefault="unqualified" jaxb:version="2.0">
+	<!-- XPortal, objectos antigos? XEO_Image.xeomodel No package PORTAL$1.0$PORTLETS-->
+	<xs:annotation>
+		<xs:appinfo>
+			<jaxb:globalBindings typesafeEnumMemberName="generateName"/>
+		</xs:appinfo>
+	</xs:annotation>
+	<xs:element name="documentation">
+		<xs:annotation>
+			<xs:documentation> This element represents documentation about a given element inside
+				the object. The Documentation element is designed to document: General Properties of
+				an Object (Tag "General") Attributes of an Object (Tag "Attributes") Events of an
+				Object (Tag "Events") Methods of an Object (Tag "Methods") </xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="inline" maxOccurs="unbounded">
+					<xs:annotation>
+						<xs:documentation>
+							Inline documentation, in the native
+							language
+						</xs:documentation>
+					</xs:annotation>
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="description" type="xs:string">
+								<xs:annotation>
+									<xs:documentation>Content of the documentation</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="author" type="xs:string">
+								<xs:annotation>
+									<xs:documentation>The name of the author of this comment</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="editDate" type="xs:date">
+								<xs:annotation>
+									<xs:documentation>
+										The date of the last update to this comment.
+										Format is: YYYY-MM-DD
+									</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="formattedDocumentation" type="xs:string" minOccurs="0">
+								<xs:annotation>
+									<xs:documentation>Formated documentation using a small set of
+										HTML (BBCode?)</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+						</xs:sequence>
+						<xs:attribute name="lang" type="languageEnum" use="required">
+							<xs:annotation>
+								<xs:documentation>The language of this inline documentation</xs:documentation>
+							</xs:annotation>
+						</xs:attribute>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="docref" minOccurs="0" maxOccurs="unbounded">
+					<xs:annotation>
+						<xs:documentation>Reference to a documentation
+							element</xs:documentation>
+					</xs:annotation>
+					<xs:complexType>
+						<xs:attribute name="ref" type="xs:string">
+							<xs:annotation>
+								<xs:documentation>
+								The MRI of the resource element
+								</xs:documentation>
+							</xs:annotation>
+						</xs:attribute>
+						<xs:attribute name="lang" type="xs:string">
+							<xs:annotation>
+								<xs:documentation>
+									The language of the referenced documentation (to use when one wants to select
+								a specific language)
+								</xs:documentation>
+							</xs:annotation>
+						</xs:attribute>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<!--definições globais -->
+	<xs:simpleType name="EditorEnum">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="HTML"/>
+			<xs:enumeration value="TEXT"/>
+			<xs:enumeration value="CODE"/>
+			<xs:enumeration value="HTMLADVANCED"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="AttributeEventsEnum">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="onChange"/>
+			<xs:enumeration value="onBeforeGetValue"/>
+			<xs:enumeration value="onBeforeLoadBridge"/>
+			<xs:enumeration value="onBeforeAdd"/>
+			<xs:enumeration value="onBeforeChange"/>
+			<xs:enumeration value="onBeforeChangeOrder"/>
+			<xs:enumeration value="onAfterAdd"/>
+			<xs:enumeration value="onAfterChange"/>
+			<xs:enumeration value="onAfterGetValue"/>
+			<xs:enumeration value="onAfterLoadBridge"/>
+			<xs:enumeration value="onAfterChangeOrder"/>
+			<xs:enumeration value="onBeforeRemove"/>
+			<xs:enumeration value="onAfterRemove"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ObjectEventsEnum">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="onAfterCreate">
+				<xs:annotation>
+					<xs:documentation>Event that its fired, after the
+												creation of an Instance object of this
+												model</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="onAfterDestroy">
+				<xs:annotation>
+					<xs:documentation>Event that is fired, after the
+												destruction of the object</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="onAfterLoad">
+				<xs:annotation>
+					<xs:documentation>Event that is fired, upon successful
+												loading of the object</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="onAfterSave">
+				<xs:annotation>
+					<xs:documentation>Event that is fired upon saving the
+												object</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="onBeforeCreate">
+				<xs:annotation>
+					<xs:documentation>Event that is fired right before the
+												process of creating the object</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="onBeforeDestroy">
+				<xs:annotation>
+					<xs:documentation>Event that is fired right before the
+												destruction of the object is carried
+												out</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="onBeforeLoad">
+				<xs:annotation>
+					<xs:documentation>Event that is fired right before the
+												process of loading an object</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="onBeforeSave">
+				<xs:annotation>
+					<xs:documentation>Event that is fired right before the
+												object is saved in the database</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="xeoCodeNotEmptyElement">
+		<xs:restriction base="xs:string"/>
+	</xs:simpleType>
+	<xs:simpleType name="referenceToAttribute">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[a-zA-Z0-9_-_.]+"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="transactionModeEnum">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Required"/>
+			<xs:enumeration value="RequiresNew"/>
+			<xs:enumeration value="Suports"/>
+			<xs:enumeration value="NotSuported"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="xeoLanguageEnum">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="XEP">
+				<xs:annotation>
+					<xs:documentation> XEP (XEO Program) - Scripting Language to use
+					in XEO </xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="BOL">
+				<xs:annotation>
+					<xs:documentation> BOL - Business Object Language - A set of
+					logical expressions to use in XEO </xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="JAVA">
+				<xs:annotation>
+					<xs:documentation> SUN Java Language </xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="BOOLEAN">
+				<xs:annotation>
+					<xs:documentation> Boolean only - true/false </xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="xeoLanguage">
+		<xs:annotation>
+			<xs:documentation> Defines an element to put code that will be run by the framework. The
+				code can be from any of the languages defined in the list. </xs:documentation>
+		</xs:annotation>
+		<xs:simpleContent>
+			<xs:extension base="xeoCodeNotEmptyElement">
+				<xs:attribute name="language" type="xeoLanguageEnum" use="required"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="xeoLanguageComplex" mixed="true">
+		<xs:attribute name="language" type="xeoLanguageEnum" use="required"/>
+	</xs:complexType>
+	<xs:complexType name="xeoLanguageWithDepends" mixed="true">
+		<xs:complexContent mixed="true">
+			<xs:extension base="xeoLanguageComplex">
+				<xs:sequence>
+					<xs:element name="depends" minOccurs="0">
+						<xs:complexType>
+							<xs:sequence>
+								<xs:element name="attribute" type="referenceToAttribute" minOccurs="0" maxOccurs="unbounded"/>
+							</xs:sequence>
+						</xs:complexType>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:simpleType name="unboundedType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="N"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="yesOrNo">
+		<xs:annotation>
+			<xs:documentation> Simples enumeration of "yes" or "no", mimicking the behavior of a
+				boolean value </xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="yes"/>
+			<xs:enumeration value="no"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="deepValueEnum">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="1"/>
+			<xs:enumeration value="2"/>
+			<xs:enumeration value="3"/>
+			<xs:enumeration value="4"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="countryEnum">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="PT"/>
+			<xs:enumeration value="BR"/>
+			<xs:enumeration value="UK"/>
+			<xs:enumeration value="US"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="Objects">
+		<xs:annotation>
+			<xs:documentation> Defines the means to make reference to a set of XEO Objects
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="object"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="maxOccursType">
+		<xs:union memberTypes="unboundedType xs:nonNegativeInteger"/>
+	</xs:simpleType>
+	<xs:simpleType name="objectTypeEnum">
+		<xs:annotation>
+			<xs:documentation>Instance of this model can be XEO Objects, XEO Interfaces
+							or XEO Abstract Objects</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="object"/>
+			<xs:enumeration value="interface"/>
+			<xs:enumeration value="abstract"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="DBConstraintTypeEnum">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="index"/>
+			<xs:enumeration value="unique"/>
+			<xs:enumeration value="primary"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="languageEnum">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="pt"/>
+			<xs:enumeration value="en"/>
+			<xs:enumeration value="es"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- fim de definições globais -->
+	<xs:element name="label" type="xs:string">
+		<xs:annotation>
+			<xs:documentation> Defines a label element to be reused, labels have purpose of being a
+				friendly visual representation of some less friendly name. </xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="general">
+		<xs:annotation>
+			<xs:documentation> Definition of an element that defines "general" properties about the
+				XEO Object Model (it's required) </xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="locale">
+					<xs:annotation>
+						<xs:documentation> Identification of the country and language used to
+							describe the model </xs:documentation>
+					</xs:annotation>
+					<xs:complexType>
+						<xs:attribute name="language" type="languageEnum" default="pt"/>
+						<xs:attribute name="country" type="countryEnum" default="PT"/>
+						<xs:attribute name="variant" type="xs:string" use="required"/>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="implements">
+					<xs:annotation>
+						<xs:documentation> List of Interface Models that this Model must implement
+						</xs:documentation>
+					</xs:annotation>
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="interface" minOccurs="0" maxOccurs="unbounded"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="database">
+					<xs:annotation>
+						<xs:documentation> Advanced options to defined indexes and primary keys in
+							the database </xs:documentation>
+					</xs:annotation>
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="object" minOccurs="0" maxOccurs="unbounded">
+								<xs:annotation>
+									<xs:documentation> XXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+									</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element ref="label"/>
+										<xs:element name="expression"/>
+									</xs:sequence>
+									<xs:attribute name="type" type="DBConstraintTypeEnum" use="required"/>
+									<xs:attribute name="id" use="required"/>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="versioning">
+					<xs:annotation>
+						<xs:documentation>XXXXXXXXXXXXXXXXXXXXXXXXXXX</xs:documentation>
+					</xs:annotation>
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="checkoutOptions" minOccurs="0">
+								<xs:complexType>
+									<xs:attribute name="active" type="xs:boolean" use="required"/>
+									<xs:attribute name="allowMultiple" type="xs:boolean" use="required"/>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="workflows" minOccurs="0">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="destroyWorkflow" type="xs:string"/>
+										<xs:element name="modifyWorkflow" type="xs:string"/>
+										<xs:element name="createWorkflow" type="xs:string"/>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+						<xs:attribute name="active" type="xs:boolean" use="optional" default="false"/>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="textIndex">
+					<xs:annotation>
+						<xs:documentation> Element to choose the attributes of this model that will
+							be used by textIndex to index content (to ease searching) The objective
+							of this element is to limit the attributes that are used for fulltext
+							searches </xs:documentation>
+					</xs:annotation>
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="process">
+								<xs:complexType>
+									<xs:sequence minOccurs="0" maxOccurs="unbounded">
+										<xs:element name="attribute">
+											<xs:complexType>
+												<xs:simpleContent>
+													<xs:extension base="referenceToAttribute">
+														<xs:attribute name="onlyCardID" type="xs:boolean" use="optional" default="false"/>
+													</xs:extension>
+												</xs:simpleContent>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+						<xs:attribute name="active" use="required">
+							<xs:simpleType>
+								<xs:restriction base="xs:boolean"/>
+							</xs:simpleType>
+						</xs:attribute>
+						<xs:attribute name="appendChilds" use="required">
+							<xs:simpleType>
+								<xs:restriction base="xs:boolean"/>
+							</xs:simpleType>
+						</xs:attribute>
+						<xs:attribute name="deep" type="deepValueEnum" use="required"/>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="castTo" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>Utiliza-se quando se pretende ter a possibilidade de fazer
+							a transformação dos objectos desta classe de negócio para outra classe
+							de negócio</xs:documentation>
+					</xs:annotation>
+					<xs:complexType>
+						<xs:sequence minOccurs="0" maxOccurs="unbounded">
+							<xs:element name="interface" type="xs:string" maxOccurs="unbounded"/>
+						</xs:sequence>
+						<xs:attribute name="class" use="required"/>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="description" type="xs:string">
+					<xs:annotation>
+						<xs:documentation>A description of this object, its purpose,
+							etc</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="cardID" type="xs:string">
+					<xs:annotation>
+						<xs:documentation> Mask of how hyper links will appear for instance objects
+							of this model. Attributes of this model must be referenced between
+							brackets, as an example for the "Person" model, one could have something
+							like [surname],[firstName] </xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element ref="label">
+					<xs:annotation>
+						<xs:documentation> XXXXXXXXXXXXXXXXXXXXXXX </xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="objects" type="Objects" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation> This list of objects should only be used when declaring a
+							xeoModel of type "interface". Its purpose is to force a list of objects
+							to implement this interface </xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="databaseManager" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>XXXXXXXXXXXXXXXXXXXXXXXXX</xs:documentation>
+					</xs:annotation>
+					<xs:complexType>
+						<xs:attribute name="manageTables" type="xs:boolean"/>
+						<xs:attribute name="manageViews" type="xs:boolean"/>
+						<xs:attribute name="xeoCompatible" type="xs:boolean"/>
+						<xs:attribute name="dataManagerClass" type="xs:string"/>
+					</xs:complexType>
+				</xs:element>
+				<xs:element ref="documentation" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation> Documentation about the Object </xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+			<xs:attribute name="name" type="xs:string" use="required">
+				<xs:annotation>
+					<xs:documentation> The of this XEO Model, must be unique among objects, because
+						it can be used to create bridges to other xeoModels </xs:documentation>
+				</xs:annotation>
+			</xs:attribute>
+			<xs:attribute name="type" type="objectTypeEnum" use="required">
+				<xs:annotation>
+					<xs:documentation>Declaration of kind of instances this model
+						defines</xs:documentation>
+				</xs:annotation>
+			</xs:attribute>
+			<xs:attribute name="version" type="xs:string" use="required">
+				<xs:annotation>
+					<xs:documentation>Declares the version of the xeo model
+						XXXXXXXXXXXXXXXXXX</xs:documentation>
+				</xs:annotation>
+			</xs:attribute>
+			<xs:attribute name="extends" type="xs:string" use="required">
+				<xs:annotation>
+					<xs:documentation> Instance Objects of this XEOModel can extend (and therefore
+						inherit attributes from) an existing Instance object. The value can be empty
+						and no Instance of any xeo Model can be extended, or the value can be the
+						name of a XEO Model and Instance objects of this Model can extend Instance
+						objects of the named model. Example extends="Ebo_Perf" </xs:documentation>
+				</xs:annotation>
+			</xs:attribute>
+			<xs:attribute name="mastertable" type="xs:string" use="optional">
+				<xs:annotation>
+					<xs:documentation> Instance objects of this model are stored in a database table
+						with a default name, if a specific name for the table must be used one can
+						specify that name using this attribute </xs:documentation>
+				</xs:annotation>
+			</xs:attribute>
+			<xs:attribute name="orphan" type="xs:boolean" use="optional" default="true">
+				<xs:annotation>
+					<xs:documentation> Boolean attribute to define if an instance object of this xeo
+						model can be an orphan (i.e. exist without an associated father) or if it
+						can only exist in the context of a parent object. This attribute is not
+						mandatory as this behavior can be overridden by a bridge between a parent
+						instance object and instance object of this model </xs:documentation>
+				</xs:annotation>
+				<!-- FIXME: Este atributo é optional? -->
+			</xs:attribute>
+			<xs:attribute name="multiparent" type="xs:boolean" use="optional" default="false">
+				<xs:annotation>
+					<xs:documentation> Defines that a instance object of this model can have
+						multiple parents. The possible combinations are depicted in the following
+						table orphan setparent multiparent Number of parents Yes Yes Yes 0 or N
+						parents Yes Yes No 0 or 1 parents Yes No - 0 parents No - Yes 1 or N parents
+						No - No 1 parent XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX </xs:documentation>
+				</xs:annotation>
+			</xs:attribute>
+			<xs:attribute name="extendsJavaClass" type="xs:string" use="optional">
+				<xs:annotation>
+					<xs:documentation> XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX </xs:documentation>
+				</xs:annotation>
+			</xs:attribute>
+			<xs:anyAttribute namespace="##any" processContents="skip">
+				<xs:annotation>
+					<xs:documentation>Each Xeo Model object can have a set of different attributes
+						not provided in the xeo model schema</xs:documentation>
+				</xs:annotation>
+			</xs:anyAttribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="opl">
+		<xs:annotation>
+			<xs:documentation> Object Policy Labelling. Defines security policies
+			</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="classKeys" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation> XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX </xs:documentation>
+					</xs:annotation>
+					<xs:complexType>
+						<xs:sequence minOccurs="0" maxOccurs="unbounded">
+							<xs:element name="class">
+								<xs:complexType>
+									<xs:attribute name="active" type="xs:boolean" use="optional" default="true"/>
+									<xs:attribute name="name" type="xs:string" use="required"/>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="attributeKeys" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation> Defines the list of security privileges for this object
+						</xs:documentation>
+					</xs:annotation>
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="read">
+								<xs:annotation>
+									<xs:documentation>Declares read privileges for a set of
+										specified attributes</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:sequence minOccurs="0" maxOccurs="unbounded">
+										<xs:element name="attribute">
+											<xs:annotation>
+												<xs:documentation>Reference to the attribute that
+												has read privilege</xs:documentation>
+											</xs:annotation>
+											<xs:complexType>
+												<xs:simpleContent>
+													<xs:extension base="referenceToAttribute">
+														<xs:attribute name="active" type="xs:boolean" use="optional" default="true">
+															<xs:annotation>
+																<xs:documentation>XXXXXXXXXXXXXXXXX</xs:documentation>
+															</xs:annotation>
+														</xs:attribute>
+													</xs:extension>
+												</xs:simpleContent>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="write">
+								<xs:annotation>
+									<xs:documentation>Declares write privileges for a set of
+										specified attributes</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:sequence minOccurs="0" maxOccurs="unbounded">
+										<xs:element name="attribute">
+											<xs:annotation>
+												<xs:documentation>Reference to the attribute that
+												has write privilege</xs:documentation>
+											</xs:annotation>
+											<xs:complexType>
+												<xs:simpleContent>
+													<xs:extension base="referenceToAttribute">
+														<xs:attribute name="active" type="xs:boolean" use="optional" default="true"/>
+													</xs:extension>
+												</xs:simpleContent>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="delete">
+								<xs:annotation>
+									<xs:documentation>Declares delete privileges for a set of
+										specified attributes</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:sequence minOccurs="0" maxOccurs="unbounded">
+										<xs:element name="attribute">
+											<xs:annotation>
+												<xs:documentation>Reference to the attribute that
+												has delete privilege</xs:documentation>
+											</xs:annotation>
+											<xs:complexType>
+												<xs:simpleContent>
+													<xs:extension base="referenceToAttribute">
+														<xs:attribute name="active" type="xs:boolean" use="optional" default="true"/>
+													</xs:extension>
+												</xs:simpleContent>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="fullcontrol">
+								<xs:annotation>
+									<xs:documentation>Declares full control privileges for a set of
+										specified attributes</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:sequence minOccurs="0" maxOccurs="unbounded">
+										<xs:element name="attribute">
+											<xs:annotation>
+												<xs:documentation>Reference to the attribute that
+												has full control privilege</xs:documentation>
+											</xs:annotation>
+											<xs:complexType>
+												<xs:simpleContent>
+													<xs:extension base="referenceToAttribute">
+														<xs:attribute name="active" type="xs:boolean" use="optional" default="true"/>
+													</xs:extension>
+												</xs:simpleContent>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+			<xs:attribute name="active" type="xs:boolean" default="false">
+				<xs:annotation>
+					<xs:documentation> Declares if this OPL is active or not </xs:documentation>
+				</xs:annotation>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="state">
+		<xs:annotation>
+			<xs:documentation>XXXXXXXXXXXXXXXXXXXXX</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="label" type="xs:string" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>A visual representation (label) for the
+							state</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="options" minOccurs="0" maxOccurs="unbounded">
+					<xs:annotation>
+						<xs:documentation>XXXXXXXXXXXXXXXXXX</xs:documentation>
+					</xs:annotation>
+					<xs:complexType>
+						<xs:sequence minOccurs="0" maxOccurs="unbounded">
+							<xs:element name="option">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="label" type="xs:string"/>
+										<xs:element name="labelAction" type="xs:string" minOccurs="0"/>
+										<xs:element name="subStates" minOccurs="0">
+											<xs:complexType>
+												<xs:sequence minOccurs="0" maxOccurs="unbounded">
+													<xs:element ref="state"/>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+									<xs:attribute name="active" type="xs:boolean" use="optional" default="true"/>
+									<xs:attribute name="name" type="xs:string" use="required"/>
+									<xs:attribute name="value" type="xs:string" use="required"/>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+			<xs:attribute name="name" type="xs:string" use="required">
+				<xs:annotation>
+					<xs:documentation>Name that identifies this state</xs:documentation>
+				</xs:annotation>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="states">
+		<xs:annotation>
+			<xs:documentation> Defines a list of states that this object can pass through during
+				it's life </xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>The list of states for this model</xs:documentation>
+				</xs:annotation>
+				<xs:element ref="state"/>
+			</xs:sequence>
+			<xs:attribute name="refers" type="xs:string" use="optional">
+				<xs:annotation>
+					<xs:documentation>Name of the file that contains the definition of the
+						states</xs:documentation>
+				</xs:annotation>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="methods">
+		<xs:annotation>
+			<xs:documentation> Each instance object of a model can have a set of methods associated,
+				to perform specific actions. Those methods are defined here </xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence minOccurs="0" maxOccurs="unbounded">
+				<xs:element name="method">
+					<xs:annotation>
+						<xs:documentation>The definition of a single method</xs:documentation>
+					</xs:annotation>
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element ref="label">
+								<xs:annotation>
+									<xs:documentation>Label to use when presenting this method in a
+										viewer</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="icon" type="xs:string"/>
+							<xs:element name="javascriptToRun" minOccurs="0">
+								<xs:annotation>
+									<xs:documentation> In the visualization of an object, running
+										some javascript code can be required to perform some visual
+										changes in the aspect of the object, as such this element is
+										used to declared such code. For each viewer of the object,
+										javascript code for this method (to be run before and after
+										method execution) can be defined </xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:sequence minOccurs="0" maxOccurs="unbounded">
+										<xs:annotation>
+											<xs:documentation>For each viewer the javascript code
+												can be defined</xs:documentation>
+										</xs:annotation>
+										<xs:element name="viewer">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="before" type="xs:string">
+														<xs:annotation>
+															<xs:documentation>Code that we want to execute
+												before the execution of the
+												method</xs:documentation>
+														</xs:annotation>
+													</xs:element>
+													<xs:element name="after" type="xs:string">
+														<xs:annotation>
+															<xs:documentation>Code that we want to execute
+												after the execution of the
+												method</xs:documentation>
+														</xs:annotation>
+													</xs:element>
+												</xs:sequence>
+												<xs:attribute name="name" use="required">
+													<xs:annotation>
+														<xs:documentation>The name of the viewer in which
+												this javascript code must be
+												executed</xs:documentation>
+													</xs:annotation>
+												</xs:attribute>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="hiddenWhen" type="xeoLanguage" minOccurs="0">
+								<xs:annotation>
+									<xs:documentation> Declares that condition under which the
+										method will not be available. If the condition is not met,
+										the method is available </xs:documentation>
+								</xs:annotation>
+								<!-- FIXME: Perguntar António, se isto vem para aqui -->
+							</xs:element>
+							<xs:element name="assinature">
+								<xs:annotation>
+									<xs:documentation> The method signature and return type
+									</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:attribute name="return" type="xs:string" use="required">
+										<xs:annotation>
+											<xs:documentation>The return type of the method
+												XXXXXXXXXXXXXXXX</xs:documentation>
+										</xs:annotation>
+									</xs:attribute>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="body" type="xeoLanguage">
+								<xs:annotation>
+									<xs:documentation>The body of the method, can be Java code or
+										any other allowed language</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element ref="documentation" minOccurs="0">
+								<xs:annotation>
+									<xs:documentation>Documentation about the
+										method</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+						</xs:sequence>
+						<xs:attribute name="name" type="xs:string" use="required">
+							<xs:annotation>
+								<xs:documentation>The name of the method, </xs:documentation>
+							</xs:annotation>
+						</xs:attribute>
+						<xs:attribute name="public" type="xs:boolean" use="optional" default="true">
+							<xs:annotation>
+								<xs:documentation> If the value of this attribute is true, then
+									end-users have access to this method otherwise they don't have
+									access to it </xs:documentation>
+							</xs:annotation>
+						</xs:attribute>
+						<xs:attribute name="menu" type="xs:boolean" use="optional" default="true">
+							<xs:annotation>
+								<xs:documentation> If the value of this attribute is true then it
+									will be part of the menu of the object that end users see, if
+									it's false users will not see the method listed in the menu of
+									the object </xs:documentation>
+							</xs:annotation>
+						</xs:attribute>
+						<xs:attribute name="toolbar" type="xs:boolean" use="optional" default="true">
+							<xs:annotation>
+								<xs:documentation> If the value is true the method will be visible
+									in the object's toolbar, if the value is false the method will
+									not be visible in the object's toolbar </xs:documentation>
+							</xs:annotation>
+						</xs:attribute>
+						<xs:attribute name="requiredTransaction" type="transactionModeEnum" default="Required">
+							<xs:annotation>
+								<xs:documentation>If the value is true the method needs to enclosed
+									in a transaction to be run, if it's false it does not need to be
+									inside a transaction to be run</xs:documentation>
+							</xs:annotation>
+						</xs:attribute>
+						<xs:attribute name="serverOnly" type="xs:boolean" use="optional" default="false">
+							<xs:annotation>
+								<xs:documentation>XXXXXXXXXXXXXXXXXXXXXXXX</xs:documentation>
+							</xs:annotation>
+						</xs:attribute>
+						<xs:attribute name="openDoc" type="xs:boolean" use="optional" default="false">
+							<xs:annotation>
+								<xs:documentation> XXXXXXXXXXXXXXXXXXXXXXXX</xs:documentation>
+							</xs:annotation>
+						</xs:attribute>
+						<xs:attribute name="modeTemplate" type="xs:boolean" use="optional" default="false">
+							<xs:annotation>
+								<xs:documentation> If the value is true the method can only be
+									executed over the object model, if its false it can be always
+									executed </xs:documentation>
+							</xs:annotation>
+						</xs:attribute>
+						<xs:attribute name="toObject" type="xs:string" use="optional">
+							<xs:annotation>
+								<xs:documentation>XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</xs:documentation>
+							</xs:annotation>
+						</xs:attribute>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="events">
+		<xs:annotation>
+			<xs:documentation> Each Instance Object of this model can have a set of different
+				behaviors when some events occurs. The definition of each event to which the
+				instance object reacts and the behavior it has when that event occurs is defined in
+				this element </xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence minOccurs="0" maxOccurs="unbounded">
+				<xs:element name="event">
+					<xs:annotation>
+						<xs:documentation>Defines the response to a single event</xs:documentation>
+					</xs:annotation>
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="body" type="xeoLanguage">
+								<xs:annotation>
+									<xs:documentation> The definition of the behavior when the event
+										occurs, can be Java code or XEP or BOL </xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element ref="documentation" minOccurs="0">
+								<xs:annotation>
+									<xs:documentation> Documentation about the event
+									</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+						</xs:sequence>
+						<xs:attribute name="name" type="ObjectEventsEnum" use="required">
+							<xs:annotation>
+								<xs:documentation>The name of the event that will trigger the
+									behavior to be executed</xs:documentation>
+							</xs:annotation>
+						</xs:attribute>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="fwdObjects">
+		<xs:annotation>
+			<xs:documentation> XXXXXXXXXXXXXXXXXXXXXX </xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence minOccurs="0" maxOccurs="unbounded">
+				<xs:element name="fwdObject">
+					<xs:annotation>
+						<xs:documentation>XXXXXXXXXXXXXXXXXX</xs:documentation>
+					</xs:annotation>
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element ref="label"/>
+							<xs:element name="maps">
+								<xs:complexType>
+									<xs:sequence minOccurs="0" maxOccurs="unbounded">
+										<xs:element name="map">
+											<xs:complexType>
+												<xs:attribute name="attr_origin" use="required"/>
+												<xs:attribute name="attr_destiny" use="required"/>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="afterMapClass" type="xs:string"/>
+							<xs:element name="beforeMapClass" type="xs:string"/>
+							<xs:element name="onSaveFwdObject" type="xs:string"/>
+						</xs:sequence>
+						<xs:attribute name="name" type="xs:string" use="required"/>
+						<xs:attribute name="openDoc" type="xs:boolean" use="optional" default="false"/>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:complexType name="tagFilter">
+		<xs:annotation>
+			<xs:documentation> This type specifies a list of filters to be applied to a list of
+				items </xs:documentation>
+		</xs:annotation>
+		<xs:sequence minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="filter">
+				<xs:annotation>
+					<xs:documentation>Element that represents a single filter</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="condition" type="xeoLanguage" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation> The condition that will be used to apply or not
+									the filter </xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="xeoql" type="xs:string" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>The query that implements the
+									filter</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:sequence>
+					<xs:attribute name="forObject" type="xs:string" use="optional">
+						<xs:annotation>
+							<xs:documentation> </xs:documentation>
+						</xs:annotation>
+					</xs:attribute>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Bridge">
+		<xs:sequence>
+			<xs:element ref="attributes"/>
+		</xs:sequence>
+		<xs:attribute name="table" use="optional"/>
+	</xs:complexType>
+	<xs:complexType name="Transformer">
+		<xs:sequence>
+			<xs:element name="from" type="xs:string"/>
+			<xs:element name="class" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="TextIndex">
+		<xs:attribute name="active" type="xs:boolean" use="optional" default="true"/>
+		<xs:attribute name="appendChilds" type="xs:boolean" use="optional" default="true"/>
+		<xs:attribute name="deep" type="xs:nonNegativeInteger" use="optional" default="1"/>
+		<xs:attribute name="onlyCardID" type="xs:boolean" use="optional" default="false"/>
+	</xs:complexType>
+	<xs:complexType name="Behavior">
+		<xs:sequence>
+			<xs:element name="img" type="xs:string"/>
+			<xs:element name="script" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Lov">
+		<xs:sequence>
+			<xs:element name="editable" type="xeoLanguageWithDepends" minOccurs="0"/>
+			<xs:element name="items" minOccurs="0" maxOccurs="unbounded">
+				<xs:complexType>
+					<xs:sequence minOccurs="0" maxOccurs="unbounded">
+						<xs:element name="item">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="value" type="xs:string"/>
+									<xs:element name="label" type="xs:string"/>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="name" type="xs:string" use="required"/>
+		<xs:attribute name="retainValues" type="xs:boolean" use="required"/>
+	</xs:complexType>
+	<xs:complexType name="Database">
+		<xs:all>
+			<xs:element name="fieldname" type="xs:string" minOccurs="0"/>
+			<xs:element name="unique" type="xs:boolean" default="false" minOccurs="0"/>
+			<xs:element name="indexfull" type="xs:boolean" default="true" minOccurs="0"/>
+			<xs:element name="indexed" type="xs:boolean" default="false" minOccurs="0"/>
+			<xs:element name="tabled" type="xs:boolean" default="false" minOccurs="0"/>
+			<xs:element name="constraint" type="xs:boolean" default="true" minOccurs="0"/>
+			<xs:element name="binding" type="xs:boolean" default="true" minOccurs="0"/>
+			<xs:element name="relation" minOccurs="0">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="key" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:all>
+	</xs:complexType>
+	<xs:complexType name="tagEvents">
+		<xs:sequence minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="event">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="body" type="xeoLanguage"/>
+					</xs:sequence>
+					<xs:attribute name="name" type="AttributeEventsEnum" use="required"/>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="attribute">
+		<xs:annotation>
+			<xs:documentation> 
+				Defines the base elements that can constitute an attribute. Every
+				type of attribute, will choose its sub-elements based on a restriction of the
+				elements defined here 
+			</xs:documentation>
+		</xs:annotation>
+		<xs:all>
+			<xs:element name="label" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>A descriptive label of the attribute</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="description" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>A description of the purpose of this
+						attribute</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="tooltip" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation> A small description of what the user is supposed to fill in
+						this field, that will be showed in a tool tip to help filling data
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="type" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation> Used when making a bridge to another objects (or objects).
+						Should be filled with a value like: Object.NAME_OF_TARGET_OBJECT
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="objects" type="Objects" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>XXXXXXXXXXXXXXXXXXXX</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="objectFilter" type="tagFilter" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation> Enables the creation of a filter for the list of object
+						instances that are selected Each filter has a BOL_Condition which is the
+						condition to apply (or not) the filter a BOL_Query which is the query that
+						implements the filter 
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="bridge" type="Bridge" minOccurs="0"/>
+			<xs:element name="setParent" type="xs:boolean" minOccurs="0"/>
+			<xs:element name="transformer" type="Transformer" minOccurs="0"/>
+			<xs:element name="textIndex" type="TextIndex" minOccurs="0"/>
+			<xs:element name="len" type="xs:nonNegativeInteger" minOccurs="0"/>
+			<xs:element name="min" type="xs:nonNegativeInteger" minOccurs="0"/>
+			<xs:element name="max" type="xs:nonNegativeInteger" minOccurs="0"/>
+			<xs:element name="grouping" type="xs:boolean" minOccurs="0"/>
+			<xs:element name="decimals" type="xs:nonNegativeInteger" minOccurs="0"/>
+			<xs:element name="minDecimals" type="xs:nonNegativeInteger" minOccurs="0"/>
+			<xs:element name="editor" type="EditorEnum" minOccurs="0"/>
+			<xs:element name="clock" type="xs:boolean" minOccurs="0"/>
+			<xs:element name="renderAsCheck" type="xs:boolean" minOccurs="0"/>
+			<xs:element name="renderAsLov" type="xs:boolean" minOccurs="0"/>
+			<xs:element name="minOccurs" type="xs:nonNegativeInteger" minOccurs="0"/>
+			<xs:element name="maxOccurs" type="maxOccursType" minOccurs="0"/>
+			<xs:element name="runtimeMaxOccurs" type="maxOccursType" minOccurs="0"/>
+			<xs:element name="manualOperation" type="xs:boolean" default="true" minOccurs="0"/>
+			<xs:element name="manualAdd" type="xs:boolean" default="true" minOccurs="0"/>
+			<xs:element name="manualCreate" type="xs:boolean" default="true" minOccurs="0"/>
+			<xs:element name="showLookup" type="xs:boolean" default="false" minOccurs="0"/>
+			<xs:element name="behavior" type="Behavior" minOccurs="0"/>
+			<xs:element name="lov" type="Lov" minOccurs="0"/>
+			<xs:element name="database" type="Database" minOccurs="0"/>
+			<xs:element name="events" type="tagEvents" minOccurs="0"/>
+			<xs:element ref="methods" minOccurs="0"/>
+			<xs:element name="required" type="xeoLanguage" minOccurs="0"/>
+			<xs:element name="recommend" type="xeoLanguage" minOccurs="0"/>
+			<xs:element name="formula" type="xeoLanguageWithDepends" minOccurs="0"/>
+			<xs:element name="defaultValue" type="xeoLanguageWithDepends" minOccurs="0"/>
+			<xs:element name="valid" type="xeoLanguageWithDepends" minOccurs="0"/>
+			<xs:element name="disableWhen" type="xeoLanguageWithDepends" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>
+						A condition for when this attribute is disabled for the user
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="hiddenWhen" type="xeoLanguageWithDepends" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>
+						A condition for when this attribute is hidden from the user
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="onChangeSubmit" type="xeoLanguage" minOccurs="0"/>
+			<xs:element name="orphanRelation" type="xs:boolean" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>
+						Declares if a relation with another object is orphan or not.
+						Orphan means that an instance object can exist without an associated parent object
+						Each xeoModel defines (thorough the "orphan" attribute in element "general" if instances of that model
+						can be orphans (exist without a parent) or not. However... that declaration can be overridden that is done
+						when declaring relations between xeoModels using the "attributeObject" element.
+						If this element has value "true", then Instances of the xeoModel (through this relation) that is referenced
+						can exist without a parent, even its default declaration says otherwise
+						If this element has value "false", then Instances of the xeoModel (through this relation) that is referenced
+						cannot exist without a parent, even its default declaration says otherwise
+						If the element does not exits, the parent/child relationship is dictated by the value of the "orphan" attribute
+						of the child.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="documentation" minOccurs="0"/>
+		</xs:all>
+		<xs:attribute name="name" use="required">
+			<xs:simpleType>
+				<xs:restriction base="xs:string">
+					<xs:pattern value="[a-zA-Z0-9_-_]+"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="attributeNumber">
+		<xs:complexContent>
+			<xs:restriction base="attribute">
+				<xs:all>
+					<xs:element name="label" type="xs:string"/>
+					<xs:element name="description" type="xs:string" minOccurs="0"/>
+					<xs:element name="tooltip" type="xs:string" minOccurs="0"/>
+					<xs:element name="setParent" type="xs:boolean" minOccurs="0"/>
+					<xs:element name="textIndex" type="TextIndex" minOccurs="0"/>
+					<xs:element name="len" type="xs:nonNegativeInteger" minOccurs="0"/>
+					<xs:element name="min" type="xs:nonNegativeInteger" minOccurs="0"/>
+					<xs:element name="max" type="xs:nonNegativeInteger" minOccurs="0"/>
+					<xs:element name="grouping" type="xs:boolean"/>
+					<xs:element name="decimals" type="xs:nonNegativeInteger" default="0"/>
+					<!-- Ver o efeito do MaxOccurs se não deixar ter, então remover -->
+					<xs:element name="minDecimals" type="xs:nonNegativeInteger" minOccurs="0"/>
+					<xs:element name="behavior" type="Behavior" minOccurs="0"/>
+					<xs:element name="lov" type="Lov" minOccurs="0"/>
+					<xs:element name="database" type="Database" minOccurs="0"/>
+					<xs:element name="events" type="tagEvents" minOccurs="0"/>
+					<xs:element ref="methods" minOccurs="0"/>
+					<xs:element name="required" type="xeoLanguage" minOccurs="0"/>
+					<xs:element name="recommend" type="xeoLanguage" minOccurs="0"/>
+					<xs:element name="formula" type="xeoLanguageWithDepends" minOccurs="0"/>
+					<xs:element name="defaultValue" type="xeoLanguageWithDepends" minOccurs="0"/>
+					<xs:element name="valid" type="xeoLanguageWithDepends" minOccurs="0"/>
+					<xs:element name="disableWhen" type="xeoLanguageWithDepends" minOccurs="0"/>
+					<xs:element name="hiddenWhen" type="xeoLanguageWithDepends" minOccurs="0"/>
+					<xs:element name="onChangeSubmit" type="xeoLanguage" minOccurs="0"/>
+					<xs:element ref="documentation" minOccurs="0"/>
+				</xs:all>
+			</xs:restriction>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="attributeText">
+		<xs:complexContent>
+			<xs:restriction base="attribute">
+				<xs:all>
+					<xs:element name="label" type="xs:string"/>
+					<xs:element name="description" type="xs:string" minOccurs="0"/>
+					<xs:element name="tooltip" type="xs:string" minOccurs="0"/>
+					<xs:element name="textIndex" type="TextIndex" minOccurs="0"/>
+					<xs:element name="len" type="xs:nonNegativeInteger"/>
+					<xs:element name="editor" type="EditorEnum" minOccurs="0"/>
+					<xs:element name="behavior" type="Behavior" minOccurs="0"/>
+					<xs:element name="lov" type="Lov" minOccurs="0"/>
+					<xs:element name="database" type="Database" minOccurs="0"/>
+					<xs:element name="events" type="tagEvents" minOccurs="0"/>
+					<xs:element ref="methods" minOccurs="0"/>
+					<xs:element name="required" type="xeoLanguage" minOccurs="0"/>
+					<xs:element name="recommend" type="xeoLanguage" minOccurs="0"/>
+					<xs:element name="formula" type="xeoLanguageWithDepends" minOccurs="0"/>
+					<xs:element name="defaultValue" type="xeoLanguageWithDepends" minOccurs="0"/>
+					<xs:element name="valid" type="xeoLanguageWithDepends" minOccurs="0"/>
+					<xs:element name="disableWhen" type="xeoLanguageWithDepends" minOccurs="0"/>
+					<xs:element name="hiddenWhen" type="xeoLanguageWithDepends" minOccurs="0"/>
+					<xs:element name="onChangeSubmit" type="xeoLanguage" minOccurs="0"/>
+					<!-- Changed -->
+					<xs:element ref="documentation" minOccurs="0"/>
+				</xs:all>
+			</xs:restriction>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="attributeLongText">
+		<xs:complexContent>
+			<xs:restriction base="attribute">
+				<xs:all>
+					<xs:element name="label" type="xs:string"/>
+					<xs:element name="description" type="xs:string" minOccurs="0"/>
+					<xs:element name="tooltip" type="xs:string" minOccurs="0"/>
+					<xs:element name="setParent" type="xs:boolean" minOccurs="0"/>
+					<xs:element name="textIndex" type="TextIndex" minOccurs="0"/>
+					<xs:element name="len" type="xs:nonNegativeInteger" minOccurs="0"/>
+					<xs:element name="editor" type="EditorEnum"/>
+					<xs:element name="behavior" type="Behavior" minOccurs="0"/>
+					<xs:element name="lov" type="Lov" minOccurs="0"/>
+					<xs:element name="database" type="Database" minOccurs="0"/>
+					<xs:element name="events" type="tagEvents" minOccurs="0"/>
+					<xs:element ref="methods" minOccurs="0"/>
+					<xs:element name="required" type="xeoLanguage" minOccurs="0"/>
+					<xs:element name="recommend" type="xeoLanguage" minOccurs="0"/>
+					<xs:element name="formula" type="xeoLanguageWithDepends" minOccurs="0"/>
+					<xs:element name="defaultValue" type="xeoLanguageWithDepends" minOccurs="0"/>
+					<xs:element name="valid" type="xeoLanguageWithDepends" minOccurs="0"/>
+					<xs:element name="disableWhen" type="xeoLanguageWithDepends" minOccurs="0"/>
+					<xs:element name="hiddenWhen" type="xeoLanguageWithDepends" minOccurs="0"/>
+					<xs:element name="onChangeSubmit" type="xeoLanguage" minOccurs="0"/>
+					<!-- Changed -->
+					<xs:element ref="documentation" minOccurs="0"/>
+				</xs:all>
+			</xs:restriction>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="attributeCurrency">
+		<xs:complexContent>
+			<xs:restriction base="attribute">
+				<xs:all>
+					<xs:element name="label" type="xs:string"/>
+					<xs:element name="description" type="xs:string" minOccurs="0"/>
+					<xs:element name="tooltip" type="xs:string" minOccurs="0"/>
+					<xs:element name="setParent" type="xs:boolean" minOccurs="0"/>
+					<xs:element name="textIndex" type="TextIndex" minOccurs="0"/>
+					<xs:element name="grouping" type="xs:boolean" minOccurs="0"/>
+					<xs:element name="behavior" type="Behavior" minOccurs="0"/>
+					<xs:element name="lov" type="Lov" minOccurs="0"/>
+					<xs:element name="database" type="Database" minOccurs="0"/>
+					<xs:element name="events" type="tagEvents" minOccurs="0"/>
+					<xs:element ref="methods" minOccurs="0"/>
+					<xs:element name="required" type="xeoLanguage" minOccurs="0"/>
+					<xs:element name="recommend" type="xeoLanguage" minOccurs="0"/>
+					<xs:element name="formula" type="xeoLanguageWithDepends" minOccurs="0"/>
+					<xs:element name="defaultValue" type="xeoLanguageWithDepends" minOccurs="0"/>
+					<xs:element name="valid" type="xeoLanguageWithDepends" minOccurs="0"/>
+					<xs:element name="disableWhen" type="xeoLanguageWithDepends" minOccurs="0"/>
+					<xs:element name="hiddenWhen" type="xeoLanguageWithDepends" minOccurs="0"/>
+					<xs:element name="onChangeSubmit" type="xeoLanguage" minOccurs="0"/>
+					<!-- Changed -->
+					<xs:element ref="documentation" minOccurs="0"/>
+				</xs:all>
+			</xs:restriction>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="attributeSequence">
+		<xs:complexContent>
+			<xs:restriction base="attribute">
+				<xs:all>
+					<xs:element name="label" type="xs:string"/>
+					<xs:element name="description" type="xs:string" minOccurs="0"/>
+					<xs:element name="tooltip" type="xs:string" minOccurs="0"/>
+					<xs:element name="type" type="xs:string"/>
+					<xs:element name="setParent" type="xs:boolean" minOccurs="0"/>
+					<xs:element name="textIndex" type="TextIndex" minOccurs="0"/>
+					<xs:element name="len" type="xs:nonNegativeInteger"/>
+					<xs:element name="min" type="xs:nonNegativeInteger" minOccurs="0"/>
+					<xs:element name="max" type="xs:nonNegativeInteger" minOccurs="0"/>
+					<xs:element name="behavior" type="Behavior" minOccurs="0"/>
+					<xs:element name="lov" type="Lov" minOccurs="0"/>
+					<xs:element name="database" type="Database" minOccurs="0"/>
+					<xs:element name="events" type="tagEvents" minOccurs="0"/>
+					<xs:element ref="methods" minOccurs="0"/>
+					<xs:element name="required" type="xeoLanguage" minOccurs="0"/>
+					<xs:element name="recommend" type="xeoLanguage" minOccurs="0"/>
+					<xs:element name="formula" type="xeoLanguageWithDepends" minOccurs="0"/>
+					<xs:element name="defaultValue" type="xeoLanguageWithDepends" minOccurs="0"/>
+					<xs:element name="valid" type="xeoLanguageWithDepends" minOccurs="0"/>
+					<xs:element name="disableWhen" type="xeoLanguageWithDepends" minOccurs="0"/>
+					<xs:element name="hiddenWhen" type="xeoLanguageWithDepends" minOccurs="0"/>
+					<xs:element name="onChangeSubmit" type="xeoLanguage" minOccurs="0"/>
+					<!-- Changed -->
+					<xs:element ref="documentation" minOccurs="0"/>
+				</xs:all>
+			</xs:restriction>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="attributeDate">
+		<xs:complexContent>
+			<xs:restriction base="attribute">
+				<xs:all>
+					<xs:element name="label" type="xs:string"/>
+					<xs:element name="description" type="xs:string" minOccurs="0"/>
+					<xs:element name="tooltip" type="xs:string" minOccurs="0"/>
+					<xs:element name="setParent" type="xs:boolean" minOccurs="0"/>
+					<xs:element name="textIndex" type="TextIndex" minOccurs="0"/>
+					<xs:element name="behavior" type="Behavior" minOccurs="0"/>
+					<xs:element name="lov" type="Lov" minOccurs="0"/>
+					<xs:element name="database" type="Database" minOccurs="0"/>
+					<xs:element name="events" type="tagEvents" minOccurs="0"/>
+					<xs:element ref="methods" minOccurs="0"/>
+					<xs:element name="required" type="xeoLanguage" minOccurs="0"/>
+					<xs:element name="recommend" type="xeoLanguage" minOccurs="0"/>
+					<xs:element name="formula" type="xeoLanguageWithDepends" minOccurs="0"/>
+					<xs:element name="defaultValue" type="xeoLanguageWithDepends" minOccurs="0"/>
+					<xs:element name="valid" type="xeoLanguageWithDepends" minOccurs="0"/>
+					<xs:element name="disableWhen" type="xeoLanguageWithDepends" minOccurs="0"/>
+					<xs:element name="hiddenWhen" type="xeoLanguageWithDepends" minOccurs="0"/>
+					<xs:element name="onChangeSubmit" type="xeoLanguage" minOccurs="0"/>
+					<!-- Changed -->
+					<xs:element ref="documentation" minOccurs="0"/>
+				</xs:all>
+			</xs:restriction>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="attributeDateTime">
+		<xs:complexContent>
+			<xs:restriction base="attribute">
+				<xs:all>
+					<xs:element name="label" type="xs:string"/>
+					<xs:element name="description" type="xs:string" minOccurs="0"/>
+					<xs:element name="tooltip" type="xs:string" minOccurs="0"/>
+					<xs:element name="setParent" type="xs:boolean" minOccurs="0"/>
+					<xs:element name="textIndex" type="TextIndex" minOccurs="0"/>
+					<xs:element name="behavior" type="Behavior" minOccurs="0"/>
+					<xs:element name="lov" type="Lov" minOccurs="0"/>
+					<xs:element name="database" type="Database" minOccurs="0"/>
+					<xs:element name="events" type="tagEvents" minOccurs="0"/>
+					<xs:element ref="methods" minOccurs="0"/>
+					<xs:element name="required" type="xeoLanguage" minOccurs="0"/>
+					<xs:element name="recommend" type="xeoLanguage" minOccurs="0"/>
+					<xs:element name="formula" type="xeoLanguageWithDepends" minOccurs="0"/>
+					<xs:element name="defaultValue" type="xeoLanguageWithDepends" minOccurs="0"/>
+					<xs:element name="valid" type="xeoLanguageWithDepends" minOccurs="0"/>
+					<xs:element name="disableWhen" type="xeoLanguageWithDepends" minOccurs="0"/>
+					<xs:element name="hiddenWhen" type="xeoLanguageWithDepends" minOccurs="0"/>
+					<xs:element name="onChangeSubmit" type="xeoLanguage" minOccurs="0"/>
+					<!-- Changed -->
+					<xs:element ref="documentation" minOccurs="0"/>
+				</xs:all>
+			</xs:restriction>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="attributeBoolean">
+		<xs:complexContent>
+			<xs:restriction base="attribute">
+				<xs:all>
+					<xs:element name="label" type="xs:string"/>
+					<xs:element name="description" type="xs:string" minOccurs="0"/>
+					<xs:element name="tooltip" type="xs:string" minOccurs="0"/>
+					<xs:element name="textIndex" type="TextIndex" minOccurs="0"/>
+					<xs:element name="renderAsCheck" type="xs:boolean" default="true" minOccurs="0"/>
+					<xs:element name="behavior" type="Behavior" minOccurs="0"/>
+					<xs:element name="lov" type="Lov" minOccurs="0"/>
+					<xs:element name="database" type="Database" minOccurs="0"/>
+					<xs:element name="events" type="tagEvents" minOccurs="0"/>
+					<xs:element ref="methods" minOccurs="0"/>
+					<xs:element name="required" type="xeoLanguage" minOccurs="0"/>
+					<xs:element name="recommend" type="xeoLanguage" minOccurs="0"/>
+					<xs:element name="formula" type="xeoLanguageWithDepends" minOccurs="0"/>
+					<xs:element name="defaultValue" type="xeoLanguageWithDepends" minOccurs="0"/>
+					<xs:element name="valid" type="xeoLanguageWithDepends" minOccurs="0"/>
+					<xs:element name="disableWhen" type="xeoLanguageWithDepends" minOccurs="0"/>
+					<xs:element name="hiddenWhen" type="xeoLanguageWithDepends" minOccurs="0"/>
+					<xs:element name="onChangeSubmit" type="xeoLanguage" minOccurs="0"/>
+					<!-- Changed -->
+					<xs:element ref="documentation" minOccurs="0"/>
+				</xs:all>
+			</xs:restriction>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="attributeDuration">
+		<xs:complexContent>
+			<xs:restriction base="attribute">
+				<xs:all>
+					<xs:element name="label" type="xs:string"/>
+					<xs:element name="description" type="xs:string" minOccurs="0"/>
+					<xs:element name="tooltip" type="xs:string" minOccurs="0"/>
+					<xs:element name="setParent" type="xs:boolean" minOccurs="0"/>
+					<xs:element name="textIndex" type="TextIndex" minOccurs="0"/>
+					<xs:element name="clock" type="xs:boolean"/>
+					<xs:element name="behavior" type="Behavior" minOccurs="0"/>
+					<xs:element name="lov" type="Lov" minOccurs="0"/>
+					<xs:element name="database" type="Database" minOccurs="0"/>
+					<xs:element name="events" type="tagEvents" minOccurs="0"/>
+					<xs:element ref="methods" minOccurs="0"/>
+					<xs:element name="required" type="xeoLanguage" minOccurs="0"/>
+					<xs:element name="recommend" type="xeoLanguage" minOccurs="0"/>
+					<xs:element name="formula" type="xeoLanguageWithDepends" minOccurs="0"/>
+					<xs:element name="defaultValue" type="xeoLanguageWithDepends" minOccurs="0"/>
+					<xs:element name="valid" type="xeoLanguageWithDepends" minOccurs="0"/>
+					<xs:element name="disableWhen" type="xeoLanguageWithDepends" minOccurs="0"/>
+					<xs:element name="hiddenWhen" type="xeoLanguageWithDepends" minOccurs="0"/>
+					<xs:element name="onChangeSubmit" type="xeoLanguage" minOccurs="0"/>
+					<!-- Changed -->
+					<xs:element ref="documentation" minOccurs="0"/>
+				</xs:all>
+			</xs:restriction>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="attributeBinaryData">
+		<xs:complexContent>
+			<xs:restriction base="attribute">
+				<xs:all>
+					<xs:element name="label" type="xs:string"/>
+					<xs:element name="description" type="xs:string" minOccurs="0"/>
+					<xs:element name="tooltip" type="xs:string" minOccurs="0"/>
+					<xs:element name="setParent" type="xs:boolean" minOccurs="0"/>
+					<xs:element name="textIndex" type="TextIndex" minOccurs="0"/>
+					<xs:element name="renderAsLov" type="xs:boolean" minOccurs="0"/>
+					<xs:element name="behavior" type="Behavior" minOccurs="0"/>
+					<xs:element name="lov" type="Lov" minOccurs="0"/>
+					<xs:element name="database" type="Database" minOccurs="0"/>
+					<xs:element name="events" type="tagEvents" minOccurs="0"/>
+					<xs:element ref="methods" minOccurs="0"/>
+					<xs:element name="required" type="xeoLanguage" minOccurs="0"/>
+					<xs:element name="recommend" type="xeoLanguage" minOccurs="0"/>
+					<xs:element name="formula" type="xeoLanguageWithDepends" minOccurs="0"/>
+					<xs:element name="defaultValue" type="xeoLanguageWithDepends" minOccurs="0"/>
+					<xs:element name="valid" type="xeoLanguageWithDepends" minOccurs="0"/>
+					<xs:element name="disableWhen" type="xeoLanguageWithDepends" minOccurs="0"/>
+					<xs:element name="hiddenWhen" type="xeoLanguageWithDepends" minOccurs="0"/>
+					<xs:element name="onChangeSubmit" type="xeoLanguage" minOccurs="0"/>
+					<!-- Changed -->
+					<xs:element ref="documentation" minOccurs="0"/>
+				</xs:all>
+			</xs:restriction>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="attributeObject">
+		<xs:complexContent>
+			<xs:restriction base="attribute">
+				<xs:all>
+					<xs:element name="label" type="xs:string"/>
+					<xs:element name="description" type="xs:string" minOccurs="0"/>
+					<xs:element name="tooltip" type="xs:string" minOccurs="0"/>
+					<xs:element name="type" type="xs:string"/>
+					<xs:element name="objects" type="Objects" minOccurs="0"/>
+					<xs:element name="objectFilter" type="tagFilter" minOccurs="0"/>
+					<xs:element name="setParent" type="xs:boolean" minOccurs="0"/>
+					<xs:element name="transformer" type="Transformer" minOccurs="0"/>
+					<xs:element name="textIndex" type="TextIndex" minOccurs="0"/>
+					<xs:element name="renderAsLov" type="xs:boolean" minOccurs="0"/>
+					<xs:element name="runtimeMaxOccurs" type="maxOccursType" minOccurs="0"/>
+					<xs:element name="manualOperation" type="xs:boolean" default="true" minOccurs="0"/>
+					<xs:element name="manualAdd" type="xs:boolean" default="true" minOccurs="0"/>
+					<xs:element name="showLookup" type="xs:boolean" default="false" minOccurs="0"/>
+					<xs:element name="behavior" type="Behavior" minOccurs="0"/>
+					<xs:element name="lov" type="Lov" minOccurs="0"/>
+					<xs:element name="database" type="Database" minOccurs="0"/>
+					<xs:element name="events" type="tagEvents" minOccurs="0"/>
+					<xs:element ref="methods" minOccurs="0"/>
+					<xs:element name="required" type="xeoLanguage" minOccurs="0"/>
+					<xs:element name="recommend" type="xeoLanguage" minOccurs="0"/>
+					<xs:element name="formula" type="xeoLanguageWithDepends" minOccurs="0"/>
+					<xs:element name="defaultValue" type="xeoLanguageWithDepends" minOccurs="0"/>
+					<xs:element name="valid" type="xeoLanguageWithDepends" minOccurs="0"/>
+					<xs:element name="disableWhen" type="xeoLanguageWithDepends" minOccurs="0"/>
+					<xs:element name="hiddenWhen" type="xeoLanguageWithDepends" minOccurs="0"/>
+					<xs:element name="onChangeSubmit" type="xeoLanguage" minOccurs="0"/>
+					<xs:element name="orphanRelation" type="xs:boolean" minOccurs="0"/>
+					<!-- Changed -->
+					<xs:element ref="documentation" minOccurs="0"/>
+				</xs:all>
+			</xs:restriction>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="attributeObjectCollection">
+		<xs:complexContent>
+			<xs:restriction base="attribute">
+				<xs:all>
+					<xs:element name="label" type="xs:string"/>
+					<xs:element name="description" type="xs:string" minOccurs="0"/>
+					<xs:element name="tooltip" type="xs:string" minOccurs="0"/>
+					<xs:element name="type" type="xs:string"/>
+					<xs:element name="objects" type="Objects" minOccurs="0"/>
+					<xs:element name="objectFilter" type="tagFilter" minOccurs="0"/>
+					<xs:element name="bridge" type="Bridge"/>
+					<xs:element name="setParent" type="xs:boolean" minOccurs="0"/>
+					<xs:element name="transformer" type="Transformer" minOccurs="0"/>
+					<xs:element name="textIndex" type="TextIndex" minOccurs="0"/>
+					<xs:element name="renderAsLov" type="xs:boolean" minOccurs="0"/>
+					<xs:element name="minOccurs" type="xs:nonNegativeInteger"/>
+					<xs:element name="maxOccurs" type="maxOccursType"/>
+					<xs:element name="runtimeMaxOccurs" type="maxOccursType" minOccurs="0"/>
+					<xs:element name="manualOperation" type="xs:boolean" default="true" minOccurs="0"/>
+					<xs:element name="manualAdd" type="xs:boolean" default="true" minOccurs="0"/>
+					<xs:element name="manualCreate" type="xs:boolean" default="true" minOccurs="0"/>
+					<xs:element name="showLookup" type="xs:boolean" default="false" minOccurs="0"/>
+					<xs:element name="behavior" type="Behavior" minOccurs="0"/>
+					<xs:element name="lov" type="Lov" minOccurs="0"/>
+					<xs:element name="database" type="Database" minOccurs="0"/>
+					<xs:element name="events" type="tagEvents" minOccurs="0"/>
+					<xs:element ref="methods" minOccurs="0"/>
+					<xs:element name="required" type="xeoLanguage" minOccurs="0"/>
+					<xs:element name="recommend" type="xeoLanguage" minOccurs="0"/>
+					<xs:element name="formula" type="xeoLanguageWithDepends" minOccurs="0"/>
+					<xs:element name="defaultValue" type="xeoLanguageWithDepends" minOccurs="0"/>
+					<xs:element name="valid" type="xeoLanguageWithDepends" minOccurs="0"/>
+					<xs:element name="disableWhen" type="xeoLanguageWithDepends" minOccurs="0"/>
+					<xs:element name="hiddenWhen" type="xeoLanguageWithDepends" minOccurs="0"/>
+					<xs:element name="onChangeSubmit" type="xeoLanguage" minOccurs="0"/>
+					<!-- Changed -->
+					<xs:element ref="documentation" minOccurs="0"/>
+				</xs:all>
+			</xs:restriction>
+		</xs:complexContent>
+	</xs:complexType>
+	<!-- Definition of the types of Attributes (Basically references to types that exist) -->
+	<xs:element name="attribute" type="attribute" abstract="true"/>
+	<xs:element name="attributeNumber" type="attributeNumber" substitutionGroup="attribute"/>
+	<xs:element name="attributeText" type="attributeText" substitutionGroup="attribute"/>
+	<xs:element name="attributeLongText" type="attributeLongText" substitutionGroup="attribute"/>
+	<xs:element name="attributeCurrency" type="attributeCurrency" substitutionGroup="attribute"/>
+	<xs:element name="attributeSequence" type="attributeSequence" substitutionGroup="attribute"/>
+	<xs:element name="attributeBoolean" type="attributeBoolean" substitutionGroup="attribute"/>
+	<xs:element name="attributeDuration" type="attributeDuration" substitutionGroup="attribute"/>
+	<xs:element name="attributeDate" type="attributeDate" substitutionGroup="attribute"/>
+	<xs:element name="attributeDateTime" type="attributeDateTime" substitutionGroup="attribute"/>
+	<xs:element name="attributeBinaryData" type="attributeBinaryData" substitutionGroup="attribute"/>
+	<xs:element name="attributeObject" type="attributeObject" substitutionGroup="attribute"/>
+	<xs:element name="attributeObjectCollection" type="attributeObjectCollection" substitutionGroup="attribute"/>
+	<xs:element name="attributes">
+		<xs:complexType>
+			<xs:choice minOccurs="0" maxOccurs="unbounded">
+				<xs:element ref="attribute"/>
+			</xs:choice>
+		</xs:complexType>
+	</xs:element>
+	<!--- viewers BEGIN -->
+	<!-- Defines the set of elements that are used to specify XEO viewers -->
+	<xs:element name="viewer">
+		<xs:annotation>
+			<xs:documentation> A view is a visualization for a given object. There are different
+				types of viewers for different kinds of behaviors (edit, view, select). A viewer is
+				implemented through a set of forms and. XXXXXXXXXXX : </xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence minOccurs="0" maxOccurs="unbounded">
+				<xs:any namespace="##any" processContents="skip"/>
+			</xs:sequence>
+			<xs:attribute name="name" use="required"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="viewers">
+		<xs:annotation>
+			<xs:documentation> A XEO Object can have an unlimited number of different viewers
+			</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence minOccurs="0" maxOccurs="unbounded">
+				<xs:element ref="viewer"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<!--fim dos layouts -->
+	<xs:element name="xeoModel">
+		<xs:annotation>
+			<xs:documentation> Root Element of a XEO Object, child elements of xeoModel define all
+				properties of a XEO object </xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="general">
+					<xs:annotation>
+						<xs:documentation>Defines general properties of the object (name, version,
+							etc..)</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element ref="opl">
+					<xs:annotation>
+						<xs:documentation>Defines security policies that apply to this
+							object</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element ref="states"/>
+				<xs:element ref="methods">
+					<xs:annotation>
+						<xs:documentation> An object can have a set of methods that are available
+							during its execution, those are defined here </xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element ref="events">
+					<xs:annotation>
+						<xs:documentation> An object can have specific behaviors that are triggers
+							when certain events occur. The events that trigger the actions to
+							execute (and the definition of those actions is done in this element)
+						</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element ref="fwdObjects" minOccurs="0"/>
+				<xs:element ref="attributes">
+					<xs:annotation>
+						<xs:documentation> An Object must have a set of "Attributes" that define its
+							properties. Attributes can be primitive values (string, numeric, etc..)
+							or Objects/ObjectCollections </xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element ref="viewers">
+					<xs:annotation>
+						<xs:documentation> Each XEO Object can have a set of "Viewers" which are
+							essentially the materialization to a web page of a specific way to
+							"view" the object. Viewers properties, behavior, design and style can be
+							defined using this element and the XEO Builder will transform these
+							definitions in web pages to view the object </xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

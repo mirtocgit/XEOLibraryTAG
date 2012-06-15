@@ -1,0 +1,260 @@
+<?xml version = '1.0' encoding = 'UTF-8' standalone = 'yes'?>
+<xeoModel xsi:noNamespaceSchemaLocation="../../xeoModel.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+   <general extendsJavaClass="" multiparent="false" orphan="true" extends="" version="1.0" type="object" name="Ebo_ClsReg">
+      <locale variant="" country="PT" language="pt"/>
+      <implements/>
+      <database>
+         <object id="UN_CLASSNAME" type="unique">
+            <label>Uniquekey for Classname</label>
+            <expression>name</expression>
+         </object>
+      </database>
+      <versioning active="false"/>
+      <textIndex deep="1" appendChilds="false" active="true">
+         <process/>
+      </textIndex>
+      <description>Ebo_ClsReg</description>
+      <cardID>[description]</cardID>
+      <label>Objectos no Sistema</label>
+   </general>
+   <opl active="false"/>
+   <states>
+      <state name="state">
+         <label>state</label>
+         <options>
+            <option value="0" name="Inactive" active="true">
+               <label>Inactiva</label>
+               <subStates/>
+            </option>
+            <option value="1" name="active" active="true">
+               <label>Activa</label>
+               <subStates/>
+            </option>
+         </options>
+      </state>
+   </states>
+   <methods/>
+   <events>
+      <event name="onAfterSave">
+         <body language="JAVA">netgest.bo.security.securityRights.cleanObjectPolicies();</body>
+      </event>
+   </events>
+   <fwdObjects/>
+   <attributes>
+      <attributeObject name="xeopackage">
+         <label>Package</label>
+         <tooltip/>
+         <type>object.Ebo_Package</type>
+         <objectFilter/>
+         <renderAsLov>false</renderAsLov>
+      </attributeObject>
+      <attributeText name="name">
+         <label>Nome</label>
+         <tooltip/>
+         <len>50</len>
+      </attributeText>
+      <attributeText name="phisicaltable">
+         <label>Nome</label>
+         <tooltip/>
+         <len>50</len>
+      </attributeText>
+      <attributeText name="description">
+         <label>Descrição</label>
+         <tooltip/>
+         <len>4000</len>
+         <editor>HTML</editor>
+      </attributeText>
+      <attributeText name="label">
+         <label>Label</label>
+         <tooltip/>
+         <len>4000</len>
+      </attributeText>
+      <attributeText name="ClsChild">
+         <label>Nome</label>
+         <tooltip/>
+         <len>20</len>
+      </attributeText>
+      <attributeBoolean name="deployed">
+         <label>Deployed</label>
+         <tooltip/>
+         <renderAsCheck>false</renderAsCheck>
+      </attributeBoolean>
+      <attributeObjectCollection name="security">
+         <label>Segurança</label>
+         <tooltip/>
+         <type>object.Ebo_Policy</type>
+         <objectFilter/>
+         <bridge>
+            <attributes>
+               <attributeNumber name="LIN">
+                  <label>Line</label>
+                  <grouping>false</grouping>
+                  <decimals>0</decimals>
+               </attributeNumber>
+            </attributes>
+         </bridge>
+         <renderAsLov>false</renderAsLov>
+         <minOccurs>0</minOccurs>
+         <maxOccurs>N</maxOccurs>
+      </attributeObjectCollection>
+      <attributeObject name="defaulttemplate">
+         <label>Template por Defeito</label>
+         <tooltip/>
+         <type>object.Ebo_Template</type>
+         <objectFilter/>
+         <renderAsLov>false</renderAsLov>
+      </attributeObject>
+      <attributeObjectCollection name="attributes">
+         <label>Atributos</label>
+         <description/>
+         <tooltip/>
+         <type>object.Ebo_Attribute</type>
+         <objects/>
+         <objectFilter/>
+         <bridge>
+            <attributes>
+               <attributeNumber name="LIN">
+                  <label>Line</label>
+                  <grouping>false</grouping>
+                  <decimals>0</decimals>
+               </attributeNumber>
+            </attributes>
+         </bridge>
+         <setParent>false</setParent>
+         <renderAsLov>false</renderAsLov>
+         <minOccurs>0</minOccurs>
+         <maxOccurs>N</maxOccurs>
+         <database>
+            <unique>false</unique>
+            <indexfull>true</indexfull>
+            <indexed>false</indexed>
+            <tabled>false</tabled>
+            <constraint>false</constraint>
+            <binding>true</binding>
+         </database>
+         <events/>
+         <required/>
+         <onChangeSubmit/>
+         <orphanRelation>true</orphanRelation>
+      </attributeObjectCollection>
+      <attributeObjectCollection name="methods">
+         <label>Metodos</label>
+         <tooltip/>
+         <type>object.Ebo_Method</type>
+         <objectFilter/>
+         <bridge>
+            <attributes>
+               <attributeNumber name="LIN">
+                  <label>Line</label>
+                  <grouping>false</grouping>
+                  <decimals>0</decimals>
+               </attributeNumber>
+            </attributes>
+         </bridge>
+         <renderAsLov>false</renderAsLov>
+         <minOccurs>0</minOccurs>
+         <maxOccurs>N</maxOccurs>
+      </attributeObjectCollection>
+      <attributeLongText name="xmlsource">
+         <label>XML da Classe do Objecto</label>
+         <tooltip/>
+         <textIndex active="false"/>
+         <editor>HTML</editor>
+      </attributeLongText>
+      <attributeObject name="PARENT">
+         <type>object.boObject</type>
+         <setParent>false</setParent>
+         <label>Father object</label>
+         <database>
+            <fieldname>PARENT$</fieldname>
+            <unique></unique>
+            <indexfull></indexfull>
+            <indexed></indexed>
+            <tabled>false</tabled>
+            <constraint></constraint>
+            <binding></binding>
+         </database>
+      </attributeObject>
+      <attributeObject name="PARENTCTX">
+         <type>object.boObject</type>
+         <setParent>false</setParent>
+         <label>Creation Context</label>
+         <database>
+            <fieldname>PARENTCTX$</fieldname>
+            <unique></unique>
+            <indexfull></indexfull>
+            <indexed></indexed>
+            <tabled>false</tabled>
+            <constraint></constraint>
+            <binding></binding>
+         </database>
+      </attributeObject>
+      <attributeObject name="TEMPLATE">
+         <type>object.Ebo_Template</type>
+         <setParent>false</setParent>
+         <label>Model</label>
+         <database>
+            <fieldname>TEMPLATE$</fieldname>
+            <unique></unique>
+            <indexfull></indexfull>
+            <indexed></indexed>
+            <tabled>false</tabled>
+            <constraint></constraint>
+            <binding></binding>
+         </database>
+      </attributeObject>
+      <attributeNumber name="BOUI">
+         <label>BOUI</label>
+         <grouping>false</grouping>
+         <decimals>0</decimals>
+      </attributeNumber>
+      <attributeText name="CLASSNAME">
+         <len>50</len>
+         <label>Object category</label>
+      </attributeText>
+      <attributeObject name="CREATOR">
+         <type>object.iXEOUser</type>
+         <setParent>false</setParent>
+         <label>Creator</label>
+         <database>
+            <fieldname>CREATOR$</fieldname>
+            <unique></unique>
+            <indexfull></indexfull>
+            <indexed></indexed>
+            <tabled>false</tabled>
+            <constraint></constraint>
+            <binding></binding>
+         </database>
+      </attributeObject>
+      <attributeDateTime name="SYS_DTCREATE">
+         <label>Creation date</label>
+      </attributeDateTime>
+      <attributeDateTime name="SYS_DTSAVE">
+         <label>Last Update Date</label>
+      </attributeDateTime>
+      <attributeText name="SYS_ORIGIN">
+         <len>30</len>
+         <label>Data origin</label>
+      </attributeText>
+      <attributeObject name="SYS_FROMOBJ">
+         <type>object.boObject</type>
+         <setParent>false</setParent>
+         <label>Origin Object</label>
+         <database>
+            <fieldname>SYS_FROMOBJ$</fieldname>
+            <unique></unique>
+            <indexfull></indexfull>
+            <indexed></indexed>
+            <tabled>false</tabled>
+            <constraint></constraint>
+            <binding></binding>
+         </database>
+      </attributeObject>
+   </attributes>
+   <viewers>
+      <viewer name="general">
+         <forms/>
+         <categories/>
+      </viewer>
+   </viewers>
+</xeoModel>

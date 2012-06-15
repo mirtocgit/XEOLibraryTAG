@@ -1,0 +1,637 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<xvw:root xmlns:xvw="http://www.netgest.net/xeo/xvw" xmlns:xeo="http://www.netgest.net/xeo/xeo">
+	<xvw:viewer beanClass='netgest.bo.xwc.xeo.beans.XEOMainAdminBean'
+		beanId='viewBean'>
+		<xvw:form id="formMain">
+			<style>
+				.api-title {
+				-x-system-font:none;
+				color:white;
+				font-family:tahoma,arial,sans-serif;
+				font-size:12px;
+				font-size-adjust:none;
+				font-stretch:normal;
+				font-style:normal;
+				font-variant:normal;
+				font-weight:normal;
+				line-height:normal;
+				margin-left:10px;
+				}
+				#header {
+				background:#1E4176
+				url(ext-xeo/images/hd-bg.gif) repeat-x scroll 0
+				0;
+				border:0 none;
+				padding-left:3px;
+				padding-top:3px;
+				padding-left:5px
+				}			
+			</style>
+			<script>
+				var treeName = 'Library Management ';
+			</script>
+			<xvw:regionLayout>
+				<xvw:tabPanel bodyStyle='background-color:#E0E0E0'></xvw:tabPanel>
+				<xvw:topRegion height="80" maxHeight="80" minHeight="80"
+					split="false">
+					<div style='background-color:#E0E0E0'>
+						<img src='ext-xeo/images/xeo-logo.png'
+							style='margin-left:10px;margin-top:10px; margin-bottom:5px;'></img>
+						<xvw:toolBar>
+							<xvw:userToolBar></xvw:userToolBar>
+							<xvw:menu text='-'></xvw:menu>
+							<xvw:globalSearch></xvw:globalSearch>
+							<xvw:menu text='->'></xvw:menu>
+							<xvw:themeChanger></xvw:themeChanger>
+						</xvw:toolBar>
+					</div>
+				</xvw:topRegion>
+				<xvw:leftRegion width='170' title='Menu' layout="fit"
+					renderComponent="false">
+					<xvw:treePanel renderComponent='false' id='tree'>
+
+
+						<xvw:menu text='Library Management' expanded='true'>
+							<xvw:menu text='Authors'
+								value="{viewerName:'LIB_Author/list.xvw', boql:select LIB_Author}"
+								target='Tab' serverAction="#{viewBean.listObject}" icon='resources/LIB_Author/ico16.gif' />
+							<xvw:menu text='Book Categories'
+								value="{viewerName:'LIB_BookCategory/list.xvw', boql:select LIB_BookCategory}"
+								target='Tab' serverAction="#{viewBean.listObject}" icon='resources/LIB_BookCategory/ico16.gif' />
+							<xvw:menu text='Publishers'
+								value="{viewerName:'LIB_Publisher/list.xvw', boql:select LIB_Publisher}"
+								target='Tab' serverAction="#{viewBean.listObject}" icon='resources/LIB_Publisher/ico16.gif' />
+							<xvw:menu text='Books'
+								value="{viewerName:'LIB_Book/list.xvw', boql:select LIB_Book, tipo: 'hood'}"
+								target='Tab' serverAction="#{viewBean.listObject}" icon='resources/LIB_Book/ico16.gif' />
+							<xvw:menu text='Movements'
+								value="{viewerName:'LIB_Movement/list.xvw', boql:select LIB_Movement}"
+								target='Tab' serverAction="#{viewBean.listObject}" icon='resources/LIB_Movement/ico16.gif' />
+							<xvw:menu text='Library Users'
+								value="{viewerName:'LIB_User/list.xvw', boql:select LIB_User}"
+								target='Tab' serverAction="#{viewBean.listObject}" icon='resources/LIB_User/ico16.gif' />
+							<xvw:menu text='Librarians'
+								value="{viewerName:'LIB_Librarian/list.xvw', boql:select LIB_Librarian}"
+								target='Tab' serverAction="#{viewBean.listObject}" icon='resources/LIB_Librarian/ico16.gif' />
+							<xvw:menu text='Messages'
+								value="{viewerName:'LIB_Message/list.xvw', boql:select LIB_Message}"
+								target='Tab' serverAction="#{viewBean.listObject}" icon='resources/LIB_Message/ico16.gif' />
+						</xvw:menu>
+
+						<!-- ********************************************************************************** 
+							********************************************************************************** 
+							Library Documentation ********************************************************************************** 
+							********************************************************************************** 
+							********************************************************************************** -->
+
+						<xvw:menu text='Library Documentation' expanded="false">
+
+							<xvw:menu text='Main_Library' expanded='false'>
+								<!-- <xvw:menu text='Viewer' value="{viewerName:'LibDoc/Main_Library/MainViewerSrc.xvw'}" 
+									target='Tab' serverAction="#{viewBean.openViewer}" icon='Extras/Icons/Documentacao/xeoxvw_icon.gif' 
+									/> -->
+							</xvw:menu>
+
+							<xvw:menu text='LIB_Author' expanded='false'
+								icon='resources/LIB_Author/ico16.gif'>
+								<xvw:menu text='XEO Model'
+									value="{viewerName:'LibDoc/LIB_Author/AuthorXEOModel.xvw'}"
+									target='Tab' serverAction="#{viewBean.openViewer}"
+									icon='Extras/Icons/Documentacao/xeoclass_icon.gif' />
+
+								<xvw:menu text='Edit Viewer' expanded="false">
+									<xvw:menu text='Source Code'
+										value="{viewerName:'LibDoc/LIB_Author/AuthorEditViewerSrc.xvw'}"
+										target='Tab' serverAction="#{viewBean.openViewer}"
+										icon='Extras/Icons/Documentacao/source_code.gif' />
+									<xvw:menu text="Show Viewer" target="tab"
+										value="{viewerName:'LIB_Author/edit.xvw', objectName:'LIB_Author'}"
+										serverAction="#{viewBean.createObject}" icon='Extras/Icons/Documentacao/xeoxvw_icon.gif' />
+								</xvw:menu>
+
+								<xvw:menu text='List Viewer' expanded="false">
+									<xvw:menu text='Source Code'
+										value="{viewerName:'LibDoc/LIB_Author/AuthorListViewerSrc.xvw'}"
+										target='Tab' serverAction="#{viewBean.openViewer}"
+										icon='Extras/Icons/Documentacao/source_code.gif' />
+									<xvw:menu text='Show Viewer'
+										value="{viewerName:'LIB_Author/list.xvw', boql:select LIB_Author}"
+										target='Tab' serverAction="#{viewBean.listObject}"
+										icon='Extras/Icons/Documentacao/xeoxvw_icon.gif' />
+								</xvw:menu>
+							</xvw:menu>
+
+							<xvw:menu text='LIB_Book' expanded='false'
+								icon='resources/LIB_Book/ico16.gif'>
+								<xvw:menu text='XEO Model'
+									value="{viewerName:'LibDoc/LIB_Book/BookXEOModel.xvw'}" target='Tab'
+									serverAction="#{viewBean.openViewer}" icon='Extras/Icons/Documentacao/xeoclass_icon.gif' />
+
+								<xvw:menu text='Edit Viewer' expanded="false">
+									<xvw:menu text='Source Code'
+										value="{viewerName:'LibDoc/LIB_Book/BookEditViewerSrc.xvw'}"
+										target='Tab' serverAction="#{viewBean.openViewer}"
+										icon='Extras/Icons/Documentacao/source_code.gif' />
+									<xvw:menu text="Show Viewer" target="tab"
+										value="{viewerName:'LIB_Book/edit.xvw', objectName:'LIB_Book'}"
+										serverAction="#{viewBean.createObject}" icon='Extras/Icons/Documentacao/xeoxvw_icon.gif' />
+								</xvw:menu>
+
+								<xvw:menu text='List Viewer' expanded="false">
+									<xvw:menu text='Source Code'
+										value="{viewerName:'LibDoc/LIB_Book/BookListViewerSrc.xvw'}"
+										target='Tab' serverAction="#{viewBean.openViewer}"
+										icon='Extras/Icons/Documentacao/source_code.gif' />
+									<xvw:menu text='Show Viewer'
+										value="{viewerName:'LIB_Book/list.xvw', boql:select LIB_Book}"
+										target='Tab' serverAction="#{viewBean.listObject}"
+										icon='Extras/Icons/Documentacao/xeoxvw_icon.gif' />
+								</xvw:menu>
+							</xvw:menu>
+
+							<xvw:menu text='LIB_BookCategory' expanded='false'
+								icon='resources/LIB_BookCategory/ico16.gif'>
+								<xvw:menu text='XEO Model'
+									value="{viewerName:'LibDoc/LIB_BookCategory/BookCategoryXEOModel.xvw'}"
+									target='Tab' serverAction="#{viewBean.openViewer}"
+									icon='Extras/Icons/Documentacao/xeoclass_icon.gif' />
+
+								<xvw:menu text='Edit Viewer' expanded="false">
+									<xvw:menu text='Source Code'
+										value="{viewerName:'LibDoc/LIB_BookCategory/BookCategoryEditViewerSrc.xvw'}"
+										target='Tab' serverAction="#{viewBean.openViewer}"
+										icon='Extras/Icons/Documentacao/source_code.gif' />
+									<xvw:menu text="Show Viewer" target="tab"
+										value="{viewerName:'LIB_BookCategory/edit.xvw', objectName:'LIB_BookCategory'}"
+										serverAction="#{viewBean.createObject}" icon='Extras/Icons/Documentacao/xeoxvw_icon.gif' />
+								</xvw:menu>
+
+								<xvw:menu text='List Viewer' expanded="false">
+									<xvw:menu text='Source Code'
+										value="{viewerName:'LibDoc/LIB_BookCategory/BookCategoryListViewerSrc.xvw'}"
+										target='Tab' serverAction="#{viewBean.openViewer}"
+										icon='Extras/Icons/Documentacao/source_code.gif' />
+									<xvw:menu text='Show Viewer'
+										value="{viewerName:'LIB_BookCategory/list.xvw', boql:select LIB_BookCategory}"
+										target='Tab' serverAction="#{viewBean.listObject}"
+										icon='Extras/Icons/Documentacao/xeoxvw_icon.gif' />
+								</xvw:menu>
+							</xvw:menu>
+
+							<xvw:menu text='LIB_Librarian' expanded='false'
+								icon='resources/LIB_Librarian/ico16.gif'>
+								<xvw:menu text='XEO Model'
+									value="{viewerName:'LibDoc/LIB_Librarian/LibrarianXEOModel.xvw'}"
+									target='Tab' serverAction="#{viewBean.openViewer}"
+									icon='Extras/Icons/Documentacao/xeoclass_icon.gif' />
+
+								<xvw:menu text='Edit Viewer' expanded="false">
+									<xvw:menu text='Source Code'
+										value="{viewerName:'LibDoc/LIB_Librarian/LibrarianEditViewerSrc.xvw'}"
+										target='Tab' serverAction="#{viewBean.openViewer}"
+										icon='Extras/Icons/Documentacao/source_code.gif' />
+									<xvw:menu text="Show Viewer" target="tab"
+										value="{viewerName:'LIB_Librarian/edit.xvw', objectName:'LIB_Librarian'}"
+										serverAction="#{viewBean.createObject}" icon='Extras/Icons/Documentacao/xeoxvw_icon.gif' />
+								</xvw:menu>
+
+								<xvw:menu text='List Viewer' expanded="false">
+									<xvw:menu text='Source Code'
+										value="{viewerName:'LibDoc/LIB_Librarian/LibrarianListViewerSrc.xvw'}"
+										target='Tab' serverAction="#{viewBean.openViewer}"
+										icon='Extras/Icons/Documentacao/source_code.gif' />
+									<xvw:menu text='Show Viewer'
+										value="{viewerName:'LIB_Librarian/list.xvw', boql:select LIB_Librarian}"
+										target='Tab' serverAction="#{viewBean.listObject}"
+										icon='Extras/Icons/Documentacao/xeoxvw_icon.gif' />
+								</xvw:menu>
+							</xvw:menu>
+
+							<xvw:menu text='LIB_Message' expanded='false'
+								icon='resources/LIB_Message/ico16.gif'>
+								<xvw:menu text='XEO Model'
+									value="{viewerName:'LibDoc/LIB_Message/MessageXEOModel.xvw'}"
+									target='Tab' serverAction="#{viewBean.openViewer}"
+									icon='Extras/Icons/Documentacao/xeoclass_icon.gif' />
+
+								<xvw:menu text='Edit Viewer' expanded="false">
+									<xvw:menu text='Source Code'
+										value="{viewerName:'LibDoc/LIB_Message/MessageEditViewerSrc.xvw'}"
+										target='Tab' serverAction="#{viewBean.openViewer}"
+										icon='Extras/Icons/Documentacao/source_code.gif' />
+									<xvw:menu text="Show Viewer" target="tab"
+										value="{viewerName:'LIB_Message/edit.xvw', objectName:'LIB_Message'}"
+										serverAction="#{viewBean.createObject}" icon='Extras/Icons/Documentacao/xeoxvw_icon.gif' />
+								</xvw:menu>
+
+								<xvw:menu text='List Viewer' expanded="false">
+									<xvw:menu text='Source Code'
+										value="{viewerName:'LibDoc/LIB_Message/MessageListViewerSrc.xvw'}"
+										target='Tab' serverAction="#{viewBean.openViewer}"
+										icon='Extras/Icons/Documentacao/source_code.gif' />
+									<xvw:menu text='Show Viewer'
+										value="{viewerName:'LIB_Message/list.xvw', boql:select LIB_Message}"
+										target='Tab' serverAction="#{viewBean.listObject}"
+										icon='Extras/Icons/Documentacao/xeoxvw_icon.gif' />
+								</xvw:menu>
+							</xvw:menu>
+
+							<xvw:menu text='LIB_Movement' expanded='false'
+								icon='resources/LIB_Movement/ico16.gif'>
+								<xvw:menu text='XEO Model'
+									value="{viewerName:'LibDoc/LIB_Movement/MovementXEOModel.xvw'}"
+									target='Tab' serverAction="#{viewBean.openViewer}"
+									icon='Extras/Icons/Documentacao/xeoclass_icon.gif' />
+
+								<xvw:menu text='Edit Viewer' expanded="false">
+									<xvw:menu text='Source Code'
+										value="{viewerName:'LibDoc/LIB_Movement/MovementEditViewerSrc.xvw'}"
+										target='Tab' serverAction="#{viewBean.openViewer}"
+										icon='Extras/Icons/Documentacao/source_code.gif' />
+									<xvw:menu text="Show Viewer" target="tab"
+										value="{viewerName:'LIB_Movement/edit.xvw', objectName:'LIB_Movement'}"
+										serverAction="#{viewBean.createObject}" icon='Extras/Icons/Documentacao/xeoxvw_icon.gif' />
+								</xvw:menu>
+
+								<xvw:menu text='List Viewer' expanded="false">
+									<xvw:menu text='Source Code'
+										value="{viewerName:'LibDoc/LIB_Movement/MovementListViewerSrc.xvw'}"
+										target='Tab' serverAction="#{viewBean.openViewer}"
+										icon='Extras/Icons/Documentacao/source_code.gif' />
+									<xvw:menu text='Show Viewer'
+										value="{viewerName:'LIB_Movement/list.xvw', boql:select LIB_Movement}"
+										target='Tab' serverAction="#{viewBean.listObject}"
+										icon='Extras/Icons/Documentacao/xeoxvw_icon.gif' />
+								</xvw:menu>
+							</xvw:menu>
+
+							<xvw:menu text='LIB_Publisher' expanded='false'
+								icon='resources/LIB_Publisher/ico16.gif'>
+								<xvw:menu text='XEO Model'
+									value="{viewerName:'LibDoc/LIB_Publisher/PublisherXEOModel.xvw'}"
+									target='Tab' serverAction="#{viewBean.openViewer}"
+									icon='Extras/Icons/Documentacao/xeoclass_icon.gif' />
+
+								<xvw:menu text='Edit Viewer' expanded="false">
+									<xvw:menu text='Source Code'
+										value="{viewerName:'LibDoc/LIB_Publisher/PublisherEditViewerSrc.xvw'}"
+										target='Tab' serverAction="#{viewBean.openViewer}"
+										icon='Extras/Icons/Documentacao/source_code.gif' />
+									<xvw:menu text="Show Viewer" target="tab"
+										value="{viewerName:'LIB_Publisher/edit.xvw', objectName:'LIB_Publisher'}"
+										serverAction="#{viewBean.createObject}" icon='Extras/Icons/Documentacao/xeoxvw_icon.gif' />
+								</xvw:menu>
+
+								<xvw:menu text='List Viewer' expanded="false">
+									<xvw:menu text='Source Code'
+										value="{viewerName:'LibDoc/LIB_Publisher/PublisherListViewerSrc.xvw'}"
+										target='Tab' serverAction="#{viewBean.openViewer}"
+										icon='Extras/Icons/Documentacao/source_code.gif' />
+									<xvw:menu text='Show Viewer'
+										value="{viewerName:'LIB_Publisher/list.xvw', boql:select LIB_Publisher}"
+										target='Tab' serverAction="#{viewBean.listObject}"
+										icon='Extras/Icons/Documentacao/xeoxvw_icon.gif' />
+								</xvw:menu>
+							</xvw:menu>
+
+
+							<xvw:menu text='LIB_PublisherNucleus' expanded='false'
+								icon='resources/LIB_PublisherNucleus/ico16.gif'>
+								<xvw:menu text='XEO Model'
+									value="{viewerName:'LibDoc/LIB_PublisherNucleus/PublisherNucleusXEOModel.xvw'}"
+									target='Tab' serverAction="#{viewBean.openViewer}"
+									icon='Extras/Icons/Documentacao/xeoclass_icon.gif' />
+
+								<xvw:menu text='Edit Viewer' expanded="false">
+									<xvw:menu text='Source Code'
+										value="{viewerName:'LibDoc/LIB_PublisherNucleus/PublisherNucleusEditViewerSrc.xvw'}"
+										target='Tab' serverAction="#{viewBean.openViewer}"
+										icon='Extras/Icons/Documentacao/source_code.gif' />
+
+									<!-- <xvw:menu text="Show Viewer" target="tab" value="{viewerName:'LIB_PublisherNucleus/edit.xvw', 
+										objectName:'LIB_PublisherNucleus'}" serverAction="#{viewBean.createObject}" 
+										icon='Extras/Icons/Documentacao/xeoxvw_icon.gif' /> -->
+								</xvw:menu>
+
+								<xvw:menu text='List Viewer' expanded="false">
+									<xvw:menu text='Source Code'
+										value="{viewerName:'LibDoc/LIB_PublisherNucleus/PublisherNucleusListViewerSrc.xvw'}"
+										target='Tab' serverAction="#{viewBean.openViewer}"
+										icon='Extras/Icons/Documentacao/source_code.gif' />
+									<xvw:menu text='Show Viewer'
+										value="{viewerName:'LIB_PublisherNucleus/list.xvw', boql:select LIB_PUBLISHERNUCLEUS}"
+										target='Tab' serverAction="#{viewBean.listObject}"
+										icon='Extras/Icons/Documentacao/xeoxvw_icon.gif' />
+								</xvw:menu>
+							</xvw:menu>
+
+							<xvw:menu text='LIB_Return' expanded='false'
+								icon='resources/LIB_Return/ico16.gif'>
+								<xvw:menu text='XEO Model'
+									value="{viewerName:'LibDoc/LIB_Return/ReturnXEOModel.xvw'}"
+									target='Tab' serverAction="#{viewBean.openViewer}"
+									icon='Extras/Icons/Documentacao/xeoclass_icon.gif' />
+
+								<xvw:menu text='Edit Viewer' expanded="false">
+									<xvw:menu text='Source Code'
+										value="{viewerName:'LibDoc/LIB_Return/ReturnEditViewerSrc.xvw'}"
+										target='Tab' serverAction="#{viewBean.openViewer}"
+										icon='Extras/Icons/Documentacao/source_code.gif' />
+									<!-- <xvw:menu text="Show Viewer" target="tab" value="{viewerName:'LIB_Return/edit.xvw', 
+										objectName:'LIB_Return'}" serverAction="#{viewBean.createObject}" icon='Extras/Icons/Documentacao/xeoxvw_icon.gif' 
+										/> -->
+								</xvw:menu>
+
+								<xvw:menu text='List Viewer' expanded="false">
+									<xvw:menu text='Source Code'
+										value="{viewerName:'LibDoc/LIB_Return/ReturnListViewerSrc.xvw'}"
+										target='Tab' serverAction="#{viewBean.openViewer}"
+										icon='Extras/Icons/Documentacao/source_code.gif' />
+									<xvw:menu text='Show Viewer'
+										value="{viewerName:'LIB_Return/list.xvw', boql:select LIB_Return}"
+										target='Tab' serverAction="#{viewBean.listObject}"
+										icon='Extras/Icons/Documentacao/xeoxvw_icon.gif' />
+								</xvw:menu>
+							</xvw:menu>
+
+							<xvw:menu text='LIB_User' expanded='false'
+								icon='resources/LIB_User/ico16.gif'>
+								<xvw:menu text='XEO Model'
+									value="{viewerName:'LibDoc/LIB_User/UserXEOModel.xvw'}" target='Tab'
+									serverAction="#{viewBean.openViewer}" icon='Extras/Icons/Documentacao/xeoclass_icon.gif' />
+
+								<xvw:menu text='Edit Viewer' expanded="false">
+									<xvw:menu text='Source Code'
+										value="{viewerName:'LibDoc/LIB_User/UserEditViewerSrc.xvw'}"
+										target='Tab' serverAction="#{viewBean.openViewer}"
+										icon='Extras/Icons/Documentacao/source_code.gif' />
+									<xvw:menu text="Show Viewer" target="tab"
+										value="{viewerName:'LIB_User/edit.xvw', objectName:'LIB_User'}"
+										serverAction="#{viewBean.createObject}" icon='Extras/Icons/Documentacao/xeoxvw_icon.gif' />
+								</xvw:menu>
+
+								<xvw:menu text='List Viewer' expanded="false">
+									<xvw:menu text='Source Code'
+										value="{viewerName:'LibDoc/LIB_User/userListViewerSrc.xvw'}"
+										target='Tab' serverAction="#{viewBean.openViewer}"
+										icon='Extras/Icons/Documentacao/source_code.gif' />
+									<xvw:menu text='Show Viewer'
+										value="{viewerName:'LIB_User/list.xvw', boql:select LIB_USER}"
+										target='Tab' serverAction="#{viewBean.listObject}"
+										icon='Extras/Icons/Documentacao/xeoxvw_icon.gif' />
+								</xvw:menu>
+							</xvw:menu>
+
+
+						</xvw:menu>
+
+						<!-- *************************************************************************** 
+							*************************************************************************** 
+							XVW Components *************************************************************************** 
+							*************************************************************************** -->
+
+
+						<xvw:menu text='XVW Components' expanded='false'>
+
+							<xvw:menu text='Action Buttons' expanded='false'>
+								<xvw:menu text='Action Button'
+									value="{viewerName:'Samples/ActionButton/SimpleActionButton.xvw'}"
+									target='Tab' serverAction="#{viewBean.openViewer}" />
+								<xvw:menu text='Action Button Examples'
+									value="{viewerName:'Samples/ActionButton/ActionButtonExamples.xvw'}"
+									target='Tab' serverAction="#{viewBean.openViewer}" />
+							</xvw:menu>
+
+							<xvw:menu text='Ajax Text' expanded='false'>
+								<xvw:menu text='Ajax Text'
+									value="{viewerName:'Samples/AjaxText/SimpleAjaxText.xvw'}"
+									target='Tab' serverAction="#{viewBean.openViewer}" />
+							</xvw:menu>
+
+
+							<xvw:menu text='Button HTML' expanded='false'>
+								<xvw:menu text='Button HTML'
+									value="{viewerName:'Samples/ButtonHtml/SimpleButtonHtml.xvw'}"
+									target='Tab' serverAction="#{viewBean.openViewer}" />
+							</xvw:menu>
+
+							<xvw:menu text='Charts' expanded='false'>
+								<xvw:menu text='Bar Chart'
+									value="{viewerName:'Samples/Charts/BarChart.xvw'}" target='Tab'
+									serverAction="#{viewBean.openViewer}" />
+								<xvw:menu text='Line Chart'
+									value="{viewerName:'Samples/Charts/LineChart.xvw'}" target='Tab'
+									serverAction="#{viewBean.openViewer}" />
+								<xvw:menu text='Pie Chart'
+									value="{viewerName:'Samples/Charts/PieChart.xvw'}" target='Tab'
+									serverAction="#{viewBean.openViewer}" />
+							</xvw:menu>
+
+							<xvw:menu text='Dialog Progress' expanded='false'>
+								<xvw:menu text='Simple'
+									value="{viewerName:'Samples/DialogProgress/SimpleDialogProgress.xvw'}"
+									target='Tab' serverAction="#{viewBean.openViewer}" />
+								<xvw:menu text='Button'
+									value="{viewerName:'Samples/DialogProgress/ButtonDialogProgress.xvw'}"
+									target='Tab' serverAction="#{viewBean.openViewer}" />
+							</xvw:menu>
+
+							<xvw:menu text='Error Messages' expanded='false'>
+								<xvw:menu text='Simple'
+									value="{viewerName:'Samples/ErrorMessages/SimpleErrorMessage.xvw'}"
+									target='Tab' serverAction="#{viewBean.openViewer}" />
+							</xvw:menu>
+
+							<xvw:menu text='Grid Panel' expanded='false'>
+								<xvw:menu text='Simple'
+									value="{viewerName:'Samples/GridPanel/SimpleGridPanel.xvw'}"
+									target='Tab' serverAction="#{viewBean.openViewer}" />
+								<xvw:menu text='Complex'
+									value="{viewerName:'Samples/GridPanel/ComplexGridPanel.xvw'}"
+									target='Tab' serverAction="#{viewBean.openViewer}" />
+								<xvw:menu text='Master Detail Example'
+									value="{viewerName:'Samples/GridPanel/MasterDetailGridPanel.xvw'}"
+									target='Tab' serverAction="#{viewBean.openViewer}" />
+							</xvw:menu>
+
+							<xvw:menu text='Grid Explorer' expanded='false'>
+								<xvw:menu text='Grid Explorer'
+									value="{viewerName:'Samples/GridExplorer/GridExplorer.xvw'}"
+									target='Tab' serverAction="#{viewBean.openViewer}" />
+							</xvw:menu>
+
+							<xvw:menu text='JSF Components' expanded='false'>
+								<xvw:menu text='Base JSF Component'
+									value="{viewerName:'Samples/JSF Base/jsfBase.xvw'}" target='Tab'
+									serverAction="#{viewBean.openViewer}" />
+							</xvw:menu>
+
+							<xvw:menu text='HTML File Browser' expanded='false'>
+								<xvw:menu text='Simple'
+									value="{viewerName:'Samples/HTMLFileBrowser/SimpleHTMLFileBrowser.xvw'}"
+									target='Tab' serverAction="#{viewBean.openViewer}" />
+							</xvw:menu>
+
+							<xvw:menu text='Main Regions ' expanded='false'>
+								<xvw:menu text='Main Regions (Opens new window)'
+									expanded='false' value="{viewerName:'Samples/SampleRegions.xvw'}"
+									target='blank' serverAction="#{viewBean.openViewer}">
+								</xvw:menu>
+								<xvw:menu text='Main Regions Documentation'
+									expanded='false' value="{viewerName:'Samples/MainRegions/SampleRegionsDoc.xvw'}"
+									target='tab' serverAction="#{viewBean.openViewer}">
+								</xvw:menu>
+							</xvw:menu>
+
+							<xvw:menu text='Menus' expanded='false'>
+								<xvw:menu text='Simple'
+									value="{viewerName:'Samples/Menus/SimpleMenu.xvw'}" target='Tab'
+									serverAction="#{viewBean.openViewer}" />
+							</xvw:menu>
+
+							<xvw:menu text='Message Box' expanded='false'>
+								<xvw:menu text='Message Box Types'
+									value="{viewerName:'Samples/MessageBox/SimpleMessageBox.xvw'}"
+									target='Tab' serverAction="#{viewBean.openViewer}" />
+							</xvw:menu>
+
+							<xvw:menu text='Output HTML' expanded='false'>
+								<xvw:menu text='outputHtml'
+									value="{viewerName:'Samples/OutputHtml/OutputHtml.xvw'}"
+									target='Tab' serverAction="#{viewBean.openViewer}" />
+							</xvw:menu>
+
+							<xvw:menu text='Panels' expanded='false'>
+								<xvw:menu text='Simple'
+									value="{viewerName:'Samples/Panels/SimplePanel.xvw'}" target='Tab'
+									serverAction="#{viewBean.openViewer}" />
+								<xvw:menu text='Complex'
+									value="{viewerName:'Samples/Panels/ComplexPanel.xvw'}" target='Tab'
+									serverAction="#{viewBean.openViewer}" />
+							</xvw:menu>
+
+							<xvw:menu text='Progress Bar' expanded='false'>
+								<xvw:menu text='Simple'
+									value="{viewerName:'Samples/ProgressBar/SimpleProgressBar.xvw'}"
+									target='Tab' serverAction="#{viewBean.openViewer}" />
+							</xvw:menu>
+
+							<xvw:menu text='Sections' expanded='false'>
+								<xvw:menu text='Simple'
+									value="{viewerName:'Samples/Sections/SimpleSection.xvw'}"
+									target='Tab' serverAction="#{viewBean.openViewer}" />
+								<xvw:menu text='Complex'
+									value="{viewerName:'Samples/Sections/ComplexSection.xvw'}"
+									target='Tab' serverAction="#{viewBean.openViewer}" />
+							</xvw:menu>
+
+							<xvw:menu text='Tabs' expanded='false'>
+								<xvw:menu text='Simple'
+									value="{viewerName:'Samples/Tabs/SimpleTab.xvw'}" target='Tab'
+									serverAction="#{viewBean.openViewer}" />
+								<xvw:menu text='Complex'
+									value="{viewerName:'Samples/Tabs/ComplexTab.xvw'}" target='Tab'
+									serverAction="#{viewBean.openViewer}" />
+								<xvw:menu text='Multi-Step Wizard using Tabs'
+									value="{viewerName:'Samples/Tabs/TabAsForm.xvw'}" target='Tab'
+									serverAction="#{viewBean.openViewer}" />
+							</xvw:menu>
+
+							<xvw:menu text='Title' expanded='false'>
+								<xvw:menu text='Simple'
+									value="{viewerName:'Samples/Titles/SimpleTitle.xvw'}" target='Tab'
+									serverAction="#{viewBean.openViewer}" />
+							</xvw:menu>
+
+							<xvw:menu text='Tool Bar' expanded='false'>
+								<xvw:menu text='Simple'
+									value="{viewerName:'Samples/ToolBar/SimpleToolBar.xvw'}"
+									target='Tab' serverAction="#{viewBean.openViewer}" />
+							</xvw:menu>
+
+
+
+							<xvw:menu text='Tree Panels' expanded='false'>
+								<xvw:menu text='Simple'
+									value="{viewerName:'Samples/TreePanels/SimpleTreePanel.xvw'}"
+									target='Tab' serverAction="#{viewBean.openViewer}" />
+							</xvw:menu>
+
+							<xvw:menu text='User Tool Bar' expanded='false'>
+								<xvw:menu text='Simple'
+									value="{viewerName:'Samples/UserToolBar/UserToolBar.xvw'}"
+									target='Tab' serverAction="#{viewBean.openViewer}" />
+							</xvw:menu>
+
+							<xvw:menu text='Windows' expanded='false'>
+								<xvw:menu text='Simple'
+									value="{viewerName:'Samples/Windows/SimpleWindow.xvw'}" target='Window'
+									serverAction="#{viewBean.openViewer}" />
+							</xvw:menu>
+						</xvw:menu>
+
+						<!-- *************************************************************************** 
+							*************************************************************************** 
+							XEO Components *************************************************************************** 
+							*************************************************************************** -->
+
+						<xvw:menu text='XEO Components' expanded='false'>
+
+							<xvw:menu text='Bridge' expanded='false'>
+								<xvw:menu text='Simple Bridge'
+									value="{viewerName:'Samples/Bridge/Bridge.xvw', objectName:'Demo' }"
+									target='tab' serverAction="#{viewBean.createObject}" />
+							</xvw:menu>
+
+							<xvw:menu text='BridgeToolBar' expanded='false'>
+								<xvw:menu text='Simple BridgeToolBar'
+									value="{viewerName:'Samples/BridgeToolBar/BridgeToolBar.xvw', objectName:'Demo' }"
+									target='tab' serverAction="#{viewBean.createObject}" />
+							</xvw:menu>
+
+							<xvw:menu text='EditToolBar' expanded='false'>
+								<xvw:menu text='Simple EditToolBar'
+									value="{viewerName:'Samples/EditToolBar/EditToolBar.xvw', objectName:'Demo' }"
+									target='tab' serverAction="#{viewBean.createObject}" />
+								<!-- <xvw:menu text='EditToolBar w/ XEO Model Methods' value="{viewerName:'Samples/EditToolBar/EditToolBarMethods.xvw', 
+									objectName:'Demo' }" target='tab' serverAction="#{viewBean.createObject}" 
+									/> -->
+								<xvw:menu text='EditToolBar (Non-Orphan Objects)'
+									value="{viewerName:'Samples/EditToolBar/EditToolBarNonOrphan.xvw', objectName:'Demo' }"
+									target='tab' serverAction="#{viewBean.createObject}" />
+							</xvw:menu>
+
+							<xvw:menu text='List' expanded='false'>
+								<xvw:menu text='List'
+									value="{viewerName:'Samples/List/List.xvw', boql:'select Demo' }"
+									target='tab' serverAction="#{viewBean.listObject}" />
+							</xvw:menu>
+
+							<xvw:menu text='SplitedLookup' expanded='false'>
+								<xvw:menu text='Simple'
+									value="{viewerName:'Samples/SplitedLookup/SplitedLookup.xvw', objectName:'Demo' }"
+									target='tab' serverAction="#{viewBean.createObject}" />
+
+							</xvw:menu>
+
+							<xvw:menu text='Menu Counter' expanded='false'>
+
+								<xvw:menu text='Menu Counter'
+									value="{viewerName:'Samples/MenuCounter/MenuCounter.xvw'}"
+									target='Tab' serverAction="#{viewBean.openViewer}" />
+
+
+
+							</xvw:menu>
+
+
+
+
+						</xvw:menu>
+
+					</xvw:treePanel>
+				</xvw:leftRegion>
+			</xvw:regionLayout>
+		</xvw:form>
+	</xvw:viewer>
+</xvw:root> 

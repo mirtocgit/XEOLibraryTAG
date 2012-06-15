@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<datasources>
+  <no-tx-datasource>
+    <jndi-name>jdbc/xeo_nojta</jndi-name>
+    <use-java-context>false</use-java-context>
+    <connection-url>jdbc:postgresql://localhost:5433/xeo</connection-url>
+    <driver-class>org.postgresql.Driver</driver-class>
+    <user-name>xeo</user-name>
+    <password>xeo</password>
+      <metadata>
+         <type-mapping>PostgreSQL 8.0</type-mapping>
+      </metadata>
+  </no-tx-datasource>
+  <local-tx-datasource>
+    <jndi-name>jdbc/xeo</jndi-name>
+    <use-java-context>false</use-java-context>
+    <connection-url>jdbc:postgresql://localhost:5433/xeo</connection-url>
+    <driver-class>org.postgresql.Driver</driver-class>
+    <user-name>xeo</user-name>
+    <password>xeo</password>
+      <metadata>
+         <type-mapping>PostgreSQL 8.0</type-mapping>
+      </metadata>
+  </local-tx-datasource>
+</datasources>

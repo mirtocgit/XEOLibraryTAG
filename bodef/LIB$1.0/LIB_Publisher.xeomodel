@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xeoModel xsi:noNamespaceSchemaLocation="../../xeoModel.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <general name="LIB_Publisher" type="object" version="1.0" extends="" mastertable="" orphan="true" multiparent="false" extendsJavaClass="">
+        <locale language="pt" country="PT" variant=""/>
+        <implements/>
+        <database/>
+        <versioning active="false"/>
+        <textIndex active="true" appendChilds="false" deep="1">
+            <process/>
+        </textIndex>
+        <description>Publisher</description>
+        <cardID>[BOUI]</cardID>
+        <label>Publisher</label>
+    </general>
+    <opl active="false"/>
+    <states/>
+    <methods/>
+    <events/>
+    <fwdObjects/>
+    <attributes>
+        <attributeText name="name">
+            <label>Name</label>
+            <description>Publisher Name</description>
+            <tooltip>Tooltip of attribute1</tooltip>
+            <len>50</len>
+            <database>
+                <unique>false</unique>
+                <indexfull>true</indexfull>
+                <indexed>false</indexed>
+                <tabled>false</tabled>
+                <constraint>false</constraint>
+                <binding>true</binding>
+            </database>
+            <events/>
+            <required language="BOL">true</required>
+            <formula></formula>
+            <defaultValue></defaultValue>
+            <valid></valid>
+            <disableWhen></disableWhen>
+            <hiddenWhen></hiddenWhen>
+        </attributeText>
+        <attributeText name="address">
+            <label>Address</label>
+            <description>publisher address</description>
+            <tooltip>Tooltip of attribute1</tooltip>
+            <len>100</len>
+            <database>
+                <unique>false</unique>
+                <indexfull>true</indexfull>
+                <indexed>false</indexed>
+                <tabled>false</tabled>
+                <constraint>false</constraint>
+                <binding>true</binding>
+            </database>
+            <events/>
+            <required language="BOL">true</required>
+        </attributeText>
+        <attributeText name="website">
+            <label>website</label>
+            <description>publisher website</description>
+            <tooltip>Tooltip of attribute2</tooltip>
+            <len>40</len>
+            <database>
+                <unique>false</unique>
+                <indexfull>true</indexfull>
+                <indexed>false</indexed>
+                <tabled>false</tabled>
+                <constraint>false</constraint>
+                <binding>true</binding>
+            </database>
+            <events/>
+            <required></required>
+            <formula></formula>
+            <defaultValue></defaultValue>
+            <valid></valid>
+            <disableWhen></disableWhen>
+            <hiddenWhen></hiddenWhen>
+        </attributeText>
+        <attributeObjectCollection name="contacts">
+            <label>Contats</label>
+            <description>Publisher Contacts</description>
+            <tooltip>Tooltip of attribute1</tooltip>
+            <type>object.LIB_Contact</type>
+            <objects/>
+            <setParent>false</setParent>
+            <minOccurs>0</minOccurs>
+            <maxOccurs>N</maxOccurs>
+            <database>
+                <unique>false</unique>
+                <indexfull>true</indexfull>
+                <indexed>false</indexed>
+                <tabled>false</tabled>
+                <constraint>false</constraint>
+                <binding>true</binding>
+            </database>
+            <events/>
+            <orphanRelation>true</orphanRelation>
+        </attributeObjectCollection>
+    </attributes>
+    <viewers>
+        <viewer name="general">
+            <forms>
+			</forms>
+            <categories/>
+        </viewer>
+    </viewers>
+</xeoModel>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xeoLov name="LIB_Lov">
+	<General />
+	<Lov name="lov1" retainValues="No">
+		<description>Description Lov1</description>
+		<details>
+			<item>
+				<value>value1</value>
+				<label>label1</label>
+			</item>
+			<item>
+				<value>value2</value>
+				<label>label2</label>
+			</item>
+		</details>
+	</Lov>
+	<Lov name="movement_state" retainValues="true">
+		<description>movement_state</description>
+		<details>
+			<item>
+				<value>0</value>
+				<label>open</label>
+			</item>
+			<item>
+				<value>1</value>
+				<label>close</label>
+			</item>
+		</details>
+	</Lov>
+</xeoLov>

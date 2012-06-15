@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xeoModel xsi:noNamespaceSchemaLocation="../../xeoModel.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <general extendsJavaClass="" multiparent="false" orphan="false" mastertable="" extends="" version="1.0" type="object" name="LIB_Return">
+        <locale variant="" country="US" language="en"/>
+        <implements/>
+        <database/>
+        <versioning active="false"/>
+        <textIndex deep="1" appendChilds="false" active="true">
+            <process/>
+        </textIndex>
+        <description>Represent the return of a set of Books from a Movement by a given User</description>
+        <cardID>[BOUI]</cardID>
+        <label>Return</label>
+    </general>
+    <opl active="false"/>
+    <states/>
+    <methods/>
+    <events/>
+    <fwdObjects/>
+    <attributes>
+        <attributeSequence name="Id">
+            <label>Id</label>
+            <description></description>
+            <tooltip></tooltip>
+            <type>sequence(1)</type>
+            <len>12</len>
+            <database>
+                <unique>false</unique>
+                <indexfull>true</indexfull>
+                <indexed>false</indexed>
+                <tabled>false</tabled>
+                <constraint>false</constraint>
+                <binding>true</binding>
+            </database>
+            <events/>
+            <required language=""></required>
+            <formula language=""></formula>
+            <defaultValue language=""></defaultValue>
+            <valid language=""></valid>
+            <disableWhen language="BOL">true</disableWhen>
+            <hiddenWhen language=""></hiddenWhen>
+            <onChangeSubmit language=""></onChangeSubmit>
+        </attributeSequence>
+        <attributeObjectCollection name="books">
+            <label>Books</label>
+            <description></description>
+            <tooltip></tooltip>
+            <type>object.LIB_Book</type>
+            <objects/>
+            <objectFilter/>
+            <setParent>false</setParent>
+            <minOccurs>0</minOccurs>
+            <maxOccurs>N</maxOccurs>
+            <database>
+                <unique>false</unique>
+                <indexfull>true</indexfull>
+                <indexed>false</indexed>
+                <tabled>false</tabled>
+                <constraint>false</constraint>
+                <binding>true</binding>
+            </database>
+            <events/>
+            <required language=""></required>
+            <formula language=""></formula>
+            <defaultValue language=""></defaultValue>
+            <valid language=""></valid>
+            <disableWhen language=""></disableWhen>
+            <hiddenWhen language=""></hiddenWhen>
+            <onChangeSubmit language=""></onChangeSubmit>
+            <orphanRelation>true</orphanRelation>
+        </attributeObjectCollection>
+        <attributeText name="note">
+            <label>Note</label>
+            <description>Note for the Return</description>
+            <tooltip></tooltip>
+            <len>100</len>
+            <database>
+                <unique>false</unique>
+                <indexfull>true</indexfull>
+                <indexed>false</indexed>
+                <tabled>false</tabled>
+                <constraint>false</constraint>
+                <binding>true</binding>
+            </database>
+            <events/>
+            <required language=""></required>
+            <formula language=""></formula>
+            <defaultValue language=""></defaultValue>
+            <valid language=""></valid>
+            <disableWhen language=""></disableWhen>
+            <hiddenWhen language=""></hiddenWhen>
+            <onChangeSubmit language=""></onChangeSubmit>
+        </attributeText>
+    </attributes>
+    <viewers>
+        <viewer name="general">
+            <forms>
+			</forms>
+            <categories/>
+        </viewer>
+    </viewers>
+</xeoModel>

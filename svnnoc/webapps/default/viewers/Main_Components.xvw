@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<xvw:root xmlns:xvw="http://www.netgest.net/xeo/xvw"
+xmlns:xeo="http://www.netgest.net/xeo/xeo">
+	<xvw:viewer beanClass='netgest.bo.xwc.xeo.beans.XEOMainBean'
+		beanId='viewBean'>
+		<xvw:form id="formMain">
+			<style>
+				.api-title {
+				-x-system-font:none;
+				color:white;
+				font-family:tahoma,arial,sans-serif;
+				font-size:12px;
+				font-size-adjust:none;
+				font-stretch:normal;
+				font-style:normal;
+				font-variant:normal;
+				font-weight:normal;
+				line-height:normal;
+				margin-left:10px;
+				}
+				#header {
+				background:#1E4176
+				url(ext-xeo/images/hd-bg.gif) repeat-x scroll 0
+				0;
+				border:0 none;
+				padding-left:3px;
+				padding-top:3px;
+				padding-left:5px
+				}			
+			</style>
+			<script>
+				var treeName = 'Default ';
+			</script>
+			<xvw:mainLayout></xvw:mainLayout>
+			<xvw:treePanel renderComponent='false' id='tree'>
+
+
+				<xvw:menu text='XVW Components' expanded='true'>
+
+					<xvw:menu text="Attributes" expanded="false" >
+						<xvw:menu text="AttributeText" value="{viewerName:'Samples/Attributes/AttributeText/AttributeText.xvw'}"
+							target='Tab' serverAction="#{viewBean.openViewer}" />
+						<xvw:menu text="AttributeNumber" value="{viewerName:'Samples/Attributes/AttributeNumber/AttributeNumber.xvw'}"
+							target='Tab' serverAction="#{viewBean.openViewer}"/>
+						<xvw:menu text="AttributeBoolean" value="{viewerName:'Samples/Attributes/AttributeBoolean/AttributeBoolean.xvw'}"
+							target='Tab' serverAction="#{viewBean.openViewer}" />
+						<xvw:menu text="AttributeDate"  value="{viewerName:'Samples/Attributes/AttributeDate/AttributeDate.xvw'}"
+							target='Tab' serverAction="#{viewBean.openViewer}"/>
+						<xvw:menu text="AttributeDateTime" value="{viewerName:'Samples/Attributes/AttributeDateTime/AttributeDateTime.xvw'}"
+							target='Tab' serverAction="#{viewBean.openViewer}" />
+						<xvw:menu text="AttributeTime" value="{viewerName:'Samples/Attributes/AttributeTime/AttributeTime.xvw'}"
+							target='Tab' serverAction="#{viewBean.openViewer}" />
+						<xvw:menu text="AttributeFile" value="{viewerName:'Samples/Attributes/AttributeFile/AttributeFile.xvw', objectName:'FileObject'}"
+							target='Tab' serverAction="#{viewBean.createObject}" />
+						<xvw:menu text="AttributeImage" value="{viewerName:'Samples/Attributes/AttributeImage/AttributeImage.xvw', objectName:'FileObject'}"
+							target='Tab' serverAction="#{viewBean.createObject}" />
+						<xvw:menu text="AttributeWordMacro" value="{viewerName:'Samples/Attributes/AttributeWordmacro/AttributeWordmacro.xvw', objectName:'FileObject'}"
+							target='Tab' serverAction="#{viewBean.createObject}" />
+						<xvw:menu text="AttributeHtmlEditor" value="{viewerName:'Samples/Attributes/AttributeHtmlEditor/AttributeHtmlEditor.xvw'}"
+							target='Tab' serverAction="#{viewBean.openViewer}" />
+						<xvw:menu text="AttributeLov" value="{viewerName:'Samples/Attributes/AttributeLov/AttributeLov.xvw'}"
+							target='Tab' serverAction="#{viewBean.openViewer}" />
+						<xvw:menu text="AttributeNumberLookup" value="{viewerName:'Samples/Attributes/AttributeNumberLookup/AttributeNumberLookup.xvw'}"
+							target='Tab' serverAction="#{viewBean.openViewer}" />
+						<xvw:menu text="AttributePassword" value="{viewerName:'Samples/Attributes/AttributePassword/AttributePassword.xvw'}"
+							target='Tab' serverAction="#{viewBean.openViewer}" />
+						<xvw:menu text="AttributeTextArea" value="{viewerName:'Samples/Attributes/AttributetextArea/AttributetextArea.xvw'}"
+							target='Tab' serverAction="#{viewBean.openViewer}" />
+						<xvw:menu text="AttributeOutput" value="{viewerName:'Samples/Attributes/AttributeOutput/AttributeOutput.xvw'}"
+							target='Tab' serverAction="#{viewBean.openViewer}" />
+					</xvw:menu>						
+					
+					
+					
+					<xvw:menu text='Action Buttons' expanded='false'>
+						<xvw:menu text='Action Button'
+							value="{viewerName:'Samples/ActionButton/SimpleActionButton.xvw'}"
+							target='Tab' serverAction="#{viewBean.openViewer}" />
+						<xvw:menu text='Action Button Examples'
+							value="{viewerName:'Samples/ActionButton/ActionButtonExamples.xvw'}"
+							target='Tab' serverAction="#{viewBean.openViewer}" />
+					</xvw:menu>
+
+					<xvw:menu text='Ajax Text' expanded='false'>
+						<xvw:menu text='Ajax Text'
+							value="{viewerName:'Samples/AjaxText/SimpleAjaxText.xvw'}"
+							target='Tab' serverAction="#{viewBean.openViewer}" />
+					</xvw:menu>
+					
+					
+
+
+					<xvw:menu text='Button HTML' expanded='false'>
+						<xvw:menu text='Button HTML'
+							value="{viewerName:'Samples/ButtonHtml/SimpleButtonHtml.xvw'}"
+							target='Tab' serverAction="#{viewBean.openViewer}" />
+					</xvw:menu>
+
+					<xvw:menu text='Charts' expanded='false'>
+						<xvw:menu text='Bar Chart'
+							value="{viewerName:'Samples/Charts/BarChart.xvw'}" target='Tab'
+							serverAction="#{viewBean.openViewer}" />
+						<xvw:menu text='Line Chart'
+							value="{viewerName:'Samples/Charts/LineChart.xvw'}" target='Tab'
+							serverAction="#{viewBean.openViewer}" />
+						<xvw:menu text='Pie Chart'
+							value="{viewerName:'Samples/Charts/PieChart.xvw'}" target='Tab'
+							serverAction="#{viewBean.openViewer}" />
+					</xvw:menu>
+
+					<xvw:menu text='Dialog Progress' expanded='false'>
+						<xvw:menu text='Simple'
+							value="{viewerName:'Samples/DialogProgress/SimpleDialogProgress.xvw'}"
+							target='Tab' serverAction="#{viewBean.openViewer}" />
+						<xvw:menu text='Button'
+							value="{viewerName:'Samples/DialogProgress/ButtonDialogProgress.xvw'}"
+							target='Tab' serverAction="#{viewBean.openViewer}" />
+					</xvw:menu>
+
+					<xvw:menu text='Error Messages' expanded='false'>
+						<xvw:menu text='Simple'
+							value="{viewerName:'Samples/ErrorMessages/SimpleErrorMessage.xvw'}"
+							target='Tab' serverAction="#{viewBean.openViewer}" />
+					</xvw:menu>
+
+					<xvw:menu text='Grid Panel' expanded='false'>
+						<xvw:menu text='Simple'
+							value="{viewerName:'Samples/GridPanel/SimpleGridPanel.xvw'}"
+							target='Tab' serverAction="#{viewBean.openViewer}" />
+						<xvw:menu text='Complex'
+							value="{viewerName:'Samples/GridPanel/ComplexGridPanel.xvw'}"
+							target='Tab' serverAction="#{viewBean.openViewer}" />
+						<xvw:menu text='Master Detail Example'
+							value="{viewerName:'Samples/GridPanel/MasterDetailGridPanel.xvw'}"
+							target='Tab' serverAction="#{viewBean.openViewer}" />
+					</xvw:menu>
+
+					<xvw:menu text='JSF Components' expanded='false'>
+						<xvw:menu text='Base JSF Component'
+							value="{viewerName:'Samples/JSF Base/jsfBase.xvw'}" target='Tab'
+							serverAction="#{viewBean.openViewer}" />
+					</xvw:menu>
+
+					<xvw:menu text='HTML File Browser' expanded='false'>
+						<xvw:menu text='Simple'
+							value="{viewerName:'Samples/HTMLFileBrowser/SimpleHTMLFileBrowser.xvw'}"
+							target='Tab' serverAction="#{viewBean.openViewer}" />
+					</xvw:menu>
+
+					<xvw:menu text='Menus' expanded='false'>
+						<xvw:menu text='Simple'
+							value="{viewerName:'Samples/Menus/SimpleMenu.xvw'}" target='Tab'
+							serverAction="#{viewBean.openViewer}" />
+					</xvw:menu>
+
+					<xvw:menu text='Message Box' expanded='false'>
+						<xvw:menu text='Message Box Types'
+							value="{viewerName:'Samples/MessageBox/SimpleMessageBox.xvw'}"
+							target='Tab' serverAction="#{viewBean.openViewer}" />
+					</xvw:menu>
+
+					<xvw:menu text='Output HTML' expanded='false'>
+						<xvw:menu text='outputHtml'
+							value="{viewerName:'Samples/OutputHtml/OutputHtml.xvw'}" target='Tab'
+							serverAction="#{viewBean.openViewer}" />
+					</xvw:menu>
+
+					<xvw:menu text='Panels' expanded='false'>
+						<xvw:menu text='Simple'
+							value="{viewerName:'Samples/Panels/SimplePanel.xvw'}" target='Tab'
+							serverAction="#{viewBean.openViewer}" />
+						<xvw:menu text='Complex'
+							value="{viewerName:'Samples/Panels/ComplexPanel.xvw'}" target='Tab'
+							serverAction="#{viewBean.openViewer}" />
+					</xvw:menu>
+
+					<xvw:menu text='Progress Bar' expanded='false'>
+						<xvw:menu text='Simple'
+							value="{viewerName:'Samples/ProgressBar/SimpleProgressBar.xvw'}"
+							target='Tab' serverAction="#{viewBean.openViewer}" />
+					</xvw:menu>
+
+					<xvw:menu text='Sections' expanded='false'>
+						<xvw:menu text='Simple'
+							value="{viewerName:'Samples/Sections/SimpleSection.xvw'}" target='Tab'
+							serverAction="#{viewBean.openViewer}" />
+						<xvw:menu text='Complex'
+							value="{viewerName:'Samples/Sections/ComplexSection.xvw'}"
+							target='Tab' serverAction="#{viewBean.openViewer}" />
+					</xvw:menu>
+
+					<xvw:menu text='Tabs' expanded='false'>
+						<xvw:menu text='Simple'
+							value="{viewerName:'Samples/Tabs/SimpleTab.xvw'}" target='Tab'
+							serverAction="#{viewBean.openViewer}" />
+						<xvw:menu text='Complex'
+							value="{viewerName:'Samples/Tabs/ComplexTab.xvw'}" target='Tab'
+							serverAction="#{viewBean.openViewer}" />
+						<xvw:menu text='Multi-Step Wizard using Tabs'
+							value="{viewerName:'Samples/Tabs/TabAsForm.xvw'}" target='Tab'
+							serverAction="#{viewBean.openViewer}" />
+					</xvw:menu>
+
+					<xvw:menu text='Title' expanded='false'>
+						<xvw:menu text='Simple'
+							value="{viewerName:'Samples/Titles/SimpleTitle.xvw'}" target='Tab'
+							serverAction="#{viewBean.openViewer}" />
+					</xvw:menu>
+
+					<xvw:menu text='Tool Bar' expanded='false'>
+						<xvw:menu text='Simple'
+							value="{viewerName:'Samples/ToolBar/SimpleToolBar.xvw'}" target='Tab'
+							serverAction="#{viewBean.openViewer}" />
+					</xvw:menu>
+
+					<xvw:menu text='Tree Panels' expanded='false'>
+						<xvw:menu text='Simple'
+							value="{viewerName:'Samples/TreePanels/SimpleTreePanel.xvw'}"
+							target='Tab' serverAction="#{viewBean.openViewer}" />
+					</xvw:menu>
+					
+					<xvw:menu text='User Tool Bar' expanded='false'>
+						<xvw:menu text='Simple'
+							value="{viewerName:'Samples/UserToolBar/UserToolBar.xvw'}" target='Tab'
+							serverAction="#{viewBean.openViewer}" />
+					</xvw:menu>
+
+					<xvw:menu text='Windows' expanded='false'>
+						<xvw:menu text='Simple'
+							value="{viewerName:'Samples/Windows/SimpleWindow.xvw'}" target='Window'
+							serverAction="#{viewBean.openViewer}" />
+					</xvw:menu>
+				</xvw:menu>
+
+				<!-- *************************************************************************** 
+					*************************************************************************** 
+					XEO Components *************************************************************************** 
+					*************************************************************************** -->
+
+				<xvw:menu text='XEO Components' expanded='true'>
+
+					<xvw:menu text='Bridge' expanded='false'>
+						<xvw:menu text='Simple Bridge'
+							value="{viewerName:'Samples/Bridge/Bridge.xvw', objectName:'Demo' }"
+							target='tab' serverAction="#{viewBean.createObject}" />
+					</xvw:menu>
+
+					<xvw:menu text='BridgeToolBar' expanded='false'>
+						<xvw:menu text='Simple BridgeToolBar'
+							value="{viewerName:'Samples/BridgeToolBar/BridgeToolBar.xvw', objectName:'Demo' }"
+							target='tab' serverAction="#{viewBean.createObject}" />
+					</xvw:menu>
+
+					<xvw:menu text='EditToolBar' expanded='false'>
+						<xvw:menu text='Simple EditToolBar'
+							value="{viewerName:'Samples/EditToolBar/EditToolBar.xvw', objectName:'Demo' }"
+							target='tab' serverAction="#{viewBean.createObject}" />
+						<!-- <xvw:menu text='EditToolBar w/ XEO Model Methods'
+							value="{viewerName:'Samples/EditToolBar/EditToolBarMethods.xvw', objectName:'Demo' }"
+							target='tab' serverAction="#{viewBean.createObject}" /> -->
+						<xvw:menu text='EditToolBar (Non-Orphan Objects)'
+							value="{viewerName:'Samples/EditToolBar/EditToolBarNonOrphan.xvw', objectName:'Demo' }"
+							target='tab' serverAction="#{viewBean.createObject}" />
+					</xvw:menu>
+
+					<xvw:menu text='List' expanded='false'>
+						<xvw:menu text='List'
+							value="{viewerName:'Samples/List/List.xvw', boql:'select Demo' }"
+							target='tab' serverAction="#{viewBean.listObject}" />
+					</xvw:menu>
+
+					<xvw:menu text='SplitedLookup' expanded='false'>
+						<xvw:menu text='Simple'
+							value="{viewerName:'Samples/SplitedLookup/SplitedLookup.xvw', objectName:'Demo' }"
+							target='tab' serverAction="#{viewBean.createObject}" />
+
+					</xvw:menu>
+
+					<xvw:menu text='Menu Counter' expanded='false'>
+					
+						<xvw:menu
+							text='Menu Counter'
+							value="{viewerName:'Samples/MenuCounter/MenuCounter.xvw'}"
+							target='Tab' serverAction="#{viewBean.openViewer}" />
+							
+						
+							
+					</xvw:menu>
+
+					
+
+
+				</xvw:menu>
+
+			</xvw:treePanel>
+		</xvw:form>
+	</xvw:viewer>
+</xvw:root> 

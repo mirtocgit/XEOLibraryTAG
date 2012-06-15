@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xvw:root xmlns:xeo="http://www.netgest.net/xeo/xeo" xmlns:xvw="http://www.netgest.net/xeo/xvw">
+    <xvw:viewer beanClass="netgest.bo.xwc.xeo.beans.XEOEditBean" beanId="viewBean">
+        <xeo:formEdit renderToolBar="false" showDifferences="true">
+            <xeo:editToolBar renderExportMenu="true"
+                renderInformationMenu="true" renderListVersionBtn="true"/>
+            <xvw:panel>
+                <xvw:section label="Geral">
+                    <xvw:rows>
+                        <xvw:row>
+                            <xvw:cell>
+                                <xvw:attribute objectAttribute="title"/>
+                            </xvw:cell>
+                        </xvw:row>
+                        <xvw:row>
+                            <xvw:cell>
+                                <xvw:attribute objectAttribute="isbn"/>
+                            </xvw:cell>
+                        </xvw:row>
+                        <xvw:row>
+                            <xvw:cell>
+                                <xvw:attribute objectAttribute="edition"/>
+                            </xvw:cell>
+                        </xvw:row>
+                        <xvw:row>
+                            <xvw:cell>
+                                <xvw:attribute objectAttribute="summary" height="150"/>
+                            </xvw:cell>
+                        </xvw:row>
+                        <xvw:row>
+                            <xvw:cell>
+                                <xvw:attribute objectAttribute="frontCover"/>
+                                <xvw:attributeImage width='100' height='180'
+                    emptyImage='Extras/Images/emptyImage.jpg' objectAttribute="frontCover" />
+                            </xvw:cell>
+                        </xvw:row>
+                        <xvw:row>
+                            <xvw:cell>
+                                <xvw:attribute objectAttribute="BackCover"/>
+                                <xvw:attributeImage width='100' height='180'
+                    emptyImage='Extras/Images/emptyImage.jpg' objectAttribute="backCover" />
+                            </xvw:cell>
+                        </xvw:row>
+                        <xvw:row>
+                            <xvw:cell>
+                                <xvw:attribute objectAttribute="publisher"/>
+                            </xvw:cell>
+                        </xvw:row>
+                        <xvw:row>
+                            <xvw:cell>
+                                <xvw:attribute objectAttribute="categoria"/>
+                            </xvw:cell>
+                        </xvw:row>
+                        <xvw:row>
+                            <xvw:cell>
+                                <xvw:attribute objectAttribute="author"/>
+                            </xvw:cell>
+                        </xvw:row>
+                        <xvw:row>
+                            <xvw:cell>
+                                <xvw:attribute objectAttribute="state"/>
+                            </xvw:cell>
+                        </xvw:row>
+                    </xvw:rows>
+                </xvw:section>
+                <xvw:tabs>
+                    <xvw:tab label="Categorias - GENERAL">
+                        <xeo:bridge bridgeName="categorias">
+                            <xvw:columns>
+                                <xeo:columnAttribute
+                                    dataField="SYS_CARDID"
+                                    label="Categorias" width="150"/>
+                            </xvw:columns>
+                        </xeo:bridge>
+                    </xvw:tab>
+                    <xvw:tab label="Aditional Information">
+                        <xeo:bridge bridgeName="categorias">
+                            <xvw:columns>
+                                <xeo:columnAttribute
+                                    dataField="SYS_CARDID"
+                                    label="Book Info" width="150"/>
+                            </xvw:columns>
+                        </xeo:bridge>
+                    </xvw:tab>
+                </xvw:tabs>
+            </xvw:panel>
+        </xeo:formEdit>
+    </xvw:viewer>
+</xvw:root>

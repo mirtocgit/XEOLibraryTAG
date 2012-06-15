@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by Joao Paulo Carreira (ITDS) -->
+<!-- edited with XMLSpy v2006 U (http://www.altova.com) by mfernandes (EMBRACE) -->
+<Packages nacionalityDefault="pt">
+	<package name="_SYSTEM$1.0">
+		<description>Sistema</description>
+	</package>
+	<package name="XEODOC$2.0">
+		<description>Gestão de Documentos</description>
+	</package>
+	<package name="XEOUSERINTERFACE$1.0">
+		<description>Interface</description>
+	</package>
+	<package name="XWC$1.0">
+		<description>XEO Web Components</description>
+	</package>
+</Packages>

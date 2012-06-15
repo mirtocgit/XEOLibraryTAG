@@ -1,0 +1,187 @@
+<?xml version = '1.0' encoding = 'UTF-8' standalone = 'yes'?>
+<xeoModel xsi:noNamespaceSchemaLocation="../../xeoModel.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+   <general extendsJavaClass="" multiparent="false" orphan="false" extends="" version="1.0" type="object" name="Ebo_Map">
+      <locale variant="" country="PT" language="pt"/>
+      <implements/>
+      <database/>
+      <versioning active="false"/>
+      <textIndex deep="1" appendChilds="false" active="true">
+         <process/>
+      </textIndex>
+      <description>Ebo_Map</description>
+      <cardID/>
+      <label>Map</label>
+   </general>
+   <opl active="false"/>
+   <states>
+      <state name="primaryState">
+         <label>primaryState</label>
+         <options>
+            <option value="0" name="open" active="true">
+               <label>Aberto</label>
+               <subStates/>
+            </option>
+            <option value="1" name="resolution" active="true">
+               <label>Em resolução</label>
+               <subStates/>
+            </option>
+            <option value="90" name="close" active="true">
+               <label>Fechado</label>
+               <subStates/>
+            </option>
+            <option value="95" name="cancel" active="true">
+               <label>Cancelado</label>
+               <subStates/>
+            </option>
+            <option value="99" name="archive" active="true">
+               <label>Arquivado</label>
+               <subStates/>
+            </option>
+         </options>
+      </state>
+   </states>
+   <methods/>
+   <events/>
+   <fwdObjects/>
+   <attributes>
+      <attributeText name="id">
+         <label>ID</label>
+         <tooltip/>
+         <len>20</len>
+      </attributeText>
+      <attributeText name="name">
+         <label>Nome</label>
+         <tooltip/>
+         <len>250</len>
+      </attributeText>
+      <attributeText name="description">
+         <label>Descrição</label>
+         <tooltip/>
+         <len>250</len>
+         <disableWhen language="BOL">true
+                <depends/></disableWhen>
+      </attributeText>
+      <attributeText name="objectAttributeName">
+         <label>Atributo</label>
+         <description/>
+         <tooltip/>
+         <len>250</len>
+         <database>
+            <unique>false</unique>
+            <indexfull>true</indexfull>
+            <indexed>false</indexed>
+            <tabled>false</tabled>
+            <constraint>false</constraint>
+            <binding>true</binding>
+         </database>
+         <events/>
+         <required/>
+         <onChangeSubmit/>
+      </attributeText>
+      <attributeLongText name="value">
+         <label>Valor Fixo</label>
+         <tooltip/>
+         <editor>HTML</editor>
+      </attributeLongText>
+      <attributeLongText name="transformation">
+         <label>Fórmula</label>
+         <tooltip/>
+         <editor>HTML</editor>
+      </attributeLongText>
+      <attributeObject name="PARENT">
+         <type>object.boObject</type>
+         <setParent>false</setParent>
+         <label>Father object</label>
+         <database>
+            <fieldname>PARENT$</fieldname>
+            <unique></unique>
+            <indexfull></indexfull>
+            <indexed></indexed>
+            <tabled>false</tabled>
+            <constraint></constraint>
+            <binding></binding>
+         </database>
+      </attributeObject>
+      <attributeObject name="PARENTCTX">
+         <type>object.boObject</type>
+         <setParent>false</setParent>
+         <label>Creation Context</label>
+         <database>
+            <fieldname>PARENTCTX$</fieldname>
+            <unique></unique>
+            <indexfull></indexfull>
+            <indexed></indexed>
+            <tabled>false</tabled>
+            <constraint></constraint>
+            <binding></binding>
+         </database>
+      </attributeObject>
+      <attributeNumber name="BOUI">
+         <label>BOUI</label>
+         <grouping>false</grouping>
+         <decimals>0</decimals>
+      </attributeNumber>
+      <attributeText name="CLASSNAME">
+         <len>50</len>
+         <label>Object category</label>
+      </attributeText>
+      <attributeObject name="CREATOR">
+         <type>object.iXEOUser</type>
+         <setParent>false</setParent>
+         <label>Creator</label>
+         <database>
+            <fieldname>CREATOR$</fieldname>
+            <unique></unique>
+            <indexfull></indexfull>
+            <indexed></indexed>
+            <tabled>false</tabled>
+            <constraint></constraint>
+            <binding></binding>
+         </database>
+      </attributeObject>
+      <attributeDateTime name="SYS_DTCREATE">
+         <label>Creation date</label>
+      </attributeDateTime>
+      <attributeDateTime name="SYS_DTSAVE">
+         <label>Last Update Date</label>
+      </attributeDateTime>
+      <attributeText name="SYS_ORIGIN">
+         <len>30</len>
+         <label>Data origin</label>
+      </attributeText>
+      <attributeObject name="SYS_FROMOBJ">
+         <type>object.boObject</type>
+         <setParent>false</setParent>
+         <label>Origin Object</label>
+         <database>
+            <fieldname>SYS_FROMOBJ$</fieldname>
+            <unique></unique>
+            <indexfull></indexfull>
+            <indexed></indexed>
+            <tabled>false</tabled>
+            <constraint></constraint>
+            <binding></binding>
+         </database>
+      </attributeObject>
+      <attributeObject name="TEMPLATE">
+         <type>object.Ebo_Template</type>
+         <setParent>false</setParent>
+         <label>Model</label>
+         <database>
+            <fieldname>TEMPLATE$</fieldname>
+            <unique></unique>
+            <indexfull></indexfull>
+            <indexed></indexed>
+            <tabled>false</tabled>
+            <constraint></constraint>
+            <binding></binding>
+         </database>
+      </attributeObject>
+   </attributes>
+   <viewers>
+      <viewer name="general">
+         <forms/>
+         <categories/>
+      </viewer>
+   </viewers>
+</xeoModel>

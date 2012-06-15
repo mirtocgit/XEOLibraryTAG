@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2006 U (http://www.altova.com) by jcarreira (EMBRACE) -->
+<!--Ficheiro xeoModel v2 convertido em:Tue May 30 16:02:23 BST 2006-->
+<xeoModel xmlns:xm="xeoModel" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="C:\projects\xeo\v2.1\xeoHome\xeoModel.xsd">
+	<general name="boObject" type="abstract" version="3.0" extends="" orphan="true" multiparent="false" extendsJavaClass="">
+		<locale language="pt" country="PT" variant=""/>
+		<implements/>
+		<database/>
+		<versioning active="false"/>
+		<textIndex active="true" appendChilds="false" deep="1">
+			<process/>
+		</textIndex>
+		<description>boObject</description>
+		<cardID/>
+		<label/>
+	</general>
+	<opl active="false"/>
+	<states/>
+	<methods>
+	</methods>
+	<events/>
+	<fwdObjects/>
+	<attributes/>
+	<viewers/>
+</xeoModel>

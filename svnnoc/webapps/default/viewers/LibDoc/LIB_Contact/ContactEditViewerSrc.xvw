@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xvw:root xmlns:xvw="http://www.netgest.net/xeo/xvw" xmlns:xeo="http://www.netgest.net/xeo/xeo">
+	<xvw:viewer beanClass="pt.itds.biblio.beans.ViewersBean"
+		beanId="viewBean" localizationClasses='pt.itds.biblio.internationalization.Biblio_textui'>
+		<xvw:form>
+			<xvw:title valueExpression="BIBLIO_contact Edit Viewer"></xvw:title>
+			<xvw:panel title="">
+				<xvw:tabs>
+					<xvw:tab label="Viewer XVW">
+						<iframe src='/xeo/PrintScr.jsp?comp=/viewers/BIBLIO_contact/edit.xvw' 
+							frameborder='0' width='100%' height='98%'></iframe>
+					</xvw:tab>
+					<xvw:tab label="Bean Source Code">
+						<iframe src='/xeo/PrintScrBean.jsp?comp=/Extras/ObjectBeans/BIBLIO_contactEditBean.java' 
+							frameborder='0' width='100%' height='98%'></iframe>
+					</xvw:tab>
+				</xvw:tabs>				
+			</xvw:panel>
+		</xvw:form>
+	</xvw:viewer>
+
+</xvw:root>

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xeoModel xsi:noNamespaceSchemaLocation="../../xeoModel.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <general name="LIB_PublisherNucleus" type="object" version="1.0" extends="" mastertable="" orphan="true" multiparent="false" extendsJavaClass="">
+        <locale language="pt" country="PT" variant=""/>
+        <implements/>
+        <database/>
+        <versioning active="false"/>
+        <textIndex active="true" appendChilds="false" deep="1">
+            <process/>
+        </textIndex>
+        <description>Publisher Nucleus</description>
+        <cardID>[BOUI]</cardID>
+        <label>Publisher Nucleus</label>
+    </general>
+    <opl active="false"/>
+    <states/>
+    <methods/>
+    <events/>
+    <fwdObjects/>
+    <attributes>
+        <attributeText name="name">
+            <label>Name</label>
+            <description>name of nucleus</description>
+            <tooltip>Tooltip of attribute1</tooltip>
+            <len>100</len>
+            <database>
+                <unique>false</unique>
+                <indexfull>true</indexfull>
+                <indexed>false</indexed>
+                <tabled>false</tabled>
+                <constraint>false</constraint>
+                <binding>true</binding>
+            </database>
+            <events/>
+            <required language="BOL">true</required>
+        </attributeText>
+        <attributeText name="address">
+            <label>Adress</label>
+            <description>Address of nucleus</description>
+            <tooltip>Tooltip of attribute1</tooltip>
+            <len>100</len>
+            <database>
+                <unique>false</unique>
+                <indexfull>true</indexfull>
+                <indexed>false</indexed>
+                <tabled>false</tabled>
+                <constraint>false</constraint>
+                <binding>true</binding>
+            </database>
+            <events/>
+        </attributeText>
+        <attributeObjectCollection name="contacts">
+            <label>Contacts</label>
+            <description>List of contacts for this nulceus</description>
+            <tooltip>Tooltip of attribute1</tooltip>
+            <type>object.LIB_Contact</type>
+            <objects/>
+            <setParent>false</setParent>
+            <minOccurs>0</minOccurs>
+            <maxOccurs>N</maxOccurs>
+            <database>
+                <unique>false</unique>
+                <indexfull>true</indexfull>
+                <indexed>false</indexed>
+                <tabled>false</tabled>
+                <constraint>false</constraint>
+                <binding>true</binding>
+            </database>
+            <events/>
+            <orphanRelation>true</orphanRelation>
+        </attributeObjectCollection>
+    </attributes>
+    <viewers>
+        <viewer name="general">
+            <forms>
+			</forms>
+            <categories/>
+        </viewer>
+    </viewers>
+</xeoModel>

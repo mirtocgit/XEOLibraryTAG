@@ -1,0 +1,73 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<!--Ficheiro xeoModel v2 convertido em:Tue May 30 16:02:18 BST 2006-->
+<xeoModel>
+   <general name="Ebo_Role" type="object" version="1.0" extends="" orphan="true" multiparent="false" extendsJavaClass="">
+      <locale language="pt" country="PT" variant=""/>
+      <implements/>
+      <database/>
+      <versioning active="false"/>
+      <textIndex active="true" appendChilds="false" deep="1">
+         <process/>
+      </textIndex>
+      <description>Ebo_Role</description>
+      <cardID>[name] ,[id]</cardID>
+      <label>Funcão</label>
+   </general>
+   <opl active="false"/>
+   <states>
+      <state name="state">
+         <label>state</label>
+         <options>
+            <option name="Inactive" value="0" active="true">
+               <label>Inactivo</label>
+               <subStates/>
+            </option>
+            <option name="active" value="1" active="true">
+               <label>Activo</label>
+               <subStates/>
+            </option>
+         </options>
+      </state>
+   </states>
+   <methods/>
+   <events>
+   </events>
+   <fwdObjects/>
+   <attributes>
+      <attributeText name="id">
+         <len>50</len>
+         <label>Código</label>
+         <tooltip></tooltip>
+      </attributeText>
+      <attributeText name="email">
+         <len>50</len>
+         <label>Email</label>
+         <tooltip></tooltip>
+      </attributeText>
+      <attributeText name="name">
+         <len>50</len>
+         <label>Nome</label>
+         <tooltip></tooltip>
+      </attributeText>
+      <attributeText name="notifica">
+         <len>1</len>
+         <label>Notificar</label>
+         <tooltip></tooltip>
+         <lov name="NOTIFICATIONTYPE" retainValues="false"/>
+      </attributeText>
+      <attributeObject name="templateEmail">
+         <type>object.Ebo_Template</type>
+         <label>Modelo de Email</label>
+         <renderAsLov>false</renderAsLov>
+         <tooltip></tooltip>
+         <objectFilter/>
+      </attributeObject>
+   </attributes>
+	<viewers>
+        <viewer name="general">
+            <forms>
+			</forms>
+            <categories/>
+        </viewer>
+    </viewers>
+</xeoModel>

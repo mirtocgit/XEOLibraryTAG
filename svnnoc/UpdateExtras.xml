@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="Update Documentation" default="Update Beans" basedir="./">
+
+	<!-- This Ant script copies files from the Source/boDef to the Extras
+	folder, so that when a file is updated, it can be reflected in the viewers
+	that require the source/boDef
+	 -->
+	
+	<property name="scrbeans" value="${basedir}/src/org/example/viewer/beans" />
+	<property name="scrsamplebeans" value="${basedir}/src-samples/org/xeoframework/components" />
+	<property name="handlers" value="${basedir}/src-xeogen/xeo/code/java/lib1_0"/>
+	<property name="destinationbeans" value="${basedir}/webapps/default/Extras/ComponentBeans"/>
+	
+	<property name="xeomodelsrc" value="${basedir}/bodef/LIB$1.0"/>
+	<property name="xeomodeldest" value="${basedir/webapps/default/Extras/ObjectDef}"/>
+	
+	<property name="javadoczipfile" value="${basedir}/base_lib/modules/xeoxwc_doc"/>
+	<property name="javadocdest" value="${basedir}/webapps/default/Extras"/>
+
+	<target name="Update Beans">
+		
+		<echo>Copying Object Model beans...</echo>
+		
+		
+		<copy file="${scrbeans}/LibAuthorEditBean.java" 
+		tofile="${destinationbeans}/ObjectBeans/LibAuthorEditBean.java" 
+		overwrite="true"/>
+		<echo>Copied LibAuthorEditBean.java</echo>
+		
+		<copy file="${scrbeans}/LibBookListBean.java" 
+		tofile="${destinationbeans}/ObjectBeans/LibBookListBean.java" 
+		overwrite="true"/>
+		<echo>Copied LibBookListBean.java</echo>
+		
+		<copy file="${scrbeans}/LibBookReturnLookup.java" 
+		tofile="${destinationbeans}/ObjectBeans/LibBookReturnLookup.java" 
+		overwrite="true"/>
+		<echo>Copied LibBookReturnLookup.java</echo>
+		
+		<copy file="${scrbeans}/LibMovementEditBean.java" 
+		tofile="${destinationbeans}/ObjectBeans/LibMovementEditBean.java" 
+		overwrite="true"/>
+		<echo>Copied LibMovementEditBean.java</echo>
+		
+		<copy file="${scrbeans}/LibPublisherEditBean.java" 
+			tofile="${destinationbeans}/ObjectBeans/LibPublisherEditBean.java" 
+			overwrite="true"/>
+		<echo>Copied LibPublisherEditBean.java</echo>
+		
+		<copy file="${scrbeans}/LibReturnEditBean.java"	
+			tofile="${destinationbeans}/ObjectBeans/LibReturnEditBean.java" 
+			overwrite="true"/>
+		<echo>Copied LibReturnEditBean.java</echo>
+		
+		<echo>...</echo>
+		<echo>Copying Component Beans</echo>
+		<echo>...</echo>
+		
+		<copy file="${scrsamplebeans}/actionButton/ActionButtonBean.java" 
+		tofile="${destinationbeans}/ActionButtonBean.java" 
+		overwrite="true"/>
+		<echo>Copied ActionButtonBean.java</echo>
+		
+		<copy file="${scrsamplebeans}/menuCounter/MenuCounterBean.java" 
+				tofile="${destinationbeans}/MenuCounterBean.java" 
+				overwrite="true"/>
+		<echo>Copied MenuCounterBean.java</echo>
+		
+	</target>
+
+	<target name="Update XEO Models">
+		<echo>Copying XEO Models...</echo>
+		
+		<copy file="${xeomodelsrc}/LIB_Author.xeomodel" 
+		tofile="${xeomodeldest}/LIB_Author.xeomodel" 
+		overwrite="true"/>
+		<echo>Copied LIB_Author.xeomodel</echo>
+		
+		<copy file="${xeomodelsrc}/LIB_Book.xeomodel" 
+		tofile="${xeomodeldest}/LIB_Book.xeomodel" 
+		overwrite="true"/>
+		<echo>Copied LIB_Book.xeomodel</echo>
+		
+		<copy file="${xeomodelsrc}/LIB_BookCategory.xeomodel" 
+		tofile="${xeomodeldest}/LIB_BookCategory.xeomodel" 
+		overwrite="true"/>
+		<echo>Copied LIB_BookCategory.xeomodel</echo>
+		
+		<copy file="${xeomodelsrc}/LIB_Contact.xeomodel" 
+		tofile="${xeomodeldest}/LIB_Contact.xeomodel" 
+		overwrite="true"/>
+		<echo>Copied LIB_Contact.xeomodel</echo>
+		
+		<copy file="${xeomodelsrc}/LIB_Librarian.xeomodel" 
+		tofile="${xeomodeldest}/LIB_Librarian.xeomodel" 
+		overwrite="true"/>
+		<echo>Copied LIB_Librarian.xeomodel</echo>
+		
+		<copy file="${xeomodelsrc}/LIB_Message.xeomodel" 
+		tofile="${xeomodeldest}/LIB_Message.xeomodel" 
+		overwrite="true"/>
+		<echo>Copied LIB_Message.xeomodel</echo>
+		
+		<copy file="${xeomodelsrc}/LIB_Movement.xeomodel" 
+		tofile="${xeomodeldest}/LIB_Movement.xeomodel" 
+		overwrite="true"/>
+		<echo>Copied LIB_Movement.xeomodel</echo>
+		
+		<copy file="${xeomodelsrc}/LIB_Publisher.xeomodel" 
+		tofile="${xeomodeldest}/LIB_Publisher.xeomodel" 
+		overwrite="true"/>
+		<echo>Copied LIB_Publisher.xeomodel</echo>
+		
+		<copy file="${xeomodelsrc}/LIB_PublisherNucleus.xeomodel" 
+		tofile="${xeomodeldest}/LIB_PublisherNucleus.xeomodel" 
+		overwrite="true"/>
+		<echo>Copied LIB_PublisherNucleus.xeomodel</echo>
+		
+		<copy file="${xeomodelsrc}/LIB_Return.xeomodel" 
+		tofile="${xeomodeldest}/LIB_Return.xeomodel" 
+		overwrite="true"/>
+		<echo>Copied LIB_Return.xeomodel</echo>
+		
+		<copy file="${xeomodelsrc}/LIB_User.xeomodel" 
+		tofile="${xeomodeldest}/LIB_User.xeomodel" 
+		overwrite="true"/>
+		<echo>Copied LIB_User.xeomodel</echo>
+		
+	</target>
+	
+	<target name="Update Java Doc">
+		<echo>Deleting current Java Doc...</echo>
+		<delete dir="${javadocdest}/xeoxwc_doc"/>
+		<echo>Extracting Java Doc...</echo>
+		<unzip src="${javadoczipfile}.zip" dest="${javadocdest}/xeoxwc_doc/"/>
+	</target>
+</project>

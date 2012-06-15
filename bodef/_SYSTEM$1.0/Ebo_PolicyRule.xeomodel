@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2006 U (http://www.altova.com) by jcarreira (EMBRACE) -->
+<!--Ficheiro xeoModel v2 convertido em:Tue May 30 16:02:24 BST 2006-->
+<xeoModel>
+	<general name="Ebo_PolicyRule" type="object" version="1.0" extends="" orphan="false" multiparent="false" extendsJavaClass="">
+		<locale language="pt" country="PT" variant=""/>
+		<implements/>
+		<database/>
+		<versioning active="false"/>
+		<textIndex active="true" appendChilds="false" deep="1">
+			<process/>
+		</textIndex>
+		<description>Ebo_PolicyRule</description>
+		<cardID>[name]</cardID>
+		<label>Regra de Segurança</label>
+	</general>
+	<opl active="false"/>
+	<states>
+		<state name="state">
+			<label>state</label>
+			<options>
+				<option name="Inactive" value="0" active="true">
+					<label>Inactivo</label>
+					<subStates/>
+				</option>
+				<option name="active" value="1" active="true">
+					<label>Activo</label>
+					<subStates/>
+				</option>
+			</options>
+		</state>
+	</states>
+	<methods/>
+	<events>
+		<event name="onAfterSave">
+			<body language="JAVA"><![CDATA[netgest.bo.security.securityRights.cleanPolicies();]]></body>
+		</event>
+	</events>
+	<fwdObjects/>
+	<attributes>
+		<attributeText name="name">
+			<len>50</len>
+			<label>Nome</label>
+			<tooltip/>
+		</attributeText>
+		<attributeText name="description">
+			<len>4000</len>
+			<label>Descrição</label>
+			<editor>HTML</editor>
+			<tooltip/>
+		</attributeText>
+		<attributeText name="typePolicy">
+			<len>50</len>
+			<label>Tipo</label>
+			<tooltip/>
+			<lov name="TypePolicy" retainValues="false"/>
+		</attributeText>
+		<attributeObjectCollection name="groups">
+			<type>object.Ebo_Group</type>
+			<label>Membro de</label>
+			<renderAsLov>false</renderAsLov>
+			<tooltip/>
+			<maxOccurs>N</maxOccurs>
+			<minOccurs>0</minOccurs>
+			<objectFilter/>
+			<bridge>
+				<attributes/>
+			</bridge>
+		</attributeObjectCollection>
+		<attributeObjectCollection name="compartments">
+			<type>object.Ebo_Compartment</type>
+			<label>Divisão</label>
+			<renderAsLov>false</renderAsLov>
+			<tooltip/>
+			<maxOccurs>N</maxOccurs>
+			<minOccurs>0</minOccurs>
+			<objectFilter/>
+			<bridge>
+				<attributes/>
+			</bridge>
+		</attributeObjectCollection>
+		<attributeObjectCollection name="roles">
+			<type>object.Ebo_Role</type>
+			<label>Função</label>
+			<renderAsLov>false</renderAsLov>
+			<tooltip/>
+			<maxOccurs>N</maxOccurs>
+			<minOccurs>0</minOccurs>
+			<objectFilter/>
+			<bridge>
+				<attributes/>
+			</bridge>
+		</attributeObjectCollection>
+		<attributeObjectCollection name="packages">
+			<type>object.boObject</type>
+			<label>Aplicação</label>
+			<renderAsLov>false</renderAsLov>
+			<tooltip/>
+			<maxOccurs>N</maxOccurs>
+			<minOccurs>0</minOccurs>
+			<objects>
+				<object>Ebo_Package</object>
+				<object>Ebo_Application</object>
+			</objects>
+			<objectFilter/>
+			<bridge>
+				<attributes/>
+			</bridge>
+		</attributeObjectCollection>
+		<attributeNumber name="securityLevel">
+			<len>0</len>
+			<grouping>false</grouping>
+			<decimals>0</decimals>
+			<minDecimals>0</minDecimals>
+			<label>Nível Segurança</label>
+			<tooltip/>
+		</attributeNumber>
+	</attributes>
+	<viewers>
+        <viewer name="general">
+            <forms>
+			</forms>
+            <categories/>
+        </viewer>
+    </viewers>
+</xeoModel>

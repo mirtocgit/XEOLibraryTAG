@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xeoear name="AntExample" j2eeServer="JBOSS_4_2_X" earName="Library" destination="C:\xeo\ear" createAndSaveAntScript="true" buildBeforeExecute="false" deployDataSourcesinEar="false">
+    <xeowar webroot="xeo" name="XEOLibrary" default="true"/>
+</xeoear>

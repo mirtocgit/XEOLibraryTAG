@@ -1,0 +1,77 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<!--Ficheiro xeoModel v2 convertido em:Tue May 30 16:02:23 BST 2006-->
+<xeoModel>
+   <general name="Ebo_CheckOut" type="object" version="1.0" extends="" orphan="true" multiparent="false" extendsJavaClass="">
+      <locale language="pt" country="PT" variant=""/>
+      <implements/>
+      <database/>
+      <versioning active="false"/>
+      <textIndex active="true" appendChilds="false" deep="1">
+         <process/>
+      </textIndex>
+      <description>Ebo_CheckOut</description>
+      <cardID>[version],[user],[versionDate]</cardID>
+      <label>Check Out</label>
+   </general>
+   <opl active="false"/>
+   <states/>
+   <methods/>
+   <events/>
+   <fwdObjects/>
+   <attributes>
+      <attributeObject name="object">
+         <type>object.boObject</type>
+         <label>Objecto Relacionado</label>
+         <renderAsLov>false</renderAsLov>
+         <tooltip></tooltip>
+         <objectFilter/>
+         <disableWhen language="BOL"><depends/>true</disableWhen>
+      </attributeObject>
+      <attributeNumber name="version">
+         <len>0</len>
+         <grouping>false</grouping>
+         <decimals>0</decimals>
+         <minDecimals>0</minDecimals>
+         <label>Versão</label>
+         <tooltip></tooltip>
+         <disableWhen language="BOL"><depends/>true</disableWhen>
+      </attributeNumber>
+      <attributeDateTime name="versionDate">
+         <label>Data</label>
+         <tooltip></tooltip>
+         <disableWhen language="BOL"><depends/>true</disableWhen>
+      </attributeDateTime>
+      <attributeObject name="user">
+         <type>object.iXEOUser</type>
+         <label>Utilizador</label>
+         <renderAsLov>false</renderAsLov>
+         <tooltip></tooltip>
+         <objectFilter/>
+         <disableWhen language="BOL"><depends/>true</disableWhen>
+      </attributeObject>
+      <attributeLongText name="serialized">
+         <label>Objecto Serializado</label>
+         <editor>HTML</editor>
+         <tooltip></tooltip>
+         <disableWhen language="BOL"><depends/>true</disableWhen>
+      </attributeLongText>
+      <attributeLongText name="history">
+         <label>Historia do Objecto Serializado</label>
+         <editor>HTML</editor>
+         <tooltip></tooltip>
+         <disableWhen language="BOL"><depends/>true</disableWhen>
+      </attributeLongText>
+      <attributeText name="comment">
+         <len>100</len>
+         <label>Comentário</label>
+         <tooltip></tooltip>
+      </attributeText>
+   </attributes>
+	<viewers>
+        <viewer name="general">
+            <forms>
+			</forms>
+            <categories/>
+        </viewer>
+    </viewers>
+</xeoModel>

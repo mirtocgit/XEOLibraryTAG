@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xvw:root xmlns:xeo="http://www.netgest.net/xeo/xeo" xmlns:xvw="http://www.netgest.net/xeo/xvw">
+    <xvw:viewer beanClass="netgest.bo.xwc.xeo.beans.XEOBaseList" beanId="viewBean">
+        <xeo:formList>
+        	<style>
+        
+        	h1{
+        		font-family:Georgia,serif;
+        		font-size: 20px;
+        	}
+        
+        	.title{
+        		margin: 5px 5px 5px 5px;
+        	 	padding: 5px 5px 5px 5px;
+        		font-family:Georgia,serif;
+				font-size: .8em;
+        		font-weight: bold;
+				text-transform:uppercase;
+				letter-spacing:2px; 
+        	}
+        	
+        	
+        	.text{
+        		margin: 5px 5px 5px 5px;
+        	 	padding: 5px 5px 5px 5px;
+        		font-family: "Helvetica Neue", "Lucida Grande", Helvetica, Arial, Verdana, sans-serif;
+        		font-size: 14px;
+		        margin-top: .5em; color: #666;
+        	}
+        	
+        	
+        </style>
+        
+        <p class='Title'>XEO List Viewer Demo</p>
+        <p class='text'>In this demo you will be able to interact with a list viewer, which lists
+        instances of the Demo XEOModel. The Demo XEOModel has several types of attributes (which are list as
+        columns in the table). If you hover the mouse over a column name a small arrow will appear, click the arrow to allow you to
+        - Sort results in ascending or descending order <br></br>
+        - Show/Hide Columns (not all columns need to be displayed when the viewer is rendered) <br></br>
+        - Group Results by a Column<br></br>
+        - Filter the results by a value on a given column <br></br>
+        
+        <br></br>
+        Sorting, Grouping and Filtering are applied to the selected column. The Show/Hide option
+        is applied to the table as a whole.
+        </p>
+        
+        <p class='text'>
+        	Notice: Usually you can create new instances of given XEO Model in a list viewer by pressing the "New"
+        	button, or edit an existing instance by double-clicking the row, but in this example those options are disabled.
+        	To see them, go the edit viewer demo.        	
+        </p>
+        <p class='text'>
+        	Notice2: Usually a list viewer does not have any item before the list, this demo has this text as instructions,
+        	but if you create a regular list viewer the list will be aligned to the top.
+        </p>
+            <xeo:list enableGroupBy="true" enableColumnHide="true" enableColumnResize="true" 
+            enableColumnSort="true" enableColumnFilter="true" enableHeaderMenu="true"
+            enableColumnMove="true" renderToolBar="false" onRowDoubleClick=""
+            >
+            <xvw:toolBar>
+            	<xvw:menu icon='resources/Demo/ico16.gif' text='New' disabled='true'></xvw:menu>	
+            </xvw:toolBar>
+                <xvw:columns>
+                    <xvw:columnAttribute dataField="name" width="120"/>
+                    <xvw:columnAttribute dataField="age" width="30"/>
+                    <xvw:columnAttribute dataField="bestFriend" width="100"/>
+                    <xvw:columnAttribute dataField="favoriteDate" width="100"/>
+                    <xvw:columnAttribute dataField="dateBirth" width="100"/>
+                    <xvw:columnAttribute dataField="playsSports" width="100"/>
+                    <xvw:columnAttribute dataField="cv" width="100" hidden="true" hideable="true" />
+                </xvw:columns>
+            </xeo:list>
+        </xeo:formList>
+    </xvw:viewer>
+</xvw:root>

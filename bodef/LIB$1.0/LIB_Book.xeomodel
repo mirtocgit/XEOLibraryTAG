@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xeoModel xsi:noNamespaceSchemaLocation="../../xeoModel.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <general name="LIB_Book" type="object" version="1.0" extends="" mastertable="Book" orphan="true" multiparent="false" extendsJavaClass="">
+        <locale language="pt" country="PT" variant=""/>
+        <implements/>
+        <database/>
+        <versioning active="false"/>
+        <textIndex active="true" appendChilds="false" deep="1">
+            <process/>
+        </textIndex>
+        <description>Book</description>
+        <cardID>[title]</cardID>
+        <label>Book</label>
+    </general>
+    <opl active="false"/>
+    <states/>
+    <methods>
+        <method name="removeAllCategories" menu="true" toolbar="true" requiredTransaction="Required">
+            <label>removeAllCategories</label>
+            <icon></icon>
+            <assinature return="void"/>
+            <body language="JAVA">/*XEOJAVACLASS*/
+new xeo.code.java.lib1_0.LIB_BookHandler().removeAllCategories(this);</body>
+        </method>
+    </methods>
+    <events/>
+    <fwdObjects/>
+    <attributes>
+        <attributeText name="title">
+            <label>Title</label>
+            <description>Book Title</description>
+            <tooltip>Tooltip of attribute1</tooltip>
+            <len>100</len>
+            <database>
+                <unique>false</unique>
+                <indexfull>true</indexfull>
+                <indexed>false</indexed>
+                <tabled>false</tabled>
+                <constraint>false</constraint>
+                <binding>true</binding>
+            </database>
+            <events/>
+            <required language="BOL">true</required>
+            <formula></formula>
+            <defaultValue></defaultValue>
+            <valid></valid>
+            <disableWhen></disableWhen>
+            <hiddenWhen></hiddenWhen>
+        </attributeText>
+        <attributeText name="isbn">
+            <label>isbn</label>
+            <description>isbn book</description>
+            <tooltip>Tooltip of attribute1</tooltip>
+            <len>13</len>
+            <database>
+                <unique>false</unique>
+                <indexfull>true</indexfull>
+                <indexed>false</indexed>
+                <tabled>false</tabled>
+                <constraint>false</constraint>
+                <binding>true</binding>
+            </database>
+            <events/>
+            <required language="BOL">true</required>
+        </attributeText>
+        <attributeText name="edition">
+            <label>edition</label>
+            <description>edition</description>
+            <tooltip>Tooltip of attribute1</tooltip>
+            <len>30</len>
+            <database>
+                <unique>false</unique>
+                <indexfull>true</indexfull>
+                <indexed>false</indexed>
+                <tabled>false</tabled>
+                <constraint>false</constraint>
+                <binding>true</binding>
+            </database>
+            <events/>
+        </attributeText>
+        <attributeLongText name="summary">
+            <label>Summary</label>
+            <description>summary</description>
+            <tooltip>Tooltip of attribute1</tooltip>
+            <editor>HTML</editor>
+            <database>
+                <unique>false</unique>
+                <indexfull>true</indexfull>
+                <indexed>false</indexed>
+                <tabled>false</tabled>
+                <constraint>false</constraint>
+                <binding>true</binding>
+            </database>
+            <events/>
+        </attributeLongText>
+        <attributeBinaryData name="frontCover">
+            <label>FrontCover</label>
+            <description>Description of attribute1</description>
+            <tooltip>Tooltip of attribute1</tooltip>
+            <database>
+                <unique>false</unique>
+                <indexfull>true</indexfull>
+                <indexed>false</indexed>
+                <tabled>false</tabled>
+                <constraint>false</constraint>
+                <binding>true</binding>
+            </database>
+            <events/>
+            <required></required>
+            <formula></formula>
+            <defaultValue></defaultValue>
+            <valid></valid>
+            <disableWhen></disableWhen>
+            <hiddenWhen></hiddenWhen>
+        </attributeBinaryData>
+        <attributeBinaryData name="BackCover">
+            <label>BackCover</label>
+            <description>BackCover</description>
+            <tooltip>Tooltip of attribute1</tooltip>
+            <database>
+                <unique>false</unique>
+                <indexfull>true</indexfull>
+                <indexed>false</indexed>
+                <tabled>false</tabled>
+                <constraint>false</constraint>
+                <binding>true</binding>
+            </database>
+            <events/>
+            <formula></formula>
+            <defaultValue></defaultValue>
+        </attributeBinaryData>
+        <attributeObject name="publisher">
+            <label>publisher</label>
+            <description>Book Publisher</description>
+            <tooltip>Tooltip of attribute1</tooltip>
+            <type>object.LIB_Publisher</type>
+            <objects/>
+            <setParent>false</setParent>
+            <renderAsLov>false</renderAsLov>
+            <database>
+                <unique>false</unique>
+                <indexfull>true</indexfull>
+                <indexed>false</indexed>
+                <tabled>false</tabled>
+                <constraint>false</constraint>
+                <binding>true</binding>
+            </database>
+            <events/>
+            <required></required>
+            <formula></formula>
+            <defaultValue></defaultValue>
+            <valid></valid>
+            <disableWhen></disableWhen>
+            <hiddenWhen></hiddenWhen>
+            <orphanRelation>true</orphanRelation>
+        </attributeObject>
+        <attributeObject name="categoria">
+            <label>Collection</label>
+            <description>categoria</description>
+            <tooltip>categoria</tooltip>
+            <type>object.LIB_BookCategory</type>
+            <objects/>
+            <setParent>false</setParent>
+            <renderAsLov>false</renderAsLov>
+            <database>
+                <unique>false</unique>
+                <indexfull>true</indexfull>
+                <indexed>false</indexed>
+                <tabled>false</tabled>
+                <constraint>false</constraint>
+                <binding>true</binding>
+            </database>
+            <events/>
+            <required></required>
+            <formula></formula>
+            <defaultValue></defaultValue>
+            <valid></valid>
+            <disableWhen></disableWhen>
+            <hiddenWhen></hiddenWhen>
+            <orphanRelation>true</orphanRelation>
+        </attributeObject>
+        <attributeObject name="author">
+            <label>Author</label>
+            <description>Author</description>
+            <tooltip>Author</tooltip>
+            <type>object.LIB_Author</type>
+            <objects/>
+            <setParent>false</setParent>
+            <renderAsLov>false</renderAsLov>
+            <database>
+                <unique>false</unique>
+                <indexfull>true</indexfull>
+                <indexed>false</indexed>
+                <tabled>false</tabled>
+                <constraint>false</constraint>
+                <binding>true</binding>
+            </database>
+            <events/>
+            <orphanRelation>true</orphanRelation>
+        </attributeObject>
+        <attributeText name="state">
+            <label>State</label>
+            <description>state</description>
+            <tooltip>astate</tooltip>
+            <len>50</len>
+            <lov name="estado_lib" retainValues="true"/>
+            <database>
+                <unique>false</unique>
+                <indexfull>true</indexfull>
+                <indexed>false</indexed>
+                <tabled>false</tabled>
+                <constraint>false</constraint>
+                <binding>true</binding>
+            </database>
+            <events/>
+        </attributeText>
+        <attributeObjectCollection name="categorias">
+            <label>Categorias</label>
+            <description>Description of attribute1</description>
+            <tooltip>Tooltip of attribute1</tooltip>
+            <type>object.LIB_BookCategory</type>
+            <objects/>
+            <setParent>false</setParent>
+            <minOccurs>0</minOccurs>
+            <maxOccurs>N</maxOccurs>
+            <database>
+                <unique>false</unique>
+                <indexfull>true</indexfull>
+                <indexed>false</indexed>
+                <tabled>false</tabled>
+                <constraint>false</constraint>
+                <binding>true</binding>
+            </database>
+            <events/>
+            <orphanRelation>true</orphanRelation>
+        </attributeObjectCollection>
+    </attributes>
+    <viewers>
+        <viewer name="general">
+            <forms>
+			</forms>
+            <categories/>
+        </viewer>
+    </viewers>
+</xeoModel>

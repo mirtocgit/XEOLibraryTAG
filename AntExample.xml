@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Cria EAR, desliga server, copia e desconpacta EAR, Liga server -->
+
+<project name="XEOLibrary" default="all" basedir="./">
+
+	<echo>Inicio</echo>
+	
+	<!-- Ficheiros de Propriedades -->
+	<property file="global.properties"/>
+	<property file="version.properties"/>
+	
+	<property name="destination" value="C:/xeo/ear" />
+	<property name="mycontainerid" value="${jboss.path}" />
+	<property name="build" value="C:\Users\Administrator.PedroRio-PC\Desktop\svn\" />
+	
+	<property name="bin" value="${basedir}/bin" />
+	<property name="war.name" value="XEOLibrary.war" />
+	<property name="ear.name" value="Library.ear" />
+	<property name="ejbjar.name" value="Library.jar" />
+	
+	<property name="resin3x" value="cargo-core-uberjar-1.2.2.jar" />
+	<property name="orion1x" value="cargo-core-uberjar-1.2.2.jar" />
+	<property name="cargo.tasks" value="cargo-core-uberjar-1.2.2.jar" />
+		
+	
+	
+	<tstamp>
+	     <format property="TODAY" pattern="yyyy-MM-dd" />
+	</tstamp>
+	
+	
+	<!-- Actualiza a versao -->
+	<target name="increment">
+	<propertyfile file="version.properties">
+	<entry key="build.number" type="int" operation="+" default="0"/>
+	</propertyfile>
+	<property file="version.properties"/>
+	<echo>Build ${build.number} times</echo>
+	<echo>Versão: ${build.version} lançado em ${TODAY}</echo>
+	</target>
+		
+	<!-- Copia o que esta no svn -->
+	<target name="get">
+	     <exec executable="svn">
+	          <arg value="export"/>
+	          <arg value="--force"/>
+	     	  <arg value="--username"/>
+	     	  <arg value="prio"/>
+	     	  <arg value="--password"/>
+	     	  <arg value="prio"/>
+	          <arg value="-q"/>
+	          <arg value="-r"/>
+	          <arg value="HEAD"/>
+	          <arg value="http://svn.itds.pt/svn_repo/itds-internal/XEOLibrary/" />
+	     	  <arg value="${svn.destination}"/><!-- no caminho da pasta de destino duas barras e apenas uma no fim -->
+	     </exec>  
+		<echo>Ficheiros copiados do svn</echo>
+	</target>
+	
+	<!-- Copia do repositorio do git -->
+		<target name="git">
+			
+		     <exec executable="git" >
+			        <arg line="clone git://github.com/mirtocgit/XEOLibrary.git"/>
+		     		<arg line="${git.path}"/>
+			 </exec>
+			<echo>Ficheiros do repositorio github mirtocgit em ${git.path} </echo>
+		</target>
+	
+	
+	<!-- Passar parametros ao jBoss -->
+	<target name='jbossparameters' depends=''>
+	<cargo id="mycontainerid" containerId="jboss42x" home="${jboss.path}" action="start">
+		<configuration>
+			<property name="MyProperty" value="MyValue"/><!-- Colocar os parametros aqui -->
+		</configuration>
+	</cargo>
+	</target>
+	
+	
+	<!-- Inicio de Processo de copia do Projecto para o servidor -->
+	<mkdir dir="${basedir}/.deploytmp" />
+	<mkdir dir="${basedir}/.deploytmp/ear" />
+
+	<target name='all' depends='ear'>
+	</target>
+
+	<path id='libs'>
+		<pathelement location="${basedir}/bin/" />
+		<fileset dir="${basedir}/project_lib/" includes="*.jar" />
+		<fileset dir="${basedir}/base_lib/j2ee/" includes="*.jar" />
+		<fileset dir="${basedir}/base_lib/modules/" includes="*.jar" />
+		<fileset dir="${basedir}/base_lib/modules_lib/" includes="*.jar" />
+	</path>
+
+
+	<target name='ejb'>
+		<jar jarfile="${basedir}/.deploytmp/ear/${ejbjar.name}" basedir="${bin}" />
+	</target>
+	<target name='war'>
+
+		<war destfile='${basedir}/.deploytmp/ear/${war.name}' webxml='${basedir}/webapps/default/WEB-INF/web.xml'>
+			<fileset dir="${basedir}/webapps/default/">
+				<exclude name="**/.xeodeploy/**" />
+			</fileset>
+			<classes dir="${basedir}/.xeometasettings/.eardefs/AntExample/" includes='xeo.home' />
+		</war>
+		
+	</target>
+	
+
+	<taskdef resource="cargo.tasks">
+	  <classpath>
+	    <pathelement location="${cargo.jar}/cargo-core-uberjar.jar"/>
+	    <pathelement location="${cargo.jar}/cargo-ant.jar"/>
+	  </classpath>
+	</taskdef>
+	
+	<!-- Stop do Servidor -->
+	<target name='deploy' depends=''>
+	<cargo id="mycontainerid" containerId="jboss42x" home="${jboss.path}" action="stop">
+		 <configuration>
+		 	 <property name="cargo.servlet.port" value="${cargo.servletport}"/>
+		 	 <property name="cargo.rmi.port" value="${cargo.rmiport}"/>
+		  </configuration>
+	</cargo>
+	</target>
+	
+	<target name='ear' depends='ejb,war'>
+				
+		<copy todir='${basedir}/.deploytmp/ear/lib'>
+			<fileset dir="${basedir}/project_lib/" includes='*.*' />
+			<fileset dir="${basedir}/base_lib/modules_lib/" includes='*.*' />
+			<fileset dir="${basedir}/base_lib/modules/" includes='*.*' />
+		</copy>
+
+		<copy todir='${basedir}/.deploytmp/ear/'>
+			<fileset dir="${basedir}" includes='**/base_lib/modules_web/**' />
+			<fileset dir="${basedir}" includes='**/bodef/**' />
+			<fileset dir="${basedir}" includes='**/.build/**' />
+			<fileset dir="${basedir}" includes='**/wordtemplates/**' />
+			<fileset dir="${basedir}" includes='**/uidef/**' />
+			<fileset dir="${basedir}" includes='*.ver' />
+			<fileset dir="${basedir}" includes='*.xsd' />
+			<fileset dir="${basedir}/.xeometasettings/.eardefs/AntExample/" includes='boconfig.xml' />
+			<fileset dir="${basedir}/.xeometasettings/.eardefs/AntExample/" includes='ifileservices.xml' />
+		</copy>
+		<copy todir='${basedir}/.deploytmp/ear/META-INF'>
+			<fileset dir="${basedir}/.xeometasettings/.eardefs/AntExample/" includes='application.xml' />
+			<fileset dir="${basedir}/.xeometasettings/.eardefs/AntExample/" includes='jboss-app.xml' />
+		</copy>
+		<jar jarfile="${destination}/${ear.name}" basedir="${basedir}/.deploytmp/ear/" />
+		<delete dir='${basedir}/.deploytmp/ear/' />
+		
+		
+		<!-- Start do servidor -->
+		<cargo id="mycontainerid" containerId="jboss42x" home="${jboss.path}" action="start">
+			<configuration>
+				 <property name="cargo.servlet.port" value="${cargo.servletport}"/>
+			</configuration>
+		</cargo>
+				
+	</target>
+	
+	<!-- Criar Tag com versão -->
+	<target name="launchversion">
+		<exec executable="git" >
+			<arg line="tag ${build.version}"/>
+		</exec>
+		<echo>TAG: ${build.version} </echo>
+	</target>
+
+</project>

@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xvw:root xmlns:xvw="http://www.netgest.net/xeo/xvw" xmlns:xeo="http://www.netgest.net/xeo/xeo">
+	<xvw:viewer beanClass="org.xeoframework.components.tabs.TabWizardForm"
+		beanId="viewBean">
+		<xvw:form id='form'>
+			<xvw:errorMessages></xvw:errorMessages>
+			<xvw:title valueExpression="Form Wizard using Tabs"></xvw:title>
+			<xvw:panel>
+				<xvw:tabs>
+					<xvw:tab label='Wizard Example'>
+						<br></br>
+						<h1>Form Filling Progress</h1>
+						<xvw:progressBar text="#{viewBean.percentage}"
+							valueExpression="#{viewBean.progress}" />
+						<br></br>
+						<br></br>	
+						<xvw:tabs renderTabBar='false' id='tabs'>
+
+							<xvw:tab id='t1' label='Step 1'>
+								<h1>Personal Information</h1>
+								<xvw:rows columnWidths='20%,80%'>
+									<xvw:row>
+										<xvw:cell>
+											<xvw:attributeLabel text='Name'></xvw:attributeLabel>
+										</xvw:cell>
+										<xvw:cell>
+											<xvw:attributeText maxLength='10'></xvw:attributeText>
+										</xvw:cell>
+									</xvw:row>
+									<xvw:row>
+										<xvw:cell>
+											<xvw:attributeLabel text='Address'></xvw:attributeLabel>
+										</xvw:cell>
+										<xvw:cell>
+											<xvw:attributeText maxLength='10'></xvw:attributeText>
+										</xvw:cell>
+									</xvw:row>
+									<xvw:row>
+										<xvw:cell>
+											<xvw:attributeLabel text='Phone Number'></xvw:attributeLabel>
+										</xvw:cell>
+										<xvw:cell>
+											<xvw:attributeText maxLength='10'></xvw:attributeText>
+										</xvw:cell>
+									</xvw:row>
+									<xvw:row>
+										<xvw:cell>
+											<xvw:attributeLabel text='Date of Birth'></xvw:attributeLabel>
+										</xvw:cell>
+										<xvw:cell>
+											<xvw:attributeDate maxLength='10'></xvw:attributeDate>
+										</xvw:cell>
+									</xvw:row>
+								</xvw:rows>
+								<xvw:actionButton label='Next Step'
+									serverAction='#{viewBean.step1}'></xvw:actionButton>
+							</xvw:tab>
+							<xvw:tab id='t2' label='Step 2'>
+								<h1>Step 2 - Professional Information</h1>
+								<xvw:rows columnWidths='20%,80%'>
+									<xvw:row>
+										<xvw:cell>
+											<xvw:attributeLabel text='Profession'></xvw:attributeLabel>
+										</xvw:cell>
+										<xvw:cell>
+											<xvw:attributeText maxLength='10'></xvw:attributeText>
+										</xvw:cell>
+									</xvw:row>
+									<xvw:row>
+										<xvw:cell>
+											<xvw:attributeLabel text='Work Address'></xvw:attributeLabel>
+										</xvw:cell>
+										<xvw:cell>
+											<xvw:attributeText maxLength='10'></xvw:attributeText>
+										</xvw:cell>
+									</xvw:row>
+									<xvw:row>
+										<xvw:cell>
+											<xvw:attributeLabel text='Work Phone Number'></xvw:attributeLabel>
+										</xvw:cell>
+										<xvw:cell>
+											<xvw:attributeText maxLength='10'></xvw:attributeText>
+										</xvw:cell>
+									</xvw:row>
+								</xvw:rows>
+								<xvw:actionButton label='Next Step'
+									serverAction='#{viewBean.step2}'></xvw:actionButton>
+							</xvw:tab>
+							<xvw:tab label="Step 3 / 3" id='t3'>
+								<h1>Step 3 - Finish</h1>
+								<xvw:rows columnWidths='20%,80%'>
+									<xvw:row>
+										<xvw:cell>
+											<xvw:attributeLabel text='Do you agree with terms and conditions?'></xvw:attributeLabel>
+										</xvw:cell>
+										<xvw:cell>
+											<xvw:attributeBoolean></xvw:attributeBoolean>
+										</xvw:cell>
+									</xvw:row>
+								</xvw:rows>
+								<xvw:actionButton label='Finish' serverAction='#{viewBean.finish}'></xvw:actionButton>
+							</xvw:tab>
+						</xvw:tabs>
+					</xvw:tab>
+					<xvw:tab label="Source Code">
+						<iframe
+							src='/xeo/PrintScr.jsp?comp=Samples/Tabs/TabAsForm.xvw'
+							frameborder='0' width='100%' height='98%'></iframe>
+					</xvw:tab>
+					<xvw:tab label="Bean Source Code">
+						<iframe src='/xeo/PrintScrBean.jsp?comp=/Extras/ComponentBeans/TabWizardForm.java'
+							frameborder='0' width='100%' height='98%'></iframe>
+					</xvw:tab>
+				</xvw:tabs>
+			</xvw:panel>
+		</xvw:form>
+	</xvw:viewer>
+
+</xvw:root>
+	

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xvw:root xmlns:xvw="http://www.netgest.net/xeo/xvw" xmlns:xeo="http://www.netgest.net/xeo/xeo">
+	<xvw:viewer beanClass="org.xeoframework.components.gridExplorer.GridExplorerBean"
+		beanId="viewBean">
+		<xvw:form>
+			<xvw:title valueExpression="Grid Panel"></xvw:title>
+			<xvw:panel title="">
+						<xvw:gridExplorer dataSource="#{viewBean.dataList}" autoSaveGridState="true" >
+							<xvw:columns>
+								<xvw:columnAttribute dataField="title" width="100"/>
+                    <xvw:columnAttribute dataField="state"
+                         width="100"/>
+                    <xvw:columnAttribute dataField="isbn" width="100"/>
+                    <xvw:columnAttribute dataField="edition" width="100"/>
+                    <xvw:columnAttribute dataField="summary" width="100"/>
+                    <xvw:columnAttribute dataField="publisher" width="100"/>
+							</xvw:columns>
+						</xvw:gridExplorer>
+			</xvw:panel>
+		</xvw:form>
+	</xvw:viewer>
+
+</xvw:root>
+	

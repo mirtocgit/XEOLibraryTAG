@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<bo-config>
+    <definitiondir>.\bodef\</definitiondir>
+    <uidefinitiondir>.\uidef\default\</uidefinitiondir>
+    <webcontextroot>/xeo</webcontextroot>
+    <encoding>UTF-8</encoding>
+    <deployment>
+        <class_dir>.\.build\classes\</class_dir>
+        <src_dir>.\.build\src\</src_dir>
+        <obj_dir>.\.build\bodef-deployment</obj_dir>
+        <obj_compiler>C:/jdk1.6.0_14/bin/javac.exe</obj_compiler>
+        <obj_templates>.\.templates</obj_templates>
+        <obj_deployjspdir>.\.build\webresources\default\</obj_deployjspdir>
+        <obj_moduleswebdir>.\base_lib\modules_web\</obj_moduleswebdir>
+        <lib_dir>.\lib\</lib_dir>
+        <tablespace>TS_FBIBLIOENG</tablespace>
+    </deployment>
+    <threads type="userThreads"/>
+    <DataSources>
+        <DataSource boql="true" name="DATA">
+            <Driver>netgest.bo.data.oracle.OracleDriver</Driver>
+            <DML>jdbc/xeo</DML>
+            <DDL>jdbc/xeo_nojta</DDL>
+        </DataSource>
+        <DataSource boql="true" name="SYS">
+            <Driver>netgest.bo.data.oracle.OracleDriver</Driver>
+            <DML>jdbc/xeo_nojta</DML>
+            <DDL>jdbc/xeo_nojta</DDL>
+        </DataSource>
+    </DataSources>
+    <logConfig>
+        <logger pattern="%d %5p [%t] (%F:%L) - %m%n" level="CONFIG" for="pt,netgest" active="true">
+            <console active="true"/>
+            <file maxSize="50MB" backupFiles="5" logFile=".\log\fileName.log" active="true"/>
+            <email subject="ola" bcc="" cc="" to="jp@itds.pt" from="machine@itds.pt" smtpHost="venus.itds.pt" buffer="50" active="false"/>
+        </logger>
+    </logConfig>
+    <mail>
+        <smtphost>smtp.host.domain</smtphost>
+        <pophost></pophost>
+    </mail>
+    <Repositories>
+        <Repository>
+            <Name>default</Name>
+            <UserName></UserName>
+            <Password></Password>
+            <DataSource>DATA</DataSource>
+            <DataSourceDef>DATA</DataSourceDef>
+            <Schema>fbiblioeng</Schema>
+            <Parent></Parent>
+        </Repository>
+    </Repositories>
+     <languages>
+       <ApplicationLanguage>EN</ApplicationLanguage>
+    	<availableLanguages>
+         	<language>
+    		  <code>EN</code>
+    		  <description>English</description>
+    		</language> 
+    		<language>
+    		  <code>PT</code>
+    		  <description>Português</description>
+    		</language>
+    	</availableLanguages>
+    </languages>
+    <browser>
+        <name>IE</name>
+        <dir_prefix>ie</dir_prefix>
+        <theme>0</theme>
+    </browser>
+    <wordTemplate>
+        <path>.\wordTemplates\</path>
+    </wordTemplate>
+    <win32Client>
+        <version>0.9.1</version>
+        <name>xeoWin32Client.jar</name>
+        <path>.\XeoWin32Client\</path>
+    </win32Client>
+</bo-config>

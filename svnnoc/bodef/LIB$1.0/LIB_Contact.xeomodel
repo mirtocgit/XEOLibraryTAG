@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xeoModel xsi:noNamespaceSchemaLocation="../../xeoModel.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <general extendsJavaClass="" multiparent="false" orphan="false" mastertable="" extends="" version="1.0" type="object" name="LIB_Contact">
+        <locale variant="" country="US" language="en"/>
+        <implements/>
+        <database/>
+        <versioning active="false"/>
+        <textIndex deep="1" appendChilds="false" active="true">
+            <process/>
+        </textIndex>
+        <description>Contact</description>
+        <cardID>[name]</cardID>
+        <label>Contact</label>
+    </general>
+    <opl active="false"/>
+    <states/>
+    <methods/>
+    <events/>
+    <fwdObjects/>
+    <attributes>
+        <attributeText name="name">
+            <label>Name</label>
+            <description>Name of the contact</description>
+            <tooltip></tooltip>
+            <len>100</len>
+            <database>
+                <unique>false</unique>
+                <indexfull>true</indexfull>
+                <indexed>false</indexed>
+                <tabled>false</tabled>
+                <constraint>false</constraint>
+                <binding>true</binding>
+            </database>
+            <events/>
+            <required language="BOL">true</required>
+            <onChangeSubmit language=""></onChangeSubmit>
+        </attributeText>
+        <attributeText name="phone">
+            <label>Phone Number</label>
+            <description>Phone Number of the contact</description>
+            <tooltip></tooltip>
+            <len>10</len>
+            <database>
+                <unique>false</unique>
+                <indexfull>true</indexfull>
+                <indexed>false</indexed>
+                <tabled>false</tabled>
+                <constraint>false</constraint>
+                <binding>true</binding>
+            </database>
+            <events/>
+            <required language=""></required>
+            <onChangeSubmit language=""></onChangeSubmit>
+        </attributeText>
+        <attributeText name="email">
+            <label>E-mail</label>
+            <description>E-mail of the contact</description>
+            <tooltip></tooltip>
+            <len>50</len>
+            <database>
+                <unique>false</unique>
+                <indexfull>true</indexfull>
+                <indexed>false</indexed>
+                <tabled>false</tabled>
+                <constraint>false</constraint>
+                <binding>true</binding>
+            </database>
+            <events/>
+            <required language=""></required>
+            <onChangeSubmit language=""></onChangeSubmit>
+        </attributeText>
+        <attributeBinaryData name="businessCard">
+            <label>Business Card</label>
+            <description>Business Card Image</description>
+            <tooltip></tooltip>
+            <database>
+                <unique>false</unique>
+                <indexfull>true</indexfull>
+                <indexed>false</indexed>
+                <tabled>false</tabled>
+                <constraint>false</constraint>
+                <binding>true</binding>
+            </database>
+            <events/>
+            <required language=""></required>
+            <formula language=""></formula>
+            <defaultValue language=""></defaultValue>
+            <onChangeSubmit language=""></onChangeSubmit>
+        </attributeBinaryData>
+    </attributes>
+    <viewers>
+        <viewer name="general">
+            <forms>
+			</forms>
+            <categories/>
+        </viewer>
+    </viewers>
+</xeoModel>

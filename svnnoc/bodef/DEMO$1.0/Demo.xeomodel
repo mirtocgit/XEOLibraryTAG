@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xeoModel xsi:noNamespaceSchemaLocation="../../xeoModel.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <general extendsJavaClass="" multiparent="false" orphan="true" mastertable="" extends="" version="1.0" type="object" name="Demo">
+        <locale variant="" country="PT" language="pt"/>
+        <implements/>
+        <database/>
+        <versioning active="false"/>
+        <textIndex deep="1" appendChilds="false" active="true">
+            <process/>
+        </textIndex>
+        <description>Demo Object</description>
+        <cardID>[name]</cardID>
+        <label>Demo Object</label>
+    </general>
+    <opl active="false"/>
+    <states/>
+    <methods/>
+    <events/>
+    <fwdObjects/>
+    <attributes>
+        <attributeText name="name">
+            <label>Name</label>
+            <description>Name</description>
+            <tooltip></tooltip>
+            <len>50</len>
+            <database>
+                <unique>false</unique>
+                <indexfull>true</indexfull>
+                <indexed>false</indexed>
+                <tabled>false</tabled>
+                <constraint>false</constraint>
+                <binding>true</binding>
+            </database>
+            <events/>
+            <required language="BOOLEAN">true</required>
+            <onChangeSubmit language=""></onChangeSubmit>
+        </attributeText>
+        <attributeNumber name="age">
+            <label>Age</label>
+            <description>Age</description>
+            <tooltip></tooltip>
+            <len>8</len>
+            <grouping>false</grouping>
+            <decimals>0</decimals>
+            <minDecimals>0</minDecimals>
+            <database>
+                <unique>false</unique>
+                <indexfull>true</indexfull>
+                <indexed>false</indexed>
+                <tabled>false</tabled>
+                <constraint>false</constraint>
+                <binding>true</binding>
+            </database>
+            <events>
+                <event name="onAfterChange">
+                    <body language="JAVA">/*XEOJAVACLASS*/
+new 
+xeo.code.java.demo1_0.
+DemoHandler().
+age_onAfterChange
+(this.getParent(),this);</body>
+                </event>
+            </events>
+            <required language=""></required>
+            <formula language=""></formula>
+            <defaultValue language="BOL">12</defaultValue>
+            <valid language="JAVA">/*XEOJAVACLASS*/
+return new 
+xeo.code.java.demo1_0.
+DemoHandler().
+age_Valid
+(this.getParent(),this);</valid>
+            <disableWhen language=""></disableWhen>
+            <hiddenWhen language=""></hiddenWhen>
+            <onChangeSubmit language=""></onChangeSubmit>
+        </attributeNumber>
+        <attributeObject name="bestFriend">
+            <label>Best Friend</label>
+            <description></description>
+            <tooltip></tooltip>
+            <type>object.Demo</type>
+            <objects/>
+            <setParent>false</setParent>
+            <renderAsLov>false</renderAsLov>
+            <database>
+                <unique>false</unique>
+                <indexfull>true</indexfull>
+                <indexed>false</indexed>
+                <tabled>false</tabled>
+                <constraint>false</constraint>
+                <binding>true</binding>
+            </database>
+            <events/>
+            <required language=""></required>
+            <formula language=""></formula>
+            <defaultValue language=""></defaultValue>
+            <valid language=""></valid>
+            <disableWhen language=""></disableWhen>
+            <hiddenWhen language=""></hiddenWhen>
+            <onChangeSubmit language=""></onChangeSubmit>
+            <orphanRelation>true</orphanRelation>
+        </attributeObject>
+        <attributeObjectCollection name="allFriends">
+            <label>All Friends</label>
+            <description></description>
+            <tooltip></tooltip>
+            <type>object.Demo</type>
+            <objects/>
+            <setParent>false</setParent>
+            <minOccurs>0</minOccurs>
+            <maxOccurs>N</maxOccurs>
+            <database>
+                <unique>false</unique>
+                <indexfull>true</indexfull>
+                <indexed>false</indexed>
+                <tabled>false</tabled>
+                <constraint>false</constraint>
+                <binding>true</binding>
+            </database>
+            <events/>
+            <required language=""></required>
+            <valid language=""></valid>
+            <disableWhen language=""></disableWhen>
+            <hiddenWhen language=""></hiddenWhen>
+            <onChangeSubmit language=""></onChangeSubmit>
+            <orphanRelation>true</orphanRelation>
+        </attributeObjectCollection>
+        <attributeDate name="favoriteDate">
+            <label>Favorite Date</label>
+            <description></description>
+            <tooltip></tooltip>
+            <database>
+                <unique>false</unique>
+                <indexfull>true</indexfull>
+                <indexed>false</indexed>
+                <tabled>false</tabled>
+                <constraint>false</constraint>
+                <binding>true</binding>
+            </database>
+            <events/>
+            <required language=""></required>
+            <formula language=""></formula>
+            <defaultValue language=""></defaultValue>
+            <valid language=""></valid>
+            <disableWhen language=""></disableWhen>
+            <hiddenWhen language=""></hiddenWhen>
+            <onChangeSubmit language=""></onChangeSubmit>
+        </attributeDate>
+        <attributeDateTime name="dateBirth">
+            <label>Date Birth</label>
+            <description></description>
+            <tooltip></tooltip>
+            <database>
+                <unique>false</unique>
+                <indexfull>true</indexfull>
+                <indexed>false</indexed>
+                <tabled>false</tabled>
+                <constraint>false</constraint>
+                <binding>true</binding>
+            </database>
+            <events/>
+            <required language=""></required>
+            <formula language=""></formula>
+            <defaultValue language=""></defaultValue>
+            <valid language=""></valid>
+            <disableWhen language=""></disableWhen>
+            <hiddenWhen language=""></hiddenWhen>
+            <onChangeSubmit language=""></onChangeSubmit>
+        </attributeDateTime>
+        <attributeBoolean name="playsSports">
+            <label>Plays Sports</label>
+            <description></description>
+            <tooltip></tooltip>
+            <renderAsCheck>false</renderAsCheck>
+            <database>
+                <unique>false</unique>
+                <indexfull>true</indexfull>
+                <indexed>false</indexed>
+                <tabled>false</tabled>
+                <constraint>false</constraint>
+                <binding>true</binding>
+            </database>
+            <events/>
+            <required language=""></required>
+            <onChangeSubmit language=""></onChangeSubmit>
+        </attributeBoolean>
+        <attributeBinaryData name="cv">
+            <label>Curiculum Vitae</label>
+            <description>Curriculum</description>
+            <tooltip></tooltip>
+            <database>
+                <unique>false</unique>
+                <indexfull>true</indexfull>
+                <indexed>false</indexed>
+                <tabled>false</tabled>
+                <constraint>false</constraint>
+                <binding>true</binding>
+            </database>
+            <events/>
+            <required language=""></required>
+            <formula language=""></formula>
+            <defaultValue language=""></defaultValue>
+            <onChangeSubmit language=""></onChangeSubmit>
+        </attributeBinaryData>
+        <attributeLongText name="biography">
+            <label>Biography</label>
+            <description></description>
+            <tooltip></tooltip>
+            <editor>HTML</editor>
+            <database>
+                <unique>false</unique>
+                <indexfull>true</indexfull>
+                <indexed>false</indexed>
+                <tabled>false</tabled>
+                <constraint>false</constraint>
+                <binding>true</binding>
+            </database>
+            <events/>
+            <required language=""></required>
+            <onChangeSubmit language=""></onChangeSubmit>
+        </attributeLongText>
+        <attributeText name="timeToRetire">
+            <label>Years till retirement</label>
+            <description></description>
+            <tooltip></tooltip>
+            <len>50</len>
+            <database>
+                <unique>false</unique>
+                <indexfull>true</indexfull>
+                <indexed>false</indexed>
+                <tabled>false</tabled>
+                <constraint>false</constraint>
+                <binding>true</binding>
+            </database>
+            <events/>
+            <required language=""></required>
+            <formula language="JAVA">/*XEOJAVACLASS*/
+return new 
+xeo.code.java.demo1_0.
+DemoHandler().
+timeToRetire_Formula
+(this.getParent(),this);
+                
+            
+                <depends>
+                    <attribute>age</attribute>
+                </depends>
+            </formula>
+            <onChangeSubmit language=""></onChangeSubmit>
+        </attributeText>
+    </attributes>
+    <viewers>
+        <viewer name="general">
+            <forms>
+			</forms>
+            <categories/>
+        </viewer>
+    </viewers>
+</xeoModel>

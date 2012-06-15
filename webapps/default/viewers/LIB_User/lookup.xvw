@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xvw:root xmlns:xeo="http://www.netgest.net/xeo/xeo" xmlns:xvw="http://www.netgest.net/xeo/xvw">
+    <xvw:viewer beanClass="netgest.bo.xwc.xeo.beans.XEOBaseLookupList" beanId="viewBean">
+        <xeo:formLookupList>
+            <xeo:lookupList>
+                <xvw:columns>
+                    <xeo:columnAttribute dataField="iduser" width="100"/>
+                    <xeo:columnAttribute dataField="name" width="100"/>
+                    <xeo:columnAttribute dataField="active" width="100"/>
+                    <xeo:columnAttribute dataField="email" width="100"/>
+                </xvw:columns>
+            </xeo:lookupList>
+        </xeo:formLookupList>
+    </xvw:viewer>
+</xvw:root>

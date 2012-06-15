@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xeoModel xsi:noNamespaceSchemaLocation="../../xeoModel.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <general extendsJavaClass="" multiparent="false" orphan="true" mastertable="" extends="" version="1.0" type="object" name="LIB_Movement">
+        <locale variant="" country="EN" language="EN"/>
+        <implements/>
+        <database/>
+        <versioning active="false"/>
+        <textIndex deep="1" appendChilds="false" active="true">
+            <process/>
+        </textIndex>
+        <description>Represents a Movement of Books from a User</description>
+        <cardID>[BOUI]</cardID>
+        <label>Movement</label>
+    </general>
+    <opl active="false"/>
+    <states/>
+    <methods/>
+    <events>
+        <event name="onBeforeSave">
+            <body language="JAVA">/*XEOJAVACLASS*/
+return new xeo.code.java.lib1_0.LIB_MovementHandler().onBeforeSave(this,event);</body>
+        </event>
+        <event name="onAfterLoad">
+            <body language="JAVA">/*XEOJAVACLASS*/
+new xeo.code.java.lib1_0.LIB_MovementHandler().onAfterLoad(this,event);</body>
+        </event>
+    </events>
+    <fwdObjects/>
+    <attributes>
+        <attributeSequence name="id">
+            <label>Id</label>
+            <description>Movement Identifier</description>
+            <tooltip></tooltip>
+            <type>sequence(2)</type>
+            <len>12</len>
+            <database>
+                <unique>false</unique>
+                <indexfull>true</indexfull>
+                <indexed>false</indexed>
+                <tabled>false</tabled>
+                <constraint>false</constraint>
+                <binding>true</binding>
+            </database>
+            <events/>
+            <required language=""></required>
+            <disableWhen language="BOL">true</disableWhen>
+            <onChangeSubmit language=""></onChangeSubmit>
+        </attributeSequence>
+        <attributeObject name="user">
+            <label>User</label>
+            <description>User of the Movement</description>
+            <tooltip></tooltip>
+            <type>object.LIB_User</type>
+            <objects/>
+            <setParent>false</setParent>
+            <renderAsLov>false</renderAsLov>
+            <database>
+                <unique>false</unique>
+                <indexfull>true</indexfull>
+                <indexed>false</indexed>
+                <tabled>false</tabled>
+                <constraint>false</constraint>
+                <binding>true</binding>
+            </database>
+            <events/>
+            <required language="BOL">true</required>
+            <formula language=""></formula>
+            <defaultValue language=""></defaultValue>
+            <valid language=""></valid>
+            <disableWhen language=""></disableWhen>
+            <hiddenWhen language=""></hiddenWhen>
+            <onChangeSubmit language=""></onChangeSubmit>
+            <orphanRelation>true</orphanRelation>
+        </attributeObject>
+        <attributeObjectCollection name="books">
+            <label>Books</label>
+            <description>Books of the Movement</description>
+            <tooltip></tooltip>
+            <type>object.LIB_Book</type>
+            <objects/>
+            <objectFilter>
+                <filter>
+                    <xeoql>select LIB_Book where state = '1'</xeoql>
+                </filter>
+            </objectFilter>
+            <setParent>false</setParent>
+            <minOccurs>1</minOccurs>
+            <maxOccurs>N</maxOccurs>
+            <database>
+                <unique>false</unique>
+                <indexfull>true</indexfull>
+                <indexed>false</indexed>
+                <tabled>false</tabled>
+                <constraint>false</constraint>
+                <binding>true</binding>
+            </database>
+            <events/>
+            <required language="BOL">true</required>
+            <formula language=""></formula>
+            <defaultValue language=""></defaultValue>
+            <valid language=""></valid>
+            <disableWhen language=""></disableWhen>
+            <hiddenWhen language=""></hiddenWhen>
+            <onChangeSubmit language=""></onChangeSubmit>
+            <orphanRelation>true</orphanRelation>
+        </attributeObjectCollection>
+        <attributeDate name="dueDate">
+            <label>Due Date</label>
+            <description>Due date for delivery of the Books</description>
+            <tooltip></tooltip>
+            <database>
+                <unique>false</unique>
+                <indexfull>true</indexfull>
+                <indexed>false</indexed>
+                <tabled>false</tabled>
+                <constraint>false</constraint>
+                <binding>true</binding>
+            </database>
+            <events/>
+            <required language="BOL">true</required>
+            <formula language=""></formula>
+            <defaultValue language="JAVA">/*XEOJAVACLASS*/
+return new 
+xeo.code.java.lib1_0.
+LIB_MovementHandler().
+dueDate_DefaultValue
+(this.getParent(),this);</defaultValue>
+            <valid language=""></valid>
+            <disableWhen language=""></disableWhen>
+            <hiddenWhen language=""></hiddenWhen>
+            <onChangeSubmit language=""></onChangeSubmit>
+        </attributeDate>
+        <attributeNumber name="fine">
+            <label>Fine</label>
+            <description>Fine to apply to the user in case it fails the delivery date</description>
+            <tooltip></tooltip>
+            <len>8</len>
+            <grouping>false</grouping>
+            <decimals>0</decimals>
+            <minDecimals>0</minDecimals>
+            <database>
+                <unique>false</unique>
+                <indexfull>true</indexfull>
+                <indexed>false</indexed>
+                <tabled>false</tabled>
+                <constraint>false</constraint>
+                <binding>true</binding>
+            </database>
+            <events/>
+            <required language=""></required>
+            <formula language=""></formula>
+            <defaultValue language=""></defaultValue>
+            <valid language=""></valid>
+            <disableWhen language=""></disableWhen>
+            <hiddenWhen language=""></hiddenWhen>
+            <onChangeSubmit language=""></onChangeSubmit>
+        </attributeNumber>
+        <attributeText name="state">
+            <label>State</label>
+            <description>The state of the movement (Open/Closed)</description>
+            <tooltip></tooltip>
+            <len>1</len>
+            <lov retainValues="true" name="movement_state"/>
+            <database>
+                <unique>false</unique>
+                <indexfull>true</indexfull>
+                <indexed>false</indexed>
+                <tabled>false</tabled>
+                <constraint>false</constraint>
+                <binding>true</binding>
+            </database>
+            <events/>
+            <required language="BOL">true</required>
+            <formula language=""/>
+            <defaultValue language="BOL">0</defaultValue>
+            <valid language=""/>
+            <disableWhen language="BOL">true</disableWhen>
+            <hiddenWhen language=""/>
+            <onChangeSubmit language=""></onChangeSubmit>
+        </attributeText>
+        <attributeObjectCollection name="returns">
+            <label>Returns</label>
+            <description>List of Returns</description>
+            <tooltip></tooltip>
+            <type>object.LIB_Return</type>
+            <objects/>
+            <setParent>false</setParent>
+            <minOccurs>0</minOccurs>
+            <maxOccurs>N</maxOccurs>
+            <database>
+                <unique>false</unique>
+                <indexfull>true</indexfull>
+                <indexed>false</indexed>
+                <tabled>false</tabled>
+                <constraint>false</constraint>
+                <binding>true</binding>
+            </database>
+            <events/>
+            <required language=""></required>
+            <disableWhen language="JAVA">/*XEOJAVACLASS*/
+return new 
+xeo.code.java.lib1_0.
+LIB_MovementHandler().
+returns_DisableWhen
+(this.getParent(),this);</disableWhen>
+            <onChangeSubmit language=""></onChangeSubmit>
+            <orphanRelation>false</orphanRelation>
+        </attributeObjectCollection>
+    </attributes>
+    <viewers>
+        <viewer name="general">
+            <forms>
+			</forms>
+            <categories/>
+        </viewer>
+    </viewers>
+</xeoModel>

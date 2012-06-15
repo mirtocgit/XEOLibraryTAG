@@ -1,0 +1,102 @@
+@CHARSET "ISO-8859-1";
+.x-tab-panel-body {
+    border-right: 1px solid #8db2e3;
+    border-left: 1px solid #8db2e3;
+    border-bottom: 1px solid #8db2e3;
+    __background:#dfe8f6;
+    padding: 0pt;
+}
+
+.xwc-rows-row {
+	font-family: tahoma,verdana,helvetica;
+	font-size: small;	
+}
+
+.xwc-tab {
+	position:relative!important;	
+	overflow-y:auto;
+}
+
+.xwc-form-required {
+	color:red;
+}
+
+.xwc-form-recommended {
+	color:green;
+}
+
+.xwc-form-label {
+	font-size: 12px;	
+}
+
+.xwc-att-file {
+	cursor:hand;
+}
+
+.x-fieldset {
+	margin:3px;
+}
+
+.gridRowUnRead {
+    font-weight: bold;
+}
+
+.gridRowUnRead .x-grid3-cell-inner {
+    font-weight: bold;
+}
+
+.xeoObjectLink .x-form-text  {
+    color: blue;
+    cursor: pointer;
+    text-decoration: underline; 
+}
+
+.x-grid3-header-offset {
+	width: 100px;	
+}
+
+ul.x-tab-strip {
+    width:100%;
+}
+
+.x-grid3-hd-row td.ux-filtered-column {   
+    font-style: italic;  
+    font-weight: bold;
+}
+
+.x-item-disabled {
+    color: black;
+    cursor: default;
+    opacity: .6;
+    -moz-opacity: .6;
+    filter: alpha(opacity=60);
+}
+
+.x-item-disabled * {
+    color: black !important;
+    cursor: default !important;
+}
+
+.x-grid-group-tb DIV {
+	background: white;
+	background-image:'';
+}
+
+.x-grid-group-hd {
+	border-bottom:1px solid lightgray;
+	font-color:black;
+}
+
+.x-grid3-group-icon{
+	background-repeat: no-repeat;
+	display: none;
+	height: 16px;
+	width: 16px;
+	margin-left:3px;
+	vertical-align: middle;
+}
+
+.grid-group .x-grid3-group-icon {
+	background-image: url(../images/grid/group-by.gif);
+	display: inline;
+}

@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xeoModel xsi:noNamespaceSchemaLocation="../../xeoModel.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <general name="LIB_Message" type="object" version="1.0" extends="" mastertable="" orphan="true" multiparent="false" extendsJavaClass="">
+        <locale language="pt" country="PT" variant=""/>
+        <implements/>
+        <database/>
+        <versioning active="false"/>
+        <textIndex active="true" appendChilds="false" deep="1">
+            <process/>
+        </textIndex>
+        <description>Message</description>
+        <cardID>[BOUI]</cardID>
+        <label>Message</label>
+    </general>
+    <opl active="false"/>
+    <states/>
+    <methods/>
+    <events/>
+    <fwdObjects/>
+    <attributes>
+        <attributeText name="subject">
+            <label>Subject</label>
+            <description>subject of message</description>
+            <tooltip>Tooltip of attribute1</tooltip>
+            <len>50</len>
+            <database>
+                <unique>false</unique>
+                <indexfull>true</indexfull>
+                <indexed>false</indexed>
+                <tabled>false</tabled>
+                <constraint>false</constraint>
+                <binding>true</binding>
+            </database>
+            <events/>
+            <required language="BOL">true</required>
+        </attributeText>
+        <attributeLongText name="bodyMessage">
+            <label>Body</label>
+            <description>body of message</description>
+            <tooltip>Tooltip of attribute1</tooltip>
+            <editor>HTML</editor>
+            <database>
+                <unique>false</unique>
+                <indexfull>true</indexfull>
+                <indexed>false</indexed>
+                <tabled>false</tabled>
+                <constraint>false</constraint>
+                <binding>true</binding>
+            </database>
+            <events/>
+            <required language="BOL">true</required>
+        </attributeLongText>
+        <attributeBoolean name="urgent">
+            <label>Urgent</label>
+            <description>Description of attribute1</description>
+            <tooltip>Tooltip of attribute1</tooltip>
+            <renderAsCheck>false</renderAsCheck>
+            <database>
+                <unique>false</unique>
+                <indexfull>true</indexfull>
+                <indexed>false</indexed>
+                <tabled>false</tabled>
+                <constraint>false</constraint>
+                <binding>true</binding>
+            </database>
+            <events/>
+            <required></required>
+            <formula></formula>
+            <defaultValue></defaultValue>
+            <valid></valid>
+            <disableWhen></disableWhen>
+            <hiddenWhen></hiddenWhen>
+        </attributeBoolean>
+        <attributeObjectCollection name="recipients">
+            <label>Recipients</label>
+            <description>Recipients of message</description>
+            <tooltip>Tooltip of attribute1</tooltip>
+            <type>object.LIB_Librarian</type>
+            <objects/>
+            <setParent>false</setParent>
+            <minOccurs>0</minOccurs>
+            <maxOccurs>N</maxOccurs>
+            <database>
+                <unique>false</unique>
+                <indexfull>true</indexfull>
+                <indexed>false</indexed>
+                <tabled>false</tabled>
+                <constraint>false</constraint>
+                <binding>true</binding>
+            </database>
+            <events/>
+            <orphanRelation>true</orphanRelation>
+        </attributeObjectCollection>
+        <attributeDate name="date">
+            <label>date</label>
+            <description>date of message</description>
+            <tooltip>Tooltip of attribute1</tooltip>
+            <database>
+                <unique>false</unique>
+                <indexfull>true</indexfull>
+                <indexed>false</indexed>
+                <tabled>false</tabled>
+                <constraint>false</constraint>
+                <binding>true</binding>
+            </database>
+            <events/>
+            <required language="JAVA">/*XEOJAVACLASS*/
+return new 
+xeo.code.java.lib1_0.
+LIB_MessageHandler().
+date_Required
+(this.getParent(),this);</required>
+            <formula></formula>
+            <defaultValue></defaultValue>
+        </attributeDate>
+    </attributes>
+    <viewers>
+        <viewer name="general">
+            <forms>
+			</forms>
+            <categories/>
+        </viewer>
+    </viewers>
+</xeoModel>

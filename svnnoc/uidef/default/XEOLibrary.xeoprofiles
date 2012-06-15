@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xeoprofiles>
+    <profile viewer="Main_Library.xvw" id="Library" description="Library Profile"/>
+    <profile viewer="Main_Components.xvw" id="Demos" description="Component Demos"/>
+</xeoprofiles>

@@ -1,0 +1,213 @@
+@CHARSET "ISO-8859-1";
+.x-tab-panel-body {
+    border-right: 1px solid #8db2e3;
+    border-left: 1px solid #8db2e3;
+    border-bottom: 1px solid #8db2e3;
+    __background:#dfe8f6;
+    padding: 0pt;
+}
+
+.xwc-rows-row {
+	font-family: tahoma,verdana,helvetica;
+	font-size: small;	
+}
+
+.xwc-tab {
+	position:relative!important;	
+	overflow-y:auto;
+}
+
+.xwc-form-required {
+	color:red;
+}
+
+.xwc-form-recommended {
+	color:green;
+}
+
+.xwc-form-label {
+	font-size: 12px;	
+}
+
+.xwc-att-file {
+	cursor:hand;
+}
+
+.x-fieldset {
+	margin:3px;
+}
+
+.gridRowUnRead {
+    font-weight: bold;
+}
+
+.gridRowUnRead .x-grid3-cell-inner {
+    font-weight: bold;
+}
+
+.xeoObjectLink .x-form-text  {
+    color: blue;
+    cursor: pointer;
+    text-decoration: underline; 
+}
+
+.x-grid3-header-offset {
+	width: 100px;	
+}
+
+ul.x-tab-strip {
+    width:100%;
+}
+
+.x-grid3-hd-row td.ux-filtered-column {   
+    font-style: italic;  
+    font-weight: bold;
+}
+
+.x-item-disabled {
+    color: black;
+    cursor: default;
+    opacity: .6;
+    -moz-opacity: .6;
+    filter: alpha(opacity=60);
+}
+
+.x-item-disabled * {
+    color: black !important;
+    cursor: default !important;
+}
+
+.x-grid-group-tb DIV {
+	background: white;
+	background-image:'';
+}
+
+.x-grid-group-hd {
+	border-bottom:1px solid lightgray;
+	font-color:black;
+}
+
+.x-grid3-group-icon{
+	background-repeat: no-repeat;
+	display: none;
+	height: 16px;
+	width: 16px;
+	margin-left:3px;
+	vertical-align: middle;
+}
+
+.grid-group .x-grid3-group-icon {
+	background-image: url(../images/grid/group-by.gif);
+	display: inline;
+}
+
+/* Bridge Lookup CSS Classes */
+.xwc-bridge-lookup{
+	display:block;
+	overflow-y:scroll;
+}
+
+a.xwc-search-trigger{
+	width:16px;
+	height:16px;
+	text-decoration:none;
+	background: url("../icons/add-lookup-bridge-sprite.png");
+	display:block;
+	cursor: pointer;
+}
+
+a.xwc-search-trigger:hover{
+	background-position: -16px 0;
+}
+
+a.xwc-clean-trigger{
+	width:16px;
+	height:16px;
+	text-decoration:none;
+	background: url("../icons/remove-lookup-bridge-sprite.png");
+	display:block;
+	cursor: pointer;
+}
+
+a.xwc-clean-trigger:hover{
+	background-position: -16px 0;
+}
+
+
+a.xwc-favorite-trigger{
+	width:16px;
+	height:16px;
+	text-decoration:none;
+	background: url("../icons/favorite-lookup-bridge.png");
+	display:block;
+	cursor: pointer;
+}
+
+a.xwc-favorite-trigger:hover{
+	background-position: -16px 0;
+}
+
+	
+/*For the special third button in AttributeNumber Lookup*/	
+
+.x-form-field-wrap .x-form-favorite-trigger{
+    background-image: url(../icons/favorites-sprite.png);
+    cursor:pointer;   
+}
+
+/* For the Search-Lookup Trigger*/
+.search-lookup-trigger{
+	width:17px;
+    height:21px;
+    background-color: blue;
+	background-image: url(../../extjs/images/default/form/search-trigger.gif);
+	display:block;
+	cursor:pointer;
+	margin:0px 0px 0px 0px;
+	padding:0px 0px 0px 0px;	
+}
+
+.search-lookup-trigger:hover{
+	background-position: -17px 0;
+}
+
+.search-lookup-trigger-click{
+	background-position: -34px 0;
+}
+
+.search-lookup-clean-trigger{
+	width:17px;
+    height:21px;
+	background-image: url(../../extjs/images/default/form/clear-trigger.gif);
+	display:block;
+	cursor:pointer;	
+	margin:0px 0px 0px 0px;
+	padding:0px 0px 0px 0px;
+}
+
+.search-lookup-clean-trigger:hover{
+	background-position: -17px 0;
+}
+
+.search-lookup-clean-trigger-click{
+	background-position: -34px 0 ;
+}
+
+
+.search-lookup-favorite-trigger{
+	width:17px;
+    height:21px;
+	background: url("../icons/favorites-sprite.png");
+	display:block;
+	cursor:pointer;	
+	margin:0px 0px 0px 0px;
+	padding:0px 0px 0px 0px;
+}
+
+.search-lookup-favorite-trigger:hover{
+	background-position: -17px 0;
+}
+
+.search-lookup-favorite-trigger-click{
+	background-position: -34px 0;
+}
